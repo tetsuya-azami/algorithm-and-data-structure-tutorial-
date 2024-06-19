@@ -27,5 +27,30 @@ class Chapter3 {
 
             return false
         }
+
+        /**
+         * 計算量: O(list-size)
+         */
+        fun findTargetNumberFromList(list: List<Int>, targetNumber: Int): Int {
+            return list.count{e -> e == targetNumber}
+        }
+
+        /**
+         * 計算量: O(list-size)
+         */
+        fun findSecondSmallestNumber(list: List<Int>): Int {
+            var smallestNumber = Int.MAX_VALUE
+            var secondSmallestNumber = Int.MAX_VALUE
+            for (e in list){
+                if (e < smallestNumber){
+                    secondSmallestNumber = smallestNumber
+                    smallestNumber = e
+                } else if(e < secondSmallestNumber){
+                    secondSmallestNumber = e
+                }
+            }
+
+            return secondSmallestNumber
+        }
     }
 }
