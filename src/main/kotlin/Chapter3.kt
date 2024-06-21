@@ -98,5 +98,26 @@ class Chapter3 {
             // xとyの順番を取り除く
             return result
         }
+
+        fun sumOfPartialNumber(s: String): Int {
+            val n = s.length
+            var sum = 0
+            for (bit in 0..<(1 shl (n - 1))) { // 0,1,01,11,001,010,011,100.... +が入るか入らないかの組み合わせでループ
+                var tmp = 0
+                for (i in 0..<(n - 1)) { // 文字列でループ  i: 0,1,2,3,4...
+                    tmp *= 10
+                    tmp += s[i] - '0'
+                    if (bit and (1 shl i) != 0) {
+                        sum += tmp
+                        tmp = 0
+                    }
+                }
+                tmp *= 10
+                tmp += (s[n - 1] - '0')
+                sum += tmp
+            }
+
+            return sum
+        }
     }
 }

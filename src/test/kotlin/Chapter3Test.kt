@@ -57,4 +57,13 @@ class Chapter3Test {
         println()
         println(result)
     }
+
+    @Test
+    fun sumOfPartialNumber() {
+        val result = Chapter3.sumOfPartialNumber(s = "125")
+        println()
+        println()
+        println()
+        println(result)
+    }
 }
