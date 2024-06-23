@@ -43,7 +43,7 @@ class Chapter4 {
             return result
         }
 
-        public var counter: Int = 0
+        var counter: Int = 0
 
         fun sevenFiveThreeNum(k: Int, current: Int, use: Int) {
             // 357, 375, 537, 573, 735, 753
@@ -56,6 +56,37 @@ class Chapter4 {
             sevenFiveThreeNum(k, current * 10 + 5, use or 0b010)
             // 3を追加
             sevenFiveThreeNum(k, current * 10 + 3, use or 0b001)
+        }
+
+        private lateinit var cache: Array<Array<Boolean?>>
+        fun memorizedPartialSum(w: Int, list: List<Int>, index: Int): Boolean {
+            if (!::cache.isInitialized) {
+                cache = Array(w + 1) { arrayOfNulls<Boolean?>(list.size) }
+            }
+            if (w == 0) return true
+            if (w < 0) return false
+            // ベースケース
+            if (index == 0) {
+                val result = w - list[0] == 0
+                cache[w][0] = result
+                return result
+            }
+            // キャッシュがあればキャッシュの値を返す。
+            if (cache[w][index] != null) {
+                return cache[w][index]!!
+            }
+
+            // list[index]を使う場合
+            val nextW = w - list[index]
+            if (nextW < 0) return false
+            val useIndexElementResult = memorizedPartialSum(nextW, list, index - 1)
+            cache[nextW][index - 1] = useIndexElementResult
+
+            // list[index]を使わない場合
+            val notUseIndexElementResult = memorizedPartialSum(w, list, index - 1)
+            cache[w][index - 1] = notUseIndexElementResult
+
+            return useIndexElementResult || notUseIndexElementResult
         }
     }
 }

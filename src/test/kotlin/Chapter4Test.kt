@@ -37,4 +37,14 @@ class Chapter4Test {
         println()
         println(Chapter4.counter)
     }
+
+    @Test
+    fun memorizedPartialSum() {
+        val list = listOf(1, 2, 3)
+        val result = Chapter4.memorizedPartialSum(5, list, list.size - 1)
+        println()
+        println()
+        println()
+        println(result)
+    }
 }
