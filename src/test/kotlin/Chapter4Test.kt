@@ -10,4 +10,31 @@ class Chapter4Test {
         println()
         println(result)
     }
+
+    @Test
+    fun tribonacci() {
+        val result = Chapter4.tribonacci(5)
+        println()
+        println()
+        println()
+        println(result)
+    }
+
+    @Test
+    fun improvedTribonacci() {
+        val result = Chapter4.improvedTribonacci(5)
+        println()
+        println()
+        println()
+        println(result)
+    }
+
+    @Test
+    fun sevenFiveTreeNum() {
+        Chapter4.sevenFiveThreeNum(375, 0, 0)
+        println()
+        println()
+        println()
+        println(Chapter4.counter)
+    }
 }
