@@ -42,5 +42,30 @@ class Chapter5 {
 
             return array[n][knapsackAllowWeight]
         }
+
+        fun knapsackRetry(weightList: List<Int>, valueList: List<Int>, allowWeight: Int): Int {
+            if (weightList.size != valueList.size) throw IllegalArgumentException()
+            val itemSize = weightList.size
+            val dp = Array(itemSize + 1) { IntArray(allowWeight + 1) }
+            for (i in 1..itemSize) {
+                for (w in 1..allowWeight) {
+                    // i番目の商品を選べない場合
+                    if (w - weightList[i - 1] < 0) {
+                        dp[i][w] = dp[i - 1][w]
+                    } else { // i番目の商品を選べる場合
+                        dp[i][w] = maxOf(dp[i - 1][w], dp[i - 1][w - weightList[i - 1]] + valueList[i - 1])
+                    }
+                }
+            }
+
+            dp.forEach { array ->
+                array.forEach { e ->
+                    print("$e,")
+                }
+                println()
+            }
+
+            return dp[itemSize][allowWeight]
+        }
     }
 }

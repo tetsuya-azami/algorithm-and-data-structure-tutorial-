@@ -20,4 +20,15 @@ class Chapter5Test {
         println()
         println(result)
     }
+
+    @Test
+    fun knapsackRetry() {
+        val weightList = listOf(2, 1, 3, 2, 1, 5)
+        val valueList = listOf(3, 2, 6, 1, 3, 85)
+        val result = Chapter5.knapsackRetry(weightList, valueList, 15)
+        println()
+        println()
+        println()
+        println(result)
+    }
 }
