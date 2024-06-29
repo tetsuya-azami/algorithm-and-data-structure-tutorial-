@@ -67,5 +67,59 @@ class Chapter5 {
 
             return dp[itemSize][allowWeight]
         }
+
+        fun editDistance(s: String, t: String): Int {
+            val dp = Array(s.length + 1) { Array(t.length + 1) { Int.MAX_VALUE } }
+
+            dp[0][0] = 0
+            for (sIndex in 0..s.length) {
+                for (tIndex in 0..t.length) {
+                    if (sIndex - 1 >= 0 && tIndex - 1 >= 0) {
+                        if (s[sIndex - 1] == t[tIndex - 1]) {
+                            dp[sIndex][tIndex] = dp[sIndex - 1][tIndex - 1]
+                        } else {
+                            dp[sIndex][tIndex] = dp[sIndex - 1][tIndex - 1] + 1
+                        }
+                    }
+                    if (sIndex - 1 >= 0) dp[sIndex][tIndex] = minOf(dp[sIndex][tIndex], dp[sIndex - 1][tIndex] + 1)
+                    if (tIndex - 1 >= 0) dp[sIndex][tIndex] = minOf(dp[sIndex][tIndex], dp[sIndex][tIndex - 1] + 1)
+                }
+            }
+
+            // 監視用
+            dp.forEach { array ->
+                array.forEach { e ->
+                    print("$e,")
+                }
+                println()
+            }
+
+            return dp[s.length][t.length]
+        }
+
+        fun editDistanceRetry(s: String, t: String): Int {
+            val dp = Array(s.length + 1) { Array(t.length + 1) { Int.MAX_VALUE } }
+
+            dp[0][0] = 0
+            for (sIndex in 0..s.length) {
+                for (tIndex in 0..t.length) {
+                    if (sIndex - 1 >= 0 && tIndex - 1 >= 0) {
+                        if (s[sIndex - 1] == t[tIndex - 1]) dp[sIndex][tIndex] = dp[sIndex - 1][tIndex - 1]
+                        else dp[sIndex][tIndex] = dp[sIndex - 1][tIndex - 1] + 1
+                    }
+                    if (sIndex - 1 >= 0) dp[sIndex][tIndex] = minOf(dp[sIndex][tIndex], dp[sIndex - 1][tIndex] + 1)
+                    if (tIndex - 1 >= 0) dp[sIndex][tIndex] = minOf(dp[sIndex][tIndex], dp[sIndex][tIndex - 1] + 1)
+                }
+            }
+
+            dp.forEach { array ->
+                array.forEach { e ->
+                    print("$e,")
+                }
+                println()
+            }
+
+            return dp[s.length][t.length]
+        }
     }
 }

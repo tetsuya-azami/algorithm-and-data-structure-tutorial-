@@ -31,4 +31,22 @@ class Chapter5Test {
         println()
         println(result)
     }
+
+    @Test
+    fun editDistance() {
+        val result = Chapter5.editDistance(s = "logistic", t = "algorithm")
+        println()
+        println()
+        println()
+        println(result)
+    }
+
+    @Test
+    fun editDistanceRetry() {
+        val result = Chapter5.editDistanceRetry(s = "logistic", t = "algorithm")
+        println()
+        println()
+        println()
+        println(result)
+    }
 }
