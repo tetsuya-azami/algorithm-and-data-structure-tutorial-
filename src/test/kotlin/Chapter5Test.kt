@@ -49,4 +49,19 @@ class Chapter5Test {
         println()
         println(result)
     }
+
+    @Test
+    fun enjoySummerVacation() {
+        val enjoyPoints: List<Map<String, Int>> =
+            listOf(
+                mapOf("umi" to 3, "mushitori" to 2, "homework" to 1),
+                mapOf("umi" to 4, "mushitori" to 3, "homework" to 2),
+                mapOf("umi" to 3, "mushitori" to 2, "homework" to 5)
+            )
+        val result = Chapter5.enjoySummerVacation(enjoyPoints)
+        println()
+        println()
+        println()
+        println(result)
+    }
 }

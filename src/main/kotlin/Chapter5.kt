@@ -121,5 +121,27 @@ class Chapter5 {
 
             return dp[s.length][t.length]
         }
+
+        fun enjoySummerVacation(enjoyPoints: List<Map<String, Int>>): Int {
+            val dp = Array(enjoyPoints.size + 1) { enjoyPoints.first().keys.associateWith { 0 }.toMutableMap() }
+
+            for (date in enjoyPoints.indices) { // 夏休みの日数分回す
+                for (enjoyedYesterday in enjoyPoints[date].keys) {
+                    for (enjoyToday in enjoyPoints[date].keys) {
+                        if (enjoyedYesterday == enjoyToday) continue
+                        dp[date + 1][enjoyToday] = maxOf(
+                            dp[date + 1][enjoyToday]!!, // 元々の値
+                            dp[date][enjoyedYesterday]!! + enjoyPoints[date][enjoyToday]!! //
+                        )
+                    }
+                }
+            }
+
+            dp.forEach { m ->
+                println(m)
+            }
+
+            return dp[enjoyPoints.size].maxBy { it.value }.value
+        }
     }
 }
