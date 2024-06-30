@@ -143,5 +143,28 @@ class Chapter5 {
 
             return dp[enjoyPoints.size].maxBy { it.value }.value
         }
+
+        fun enjoySummerVacationRetry(enjoyPoints: List<Map<String, Int>>): Int {
+            val summerVacationDays = enjoyPoints.size
+            val dp = Array(summerVacationDays + 1) { enjoyPoints.first().keys.associateWith { 0 }.toMutableMap() }
+            for (i in 1..summerVacationDays) {
+                for (enjoyedYesterday in enjoyPoints[i - 1]) {
+                    for (enjoyToday in enjoyPoints[i - 1]) {
+                        if (enjoyToday == enjoyedYesterday) continue
+                        dp[i][enjoyToday.key] =
+                            maxOf(dp[i][enjoyToday.key]!!, dp[i - 1][enjoyedYesterday.key]!! + enjoyToday.value)
+                    }
+                }
+            }
+
+            dp.forEach { map ->
+                map.forEach { entry ->
+                    print("$entry,")
+                }
+                println()
+            }
+
+            return dp[summerVacationDays].maxBy { it.value }.value
+        }
     }
 }
