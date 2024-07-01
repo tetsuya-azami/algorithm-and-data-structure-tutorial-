@@ -203,5 +203,19 @@ class Chapter5 {
 
             return dp[list.size][w]
         }
+
+        fun partialSumFullSearch(list: List<Int>, w: Int): Boolean {
+            // 2^N - 1まで
+            for (i in 0 until (1 shl list.size)) {
+                var sum = 0
+                for (k in list.indices) {
+                    if (i and (1 shl k) != 0) sum += list[k]
+                }
+
+                if (sum == w) return true
+            }
+
+            return false
+        }
     }
 }
