@@ -188,5 +188,20 @@ class Chapter5 {
 
             return dp[list.size][w]
         }
+
+        fun partialSumRetry(list: List<Int>, w: Int): Boolean {
+            val dp = Array(list.size + 1) { BooleanArray(w + 1) }
+            for (i in 0..(list.size + 1)) dp[i][0] = true
+            for (i in list.indices) {
+                for (k in 0..w) {
+                    // i番目を使わない場合
+                    if (dp[i][k]) dp[i + 1][k] = true
+                    // i番目を使う場合
+                    if (k - list[i] >= 0 && dp[i][k - list[i]]) dp[i + 1][k] = true
+                }
+            }
+
+            return dp[list.size][w]
+        }
     }
 }
