@@ -217,5 +217,29 @@ class Chapter5 {
 
             return false
         }
+
+        fun partialSumCombination(list: List<Int>, w: Int): Int {
+            val dp = Array(list.size + 1) { BooleanArray(w + 1) }
+            for (i in 0..list.size) {
+                dp[i][0] = true
+            }
+            for (i in 1..list.size) {
+                for (k in 0..w) {
+                    // i番目を使う場合
+                    if (k - list[i - 1] >= 0 && dp[i - 1][k - list[i - 1]]) dp[i][k] = true
+                    // i番目を使わない場合
+                    if (dp[i - 1][k]) dp[i][k] = true
+                }
+            }
+
+            dp.forEach { array ->
+                array.forEach { e ->
+                    print("$e,")
+                }
+                println()
+            }
+
+            return dp[list.size].count { it }
+        }
     }
 }

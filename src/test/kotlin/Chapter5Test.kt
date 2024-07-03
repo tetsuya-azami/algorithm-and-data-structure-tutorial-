@@ -106,4 +106,13 @@ class Chapter5Test {
         println()
         println(result)
     }
+
+    @Test
+    fun partialSumCombination() {
+        val result = Chapter5.partialSumCombination(listOf(1, 2, 3), 10)
+        println()
+        println()
+        println()
+        println(result)
+    }
 }
