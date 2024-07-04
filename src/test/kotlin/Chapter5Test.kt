@@ -133,4 +133,13 @@ class Chapter5Test {
         println()
         println(result)
     }
+
+    @Test
+    fun partialSumExtractKRetry() {
+        val result = Chapter5.partialSumExtractKRetry(list = listOf(1, 2, 3, 4, 5), w = 10, k = 3)
+        println()
+        println()
+        println()
+        println(result)
+    }
 }
