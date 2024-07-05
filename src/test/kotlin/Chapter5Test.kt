@@ -142,4 +142,13 @@ class Chapter5Test {
         println()
         println(result)
     }
+
+    @Test
+    fun partialSumAllowMultiSelect() {
+        val result = Chapter5.partialSumAllowMultiSelect(list = listOf(2, 3), w = 10)
+        println()
+        println()
+        println()
+        println(result)
+    }
 }

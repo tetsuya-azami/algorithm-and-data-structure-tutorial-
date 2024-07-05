@@ -311,5 +311,28 @@ class Chapter5 {
 
             return dp[list.size][w] <= k
         }
+
+        fun partialSumAllowMultiSelect(list: List<Int>, w: Int): Boolean {
+            val dp = Array(list.size + 1) { BooleanArray(w + 1) }
+
+            dp[0][0] = true
+            for (i in list.indices) {
+                for (j in 0..w) {
+                    // list[i]を使わない場合
+                    dp[i + 1][j] = dp[i][j]
+                    // list[i]を使う場合
+                    if (j - list[i] >= 0 && dp[i + 1][j - list[i]]) dp[i + 1][j] = true
+                }
+            }
+
+            dp.forEach { array ->
+                array.forEach { e ->
+                    print("$e,")
+                }
+                println()
+            }
+
+            return dp[list.size][w]
+        }
     }
 }
