@@ -397,5 +397,33 @@ class Chapter5 {
 
             return dp[list.size][w] < Int.MAX_VALUE
         }
+
+        fun longestCommonPartialWord(s: String, t: String): Int {
+            val dp = Array(s.length + 1) { IntArray(t.length + 1) }
+            for (si in 0..s.length) {
+                for (ti in 0..t.length) {
+                    if (si > 0 && ti > 0) {
+                        if (s[si - 1] == t[ti - 1]) dp[si][ti] = dp[si - 1][ti - 1] + 1
+                        else dp[si][ti] = dp[si - 1][ti - 1]
+                    }
+
+                    if (si > 0) {
+                        dp[si][ti] = maxOf(dp[si][ti], dp[si - 1][ti])
+                    }
+                    if (ti > 0) {
+                        dp[si][ti] = maxOf(dp[si][ti], dp[si][ti - 1])
+                    }
+                }
+            }
+
+            dp.forEach { array ->
+                array.forEach { e ->
+                    print("$e,")
+                }
+                println()
+            }
+
+            return dp[s.length][t.length]
+        }
     }
 }
