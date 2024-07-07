@@ -169,4 +169,13 @@ class Chapter5Test {
         println()
         println(result)
     }
+
+    @Test
+    fun partialSumAllowLimitedMultiSelectRetry() {
+        val result = Chapter5.partialSumAllowLimitedMultiSelectRetry(list = listOf(2), w = 10, limits = listOf(2, 2))
+        println()
+        println()
+        println()
+        println(result)
+    }
 }

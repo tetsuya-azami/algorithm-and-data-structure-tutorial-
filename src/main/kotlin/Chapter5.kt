@@ -375,5 +375,27 @@ class Chapter5 {
 
             return dp[list.size][w] < Int.MAX_VALUE
         }
+
+        fun partialSumAllowLimitedMultiSelectRetry(list: List<Int>, w: Int, limits: List<Int>): Boolean {
+            val dp = Array(list.size + 1) { IntArray(w + 1) { Int.MAX_VALUE } }
+
+            dp[0][0] = 0
+            for (i in list.indices) {
+                for (j in 0..w) {
+                    if (dp[i][j] < Int.MAX_VALUE) dp[i + 1][j] = 0
+                    if (j - list[i] >= 0 && dp[i + 1][j - list[i]] < limits[i])
+                        dp[i + 1][j] = dp[i + 1][j - list[i]] + 1
+                }
+            }
+
+            dp.forEach { array ->
+                array.forEach { e ->
+                    print("$e,")
+                }
+                println()
+            }
+
+            return dp[list.size][w] < Int.MAX_VALUE
+        }
     }
 }
