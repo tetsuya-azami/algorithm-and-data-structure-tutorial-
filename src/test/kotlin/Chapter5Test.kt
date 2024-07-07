@@ -160,4 +160,13 @@ class Chapter5Test {
         println()
         println(result)
     }
+
+    @Test
+    fun partialSumAllowLimitedMultiSelect() {
+        val result = Chapter5.partialSumAllowLimitedMultiSelect(list = listOf(2, 3), w = 10, limits = listOf(2, 2))
+        println()
+        println()
+        println()
+        println(result)
+    }
 }
