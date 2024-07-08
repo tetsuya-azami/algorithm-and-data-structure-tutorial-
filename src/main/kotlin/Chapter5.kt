@@ -425,5 +425,18 @@ class Chapter5 {
 
             return dp[s.length][t.length]
         }
+
+        fun longestCommonPartialWordRetry(s: String, t: String) {
+            val dp = Array(s.length + 1) { IntArray(t.length + 1) }
+
+            for (si in s.indices) {
+                for (ti in t.indices) {
+                    if (s[si] == t[ti]) dp[si + 1][ti + 1] = dp[si][ti] + 1
+                    else dp[si + 1][ti + 1] = dp[si][ti]
+
+                    dp[si + 1][ti + 1] = maxOf(dp[si + 1][ti + 1], dp[si + 1][ti], dp[si][ti + 1])
+                }
+            }
+        }
     }
 }

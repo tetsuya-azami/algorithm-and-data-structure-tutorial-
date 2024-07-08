@@ -187,4 +187,13 @@ class Chapter5Test {
         println()
         println(result)
     }
+
+    @Test
+    fun longestCommonPartialWordRetry() {
+        val result = Chapter5.longestCommonPartialWord(s = "abcc", t = "acde") // acd
+        println()
+        println()
+        println()
+        println(result)
+    }
 }
