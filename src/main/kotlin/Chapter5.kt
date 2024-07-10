@@ -438,5 +438,41 @@ class Chapter5 {
                 }
             }
         }
+
+        fun maxAverageOfDividedMPiece(list: List<Int>, m: Int): Double {
+            // 区間 [j, i) の平均値を前処理で求める
+            val averages = Array(list.size + 1) { DoubleArray(list.size + 1) }
+            for (i in 1..list.size) {
+                for (j in 0 until i) {
+                    var sum = 0.0
+                    for (k in j..<i) sum += list[k]
+                    averages[j][i] = sum / (i - j)
+                }
+            }
+
+            // DPテーブルの定義
+            val dp = Array(list.size + 1) { DoubleArray(m + 1) { Double.NEGATIVE_INFINITY } }
+            dp[0][0] = 0.0
+
+            // DPループ
+            for (i in 0..list.size) {
+                for (j in 0 until i) {
+                    for (k in 1..m) {
+                        dp[i][k] = maxOf(dp[i][k], dp[j][k - 1] + averages[j][i])
+                    }
+                }
+            }
+
+            // dp 配列の出力
+            println("dp matrix:")
+            for (i in 0..list.size) {
+                for (j in 0..m) {
+                    print("${"%.2f".format(dp[i][j])}\t")
+                }
+                println()
+            }
+
+            return dp[list.size].maxBy { it }
+        }
     }
 }
