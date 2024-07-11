@@ -190,7 +190,7 @@ class Chapter5Test {
 
     @Test
     fun longestCommonPartialWordRetry() {
-        val result = Chapter5.longestCommonPartialWord(s = "abcc", t = "acde") // acd
+        val result = Chapter5.longestCommonPartialWord(s = "bcaaaad", t = "aaaa") // acd
         println()
         println()
         println()
@@ -200,6 +200,15 @@ class Chapter5Test {
     @Test
     fun maxAverageOfDividedMPiece() {
         val result = Chapter5.maxAverageOfDividedMPiece(list = listOf(1, 2, 3, 4, 5), m = 1)
+        println()
+        println()
+        println()
+        println(result)
+    }
+
+    @Test
+    fun maxAverageOfDividedMPieceRetry() {
+        val result = Chapter5.maxAverageOfDividedMPieceRetry(list = listOf(1, 2, 3, 4, 5), m = 1)
         println()
         println()
         println()
