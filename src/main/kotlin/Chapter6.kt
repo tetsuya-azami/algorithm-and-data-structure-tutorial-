@@ -66,5 +66,35 @@ class Chapter6 {
 
             return right
         }
+
+        fun balloonPenaltyRetry(heights: List<Int>, speeds: List<Int>): Int {
+            val maxPenalty = heights.mapIndexed { index, height ->
+                height + speeds[index] * heights.size
+            }.max()
+
+            var left = 0
+            var right = maxPenalty
+            while (right > left + 1) {
+                val mid = (left + right) / 2
+                var isOk = true
+
+                val timeLimits = MutableList(heights.size) { 0 }
+                for (i in heights.indices) {
+                    if (mid < heights[i]) isOk = false
+                    else timeLimits[i] = (mid - heights[i]) / speeds[i]
+                }
+
+                val sortedTimeLimits = timeLimits.sorted()
+
+                for (i in heights.indices) {
+                    if (sortedTimeLimits[i] < i) isOk = false
+                }
+
+                if (isOk) right = mid
+                else left = mid + 1
+            }
+
+            return right
+        }
     }
 }

@@ -32,4 +32,14 @@ class Chapter6Test {
         println()
         println(result)
     }
+
+    @Test
+    fun balloonPenaltyRetry() {
+        val result =
+            Chapter6.balloonPenaltyRetry(heights = listOf(2, 3, 4, 4), speeds = listOf(5, 2, 2, 2))
+        println()
+        println()
+        println()
+        println(result)
+    }
 }
