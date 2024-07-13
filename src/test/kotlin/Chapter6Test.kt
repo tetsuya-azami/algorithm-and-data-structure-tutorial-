@@ -42,4 +42,23 @@ class Chapter6Test {
         println()
         println(result)
     }
+
+    @Test
+    fun coordinateCompression() {
+        val result = Chapter6.coordinateCompression(list = listOf(12, 43, 7, 15, 9), target = 2)
+        println()
+        println()
+        println()
+        println(result)
+    }
+
+    @Test
+    fun CombinationOfThree() {
+        val result =
+            Chapter6.CombinationOfThree(a = listOf(1, 2, 3), b = listOf(1, 2, 3), c = listOf(1, 2, 2))
+        println()
+        println()
+        println()
+        println(result)
+    }
 }

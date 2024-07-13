@@ -96,5 +96,45 @@ class Chapter6 {
 
             return right
         }
+
+        fun coordinateCompression(list: List<Int>, target: Int): Int {
+            val sortedList = list.sorted()
+            for (i in sortedList.indices) {
+                if (list[target] == sortedList[i]) return i
+            }
+            throw IllegalArgumentException()
+        }
+
+        fun CombinationOfThree(a: List<Int>, b: List<Int>, c: List<Int>): Int {
+            val sortedA = a.sorted()
+            val sortedB = b.sorted()
+            val sortedC = c.sorted()
+
+            var result = 0
+            // a<b<cの組み合わせ
+            for (i in sortedB.indices) {
+                // A(Bより小さい値のうち最大値)
+                var leftA = -1
+                var rightA = sortedA.size
+                while (rightA > leftA + 1) {
+                    val mid = (leftA + rightA) / 2
+                    if (sortedB[i] > sortedA[mid]) leftA = mid
+                    else rightA = mid
+                }
+
+                // C(Bより大きい値のうち最小値を求めたい)
+                var leftC = -1
+                var rightC = sortedC.size
+                while (rightC > leftC + 1) {
+                    val mid = (leftC + rightC) / 2
+                    if (sortedB[i] < sortedC[mid]) rightC = mid
+                    else leftC = mid
+                }
+
+                result += (leftA + 1) * (sortedC.size - rightC)
+            }
+
+            return result
+        }
     }
 }
