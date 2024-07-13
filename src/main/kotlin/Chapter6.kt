@@ -136,5 +136,27 @@ class Chapter6 {
 
             return result
         }
+
+        fun maxOfMinimumDistanceBetweenCottage(coordinates: List<Int>, m: Int): Int {
+            var left = 0
+            var right = Int.MAX_VALUE
+            while (right > left + 1) {
+                val mid = (left + right) / 2
+
+                var count = 1
+                var prev = 0
+                for (i in coordinates.indices) {
+                    if (coordinates[i] - coordinates[prev] >= mid) {
+                        count++
+                        prev = i
+                    }
+                }
+
+                if (count >= m) left = mid
+                else right = mid
+            }
+
+            return left
+        }
     }
 }

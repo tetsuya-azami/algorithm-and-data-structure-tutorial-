@@ -61,4 +61,13 @@ class Chapter6Test {
         println()
         println(result)
     }
+
+    @Test
+    fun maxOfMinimumDistanceBetweenCottage() {
+        val result = Chapter6.maxOfMinimumDistanceBetweenCottage(coordinates = listOf(1, 3, 5, 7, 9, 13), m = 2)
+        println()
+        println()
+        println()
+        println(result)
+    }
 }
