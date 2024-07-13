@@ -105,6 +105,29 @@ class Chapter6 {
             throw IllegalArgumentException()
         }
 
+        fun coordinateCompressionRetry(list: List<Int>): List<Int> {
+            val sortedList = list.sorted()
+            val result = MutableList(sortedList.size) { 0 }
+
+            for (i in list.indices) {
+                var left = 0
+                var right = sortedList.size - 1
+                var roop = true
+                while (right >= left && roop) {
+                    val mid = (left + right) / 2
+                    if (sortedList[mid] == list[i]) {
+                        result[i] = mid
+                        roop = false
+                        continue
+                    }
+                    if (sortedList[mid] < list[i]) left = mid + 1
+                    if (sortedList[mid] > list[i]) right = mid - 1
+                }
+            }
+
+            return result
+        }
+
         fun CombinationOfThree(a: List<Int>, b: List<Int>, c: List<Int>): Int {
             val sortedA = a.sorted()
             val sortedB = b.sorted()
