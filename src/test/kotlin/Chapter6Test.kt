@@ -73,6 +73,16 @@ class Chapter6Test {
     }
 
     @Test
+    fun CombinationOfThreeRetry() {
+        val result =
+            Chapter6.CombinationOfThreeRetry(a = listOf(1, 2, 3), b = listOf(4, 5, 6), c = listOf(7, 8, 9))
+        println()
+        println()
+        println()
+        println(result)
+    }
+
+    @Test
     fun maxOfMinimumDistanceBetweenCottage() {
         val result = Chapter6.maxOfMinimumDistanceBetweenCottage(coordinates = listOf(1, 3, 5, 7, 9, 13), m = 2)
         println()
@@ -81,5 +91,12 @@ class Chapter6Test {
         println(result)
     }
 
-
+    @Test
+    fun maxOfMinimumDistanceBetweenCottageRetry() {
+        val result = Chapter6.maxOfMinimumDistanceBetweenCottageRetry(coordinates = listOf(1, 3, 5, 7, 9, 13), m = 3)
+        println()
+        println()
+        println()
+        println(result)
+    }
 }

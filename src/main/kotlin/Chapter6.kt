@@ -160,6 +160,33 @@ class Chapter6 {
             return result
         }
 
+        fun CombinationOfThreeRetry(a: List<Int>, b: List<Int>, c: List<Int>): Int {
+            val sortedA = a.sorted()
+            val sortedC = c.sorted()
+            var result = 0
+            for (be in b) {
+                var leftA = -1
+                var rightA = sortedA.size
+                while (rightA > leftA + 1) {
+                    val mid = (leftA + rightA) / 2
+                    if (be <= sortedA[mid]) rightA = mid
+                    if (be > sortedA[mid]) leftA = mid
+                }
+
+                var leftC = -1
+                var rightC = sortedC.size
+                while (rightC > leftC + 1) {
+                    val mid = (leftC + rightC) / 2
+                    if (be >= sortedC[mid]) leftC = mid
+                    if (be < sortedC[mid]) rightC = mid
+                }
+
+                result += (leftA + 1) * (sortedC.size - rightC)
+            }
+
+            return result
+        }
+
         fun maxOfMinimumDistanceBetweenCottage(coordinates: List<Int>, m: Int): Int {
             var left = 0
             var right = Int.MAX_VALUE
@@ -176,6 +203,27 @@ class Chapter6 {
                 }
 
                 if (count >= m) left = mid
+                else right = mid
+            }
+
+            return left
+        }
+
+        fun maxOfMinimumDistanceBetweenCottageRetry(coordinates: List<Int>, m: Int): Int {
+            var left = 0
+            var right = coordinates.last() + 1
+            while (right > left + 1) {
+                val mid = (left + right) / 2
+                var prev = 0
+                var count = 0 // 小屋間の区画の数
+                for (i in coordinates.indices) {
+                    if (coordinates[i] - coordinates[prev] >= mid) {
+                        count++
+                        prev = i
+                    }
+                }
+                // count + 1 → 選んだ小屋の数
+                if (count + 1 >= m) left = mid
                 else right = mid
             }
 
