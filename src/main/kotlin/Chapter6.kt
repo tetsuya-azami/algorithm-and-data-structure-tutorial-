@@ -215,15 +215,15 @@ class Chapter6 {
             while (right > left + 1) {
                 val mid = (left + right) / 2
                 var prev = 0
-                var count = 0 // 小屋間の区画の数
+                var cottageIntervalCount = 0 // 小屋間の区画の数
                 for (i in coordinates.indices) {
                     if (coordinates[i] - coordinates[prev] >= mid) {
-                        count++
+                        cottageIntervalCount++
                         prev = i
                     }
                 }
-                // count + 1 → 選んだ小屋の数
-                if (count + 1 >= m) left = mid
+                // cottageIntervalCount + 1 → 選んだ小屋の数
+                if (cottageIntervalCount + 1 >= m) left = mid
                 else right = mid
             }
 
