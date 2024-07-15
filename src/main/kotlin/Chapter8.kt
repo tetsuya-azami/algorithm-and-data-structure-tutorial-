@@ -1,0 +1,26 @@
+class Chapter8 {
+    companion object {
+        fun getIndexPairOfEqualValue(a: Set<Int>, b: Set<Int>): Int {
+            val map = HashMap<Int, MutableList<Int>>(a.size)
+            a.forEachIndexed { index, e ->
+                if (map[e] != null) {
+                    map[e]!!.add(index)
+                } else {
+                    val indexes = mutableListOf(index)
+                    map[e] = indexes
+                }
+            }
+
+            val pairList = mutableListOf<Pair<Int, Int>>()
+
+            b.forEachIndexed { index, e ->
+                if (map[e] != null) {
+                    val pairs = map[e]!!.map { Pair(it, index) }
+                    pairList.addAll(pairs)
+                }
+            }
+
+            return pairList.size
+        }
+    }
+}
