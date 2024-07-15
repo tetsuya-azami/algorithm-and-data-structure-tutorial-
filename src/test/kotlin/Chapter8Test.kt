@@ -9,4 +9,13 @@ class Chapter8Test {
         println()
         println(result)
     }
+
+    @Test
+    fun IsSumCanbeK() {
+        val result = Chapter8.isSumCanBeK(a = listOf(1, 2, 5), b = listOf(7, 3), k = 10)
+        println()
+        println()
+        println()
+        println(result)
+    }
 }

@@ -22,5 +22,11 @@ class Chapter8 {
 
             return pairList.size
         }
+
+        fun isSumCanBeK(a: List<Int>, b: List<Int>, k: Int): Boolean {
+            val aSet = a.toSet()
+            // 1つでも k-b=aとなればOK\
+            return b.any { aSet.contains(k - it) }
+        }
     }
 }
