@@ -28,5 +28,10 @@ class Chapter8 {
             // 1つでも k-b=aとなればOK\
             return b.any { aSet.contains(k - it) }
         }
+
+        fun isSumCanBeKRetry(a: List<Int>, b: List<Int>, k: Int): Boolean {
+            val set = a.toSet()
+            return b.any { set.contains(k - it) }
+        }
     }
 }

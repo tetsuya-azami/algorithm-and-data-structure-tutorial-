@@ -18,4 +18,13 @@ class Chapter8Test {
         println()
         println(result)
     }
+
+    @Test
+    fun isSumCanBeKRetry() {
+        val result = Chapter8.isSumCanBeKRetry(a = listOf(1, 2, 5), b = listOf(7, 3), k = 8)
+        println()
+        println()
+        println()
+        println(result)
+    }
 }
