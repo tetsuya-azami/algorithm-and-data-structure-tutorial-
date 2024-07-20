@@ -50,4 +50,17 @@ class Chapter12Test {
             println()
         }
     }
+
+    @Test
+    fun quickSort() {
+        val array = intArrayOf(33, 7, 4, 5, 7, 3, 2)
+        Chapter12.quickSort(array, 0, array.size)
+        println()
+        println()
+        println()
+        array.forEach {
+            print(it)
+            println()
+        }
+    }
 }

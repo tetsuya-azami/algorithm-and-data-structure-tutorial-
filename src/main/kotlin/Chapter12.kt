@@ -80,5 +80,31 @@ class Chapter12 {
                 }
             }
         }
+
+        fun quickSort(array: IntArray, left: Int, right: Int) {
+            if (right - left <= 1) return
+            val middle = (left + right) / 2
+            val pivot = array[middle]
+
+            swap(array, middle, right - 1) // ここが必要な理由
+            var i = left // i - 1の要素まではpivot未満になる
+            var j = left
+            while (j < right - 1) {
+                if (array[j] < pivot) {
+                    swap(array, i++, j)
+                }
+                j++
+            }
+            swap(array, i, right - 1)
+
+            quickSort(array, left, i)
+            quickSort(array, i + 1, right)
+        }
+
+        private fun swap(array: IntArray, i1: Int, i2: Int) {
+            val tmp = array[i1]
+            array[i1] = array[i2]
+            array[i2] = tmp
+        }
     }
 }
