@@ -12,4 +12,42 @@ class Chapter12Test {
             println()
         }
     }
+
+    @Test
+    fun insertionSortRetry() {
+        val result = Chapter12.insertionSortRetry(intArrayOf(7, 4, 5, 7, 3, 2, 33))
+        println()
+        println()
+        println()
+        result.forEach {
+            print(it)
+            println()
+        }
+    }
+
+    @Test
+    fun mergeSort() {
+        val array = intArrayOf(33, 7, 4, 5, 7, 3, 2)
+        Chapter12.mergeSort(array, 0, array.size)
+        println()
+        println()
+        println()
+        array.forEach {
+            print(it)
+            println()
+        }
+    }
+
+    @Test
+    fun mergeSortRetry() {
+        val array = intArrayOf(33, 7, 4, 5, 7, 3, 2)
+        Chapter12.mergeSortRetry(array, 0, array.size)
+        println()
+        println()
+        println()
+        array.forEach {
+            print(it)
+            println()
+        }
+    }
 }
