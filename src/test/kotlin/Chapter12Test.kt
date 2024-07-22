@@ -63,4 +63,30 @@ class Chapter12Test {
             println()
         }
     }
+
+    @Test
+    fun heapSort() {
+        val array = intArrayOf(33, 7, 4, 5, 7, 3, 2)
+        Chapter12.heapSort(array)
+        println()
+        println()
+        println()
+        array.forEach {
+            print(it)
+            println()
+        }
+    }
+
+    @Test
+    fun heapSortRetry() {
+        val array = intArrayOf(33, 7, 4, 5, 7, 3, 2)
+        Chapter12.heapSortRetry(array)
+        println()
+        println()
+        println()
+        array.forEach {
+            print(it)
+            println()
+        }
+    }
 }

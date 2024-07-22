@@ -106,5 +106,55 @@ class Chapter12 {
             array[i1] = array[i2]
             array[i2] = tmp
         }
+
+        private fun heapify(array: IntArray, i: Int, n: Int) {
+            var child1 = 2 * i + 1
+            if (child1 >= n) return
+
+            if (child1 + 1 < n && array[child1] < array[child1 + 1]) child1 += 1
+            if (array[i] > array[child1]) return
+
+            swap(array, i, child1)
+
+            heapify(array, child1, n)
+        }
+
+        fun heapSort(array: IntArray) {
+            val n = array.size
+            for (i in (n / 2 - 1) downTo 0) {
+                heapify(array, i, n)
+            }
+
+            for (i in (n - 1) downTo 0) {
+                swap(array, 0, i)
+                heapify(array, 0, i)
+            }
+        }
+
+        private fun heapifyRetry(array: IntArray, root: Int, last: Int) {
+            val child1Index = root * 2 + 1
+            if (child1Index >= last) return
+            val child2Index = root * 2 + 2
+            val biggerChildIndex =
+                if (child2Index < last && array[child1Index] < array[child2Index]) child2Index else child1Index
+
+            if (array[biggerChildIndex] <= array[root]) return
+            swap(array, biggerChildIndex, root)
+
+            heapifyRetry(array, biggerChildIndex, last)
+        }
+
+        fun heapSortRetry(array: IntArray) {
+            val n = array.size
+            // 非葉ノードに対してheap構造化
+            for (i in (n / 2 - 1) downTo 0) {
+                heapifyRetry(array, i, n - 1)
+            }
+
+            for (i in (n - 1) downTo 0) {
+                swap(array, 0, i)
+                heapifyRetry(array, 0, i)
+            }
+        }
     }
 }
