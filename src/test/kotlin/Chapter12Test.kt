@@ -102,4 +102,14 @@ class Chapter12Test {
             println()
         }
     }
+
+    @Test
+    fun whatIsTheSmallest() {
+        val array = intArrayOf(33, 7, 4, 5, 7, 3, 2)
+        val result = Chapter12.whatIsTheSmallest(array, 3)
+        println()
+        println()
+        println()
+        println(result)
+    }
 }

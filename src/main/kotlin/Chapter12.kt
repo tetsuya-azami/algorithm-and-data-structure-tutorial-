@@ -180,8 +180,18 @@ class Chapter12 {
             return result
         }
 
-        fun whatIsTheSmallest(array: IntArray, i: Target) {
+        fun whatIsTheSmallest(array: IntArray, targetOriginalIndex: Int): Int {
+            val sortedArray = array.sorted()
 
+            var left = 0
+            var right = sortedArray.size
+            while (left + 1 < right) {
+                val mid = (left + right) / 2
+                if (sortedArray[mid] <= array[targetOriginalIndex]) left = mid
+                if (sortedArray[mid] > array[targetOriginalIndex]) right = mid
+            }
+
+            return left + 1 // 何番目に小さいか
         }
     }
 }
