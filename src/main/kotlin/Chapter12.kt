@@ -156,5 +156,32 @@ class Chapter12 {
                 heapifyRetry(array, 0, i)
             }
         }
+
+        fun bucketSort(array: IntArray): IntArray {
+            val n = array.size
+            val max = 10000
+            val bucket = IntArray(max)
+            for (i in array.indices) {
+                bucket[array[i]]++
+            }
+
+            // 累積和
+            val sum = IntArray(max)
+            sum[0] = bucket[0]
+            for (i in 1 until max) {
+                sum[i] = sum[i - 1] + bucket[i]
+            }
+
+            val result = IntArray(n)
+            for (i in result.indices) {
+                result[--sum[array[i]]] = array[i]
+            }
+
+            return result
+        }
+
+        fun whatIsTheSmallest(array: IntArray, i: Target) {
+
+        }
     }
 }
