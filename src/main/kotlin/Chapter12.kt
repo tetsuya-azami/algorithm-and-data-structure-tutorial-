@@ -180,6 +180,23 @@ class Chapter12 {
             return result
         }
 
+        fun bucketSortRetry(array: IntArray): List<Int> {
+            val bucket = IntArray(10000)
+            for (i in array.indices) {
+                bucket[array[i]]++
+            }
+
+            val result = mutableListOf<Int>()
+            for (i in bucket.indices) {
+                while (bucket[i] > 0) {
+                    result += i
+                    bucket[i]--
+                }
+            }
+
+            return result
+        }
+
         fun whatIsTheSmallest(array: IntArray, targetOriginalIndex: Int): Int {
             val sortedArray = array.sorted()
 

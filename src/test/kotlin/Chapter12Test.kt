@@ -91,7 +91,7 @@ class Chapter12Test {
     }
 
     @Test
-    fun bucketSortRetry() {
+    fun bucketSort() {
         val array = intArrayOf(33, 7, 4, 5, 7, 3, 2)
         val result = Chapter12.bucketSort(array)
         println()
@@ -111,5 +111,18 @@ class Chapter12Test {
         println()
         println()
         println(result)
+    }
+
+    @Test
+    fun bucketSortRetry() {
+        val array = intArrayOf(33, 7, 4, 5, 7, 3, 2)
+        val result = Chapter12.bucketSortRetry(array)
+        println()
+        println()
+        println()
+        result.forEach {
+            print(it)
+            println()
+        }
     }
 }
