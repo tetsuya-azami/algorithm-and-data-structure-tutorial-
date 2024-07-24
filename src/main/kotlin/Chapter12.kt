@@ -1,3 +1,5 @@
+import kotlin.math.min
+
 class Chapter12 {
     companion object {
         fun insertionSort(array: IntArray): IntArray {
@@ -243,30 +245,25 @@ class Chapter12 {
         }
 
         fun calculateMinimumEnergyDrinkAmount(energyDrinkPrices: List<Int>, quantities: List<Int>, m: Int): Int {
-            val list = mutableListOf<List<Int>>()
+            val list = mutableListOf<Pair<Int, Int>>()
 
             for (i in energyDrinkPrices.indices) {
-                list.add(listOf(energyDrinkPrices[i], quantities[i]))
+                list.add((energyDrinkPrices[i] to quantities[i]))
             }
 
-            val sortedList = list.sortedBy { it[0] }
+            val sortedList = list.sortedBy { it.first }
 
             var totalPrice = 0
             var totalBuyCount = 0
             var nowIndex = 0
-            var buyCount = 0
 
             while (totalBuyCount < m) {
-                val price = sortedList[nowIndex][0]
-                val availableBuyCount = sortedList[nowIndex][1]
-                if (availableBuyCount <= buyCount) {
-                    nowIndex++
-                    buyCount = 0
-                    continue
-                }
-                buyCount++
-                totalBuyCount++
-                totalPrice += price
+                val price = sortedList[nowIndex].first
+                val availableBuyCount = sortedList[nowIndex].second
+                val buyCount = min(availableBuyCount, m - totalBuyCount)
+                totalBuyCount += buyCount
+                totalPrice += price * buyCount
+                nowIndex++
             }
 
             return totalPrice
