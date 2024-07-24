@@ -241,5 +241,35 @@ class Chapter12 {
 
             return right + 1
         }
+
+        fun calculateMinimumEnergyDrinkAmount(energyDrinkPrices: List<Int>, quantities: List<Int>, m: Int): Int {
+            val list = mutableListOf<List<Int>>()
+
+            for (i in energyDrinkPrices.indices) {
+                list.add(listOf(energyDrinkPrices[i], quantities[i]))
+            }
+
+            val sortedList = list.sortedBy { it[0] }
+
+            var totalPrice = 0
+            var totalBuyCount = 0
+            var nowIndex = 0
+            var buyCount = 0
+
+            while (totalBuyCount < m) {
+                val price = sortedList[nowIndex][0]
+                val availableBuyCount = sortedList[nowIndex][1]
+                if (availableBuyCount <= buyCount) {
+                    nowIndex++
+                    buyCount = 0
+                    continue
+                }
+                buyCount++
+                totalBuyCount++
+                totalPrice += price
+            }
+
+            return totalPrice
+        }
     }
 }

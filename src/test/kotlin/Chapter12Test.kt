@@ -155,4 +155,15 @@ class Chapter12Test {
         println()
         println(result)
     }
+
+    @Test
+    fun calculateMinimumEnergyDrinkAmount() {
+        val a = listOf(200, 600, 700, 100, 500)
+        val b = listOf(5, 3, 10, 2, 7)
+        val result = Chapter12.calculateMinimumEnergyDrinkAmount(a, b, 10) // 100:2,200:5,500,3
+        println()
+        println()
+        println()
+        println(result)
+    }
 }
