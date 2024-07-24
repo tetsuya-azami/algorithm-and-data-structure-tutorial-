@@ -210,5 +210,36 @@ class Chapter12 {
 
             return left + 1 // 何番目に小さいか
         }
+
+        fun whatIsTheSmallestRetryBucketVersion(array: IntArray, targetOriginalIndex: Int): Int {
+            val min = 0
+            val max = 100
+            val bucket = IntArray(max - min + 1)
+            for (i in array.indices) {
+                bucket[array[i]]++
+            }
+
+            // 累積和
+            val cumulativeSums = IntArray(array.size)
+            cumulativeSums[0] = bucket[0]
+            for (i in 1 until cumulativeSums.size) {
+                cumulativeSums[i] = cumulativeSums[i - 1] + bucket[i]
+            }
+
+            return cumulativeSums[array[targetOriginalIndex]] // arrayに同じ数字の要素があった場合、最後の要素のIndexが返る
+        }
+
+        fun whatIsTheSmallestRetryLowerBoundsVersion(array: IntArray, targetOriginalIndex: Int): Int {
+            val target = array[targetOriginalIndex]
+            val sortedArray = array.sorted()
+            var left = 0
+            var right = sortedArray.size - 1
+            while (left <= right) {
+                val mid = (left + right) / 2
+                if (target <= sortedArray[mid]) right = mid - 1 else left = mid + 1
+            }
+
+            return right + 1
+        }
     }
 }
