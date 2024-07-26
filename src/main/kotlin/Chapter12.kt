@@ -268,5 +268,26 @@ class Chapter12 {
 
             return totalPrice
         }
+
+        fun countConnectedComponents(graph: Array<Array<Int>>): Int {
+
+            val seen = MutableList(graph.size) { false }
+            var result = 0
+            for (i in graph.indices) {
+                if (seen[i]) continue
+                dfs(graph, i, seen)
+                result++
+            }
+
+            return result
+        }
+
+        private fun dfs(graph: Array<Array<Int>>, v: Int, seen: MutableList<Boolean>) {
+            seen[v] = true
+            for (connected in graph[v]) {
+                if (seen[connected]) continue
+                dfs(graph, connected, seen)
+            }
+        }
     }
 }
