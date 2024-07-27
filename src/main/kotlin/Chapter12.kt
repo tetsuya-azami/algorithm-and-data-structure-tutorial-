@@ -353,5 +353,23 @@ class Chapter12 {
                 dfs_isSTPathExist(graph, e, seen)
             }
         }
+
+        fun isSTPathExistBfs(graph: Array<Array<Int>>, s: Int, t: Int): Boolean {
+            val seen = BooleanArray(graph.size) { false }
+            val queue = ArrayDeque<Int>()
+            queue.addLast(s)
+            while (!queue.isEmpty()) {
+                val first = queue.first()
+                queue.removeFirst()
+                seen[first] = true
+
+                for (e in graph[first]) {
+                    if (seen[e]) continue
+                    queue.addLast(e)
+                }
+            }
+
+            return seen[t]
+        }
     }
 }
