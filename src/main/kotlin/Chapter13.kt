@@ -69,6 +69,35 @@ class Chapter13 {
             }
         }
 
+        fun countConnectedComponentsBfsRetry(graph: Array<Array<Int>>): Int {
+            val seen = BooleanArray(graph.size) { false }
+
+            var result = 0
+
+            for (i in graph.indices) {
+                if (seen[i]) continue
+                bfsRetry(graph, i, seen)
+                result++
+            }
+
+            return result
+        }
+
+        fun bfsRetry(graph: Array<Array<Int>>, v: Int, seen: BooleanArray) {
+            val queue = ArrayDeque<Int>()
+            queue.addLast(v)
+            while (!queue.isEmpty()) {
+                val first = queue.first()
+                queue.removeFirst()
+                seen[first] = true
+
+                for (e in graph[first]) {
+                    if (seen[e]) continue
+                    queue.addLast(e)
+                }
+            }
+        }
+
         fun isSTPathExist(graph: Array<Array<Int>>, s: Int, t: Int): Boolean {
             val seen = BooleanArray(graph.size) { false }
 

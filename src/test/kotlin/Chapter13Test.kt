@@ -62,6 +62,26 @@ class Chapter13Test {
     }
 
     @Test
+    fun countConnectedComponentsBfsRetry() {
+        val graph =
+            arrayOf(
+                arrayOf(2, 7),
+                arrayOf(),
+                arrayOf(0, 4),
+                arrayOf(5),
+                arrayOf(2),
+                arrayOf(3, 6),
+                arrayOf(5),
+                arrayOf(0)
+            )
+        val result = Chapter13.countConnectedComponentsBfsRetry(graph)
+        println()
+        println()
+        println()
+        println(result)
+    }
+
+    @Test
     fun isSTPathExist() {
         val graph =
             arrayOf(
