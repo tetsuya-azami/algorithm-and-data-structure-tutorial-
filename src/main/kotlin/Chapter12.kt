@@ -310,5 +310,32 @@ class Chapter12 {
                 dfsRetry(graph, e, seen)
             }
         }
+
+        fun countConnectedComponentsBfs(graph: Array<Array<Int>>): Int {
+            val seen = BooleanArray(graph.size) { false }
+            var result = 0
+            for (i in graph.indices) {
+                if (seen[i]) continue
+                bfs(graph, i, seen)
+                result++
+            }
+
+            return result
+        }
+
+        fun bfs(graph: Array<Array<Int>>, v: Int, seen: BooleanArray) {
+            seen[v] = true
+            val queue = ArrayDeque<Int>()
+            queue.addLast(v)
+            while (!queue.isEmpty()) {
+                val first = queue.first()
+                queue.removeFirst()
+                for (e in graph[first]) {
+                    if (seen[e]) continue
+                    seen[e] = true
+                    queue.addLast(e)
+                }
+            }
+        }
     }
 }
