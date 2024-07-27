@@ -289,5 +289,26 @@ class Chapter12 {
                 dfs(graph, connected, seen)
             }
         }
+
+        fun countConnectedComponentsRetry(graph: Array<Array<Int>>): Int {
+            val seen = BooleanArray(graph.size) { false }
+            var result = 0
+            for (i in graph.indices) {
+                if (seen[i]) continue
+                dfsRetry(graph, i, seen)
+                result++
+            }
+
+            return result
+        }
+
+        private fun dfsRetry(graph: Array<Array<Int>>, v: Int, seen: BooleanArray) {
+            seen[v] = true
+            val connected = graph[v]
+            for (e in connected) {
+                if (seen[e]) continue
+                dfsRetry(graph, e, seen)
+            }
+        }
     }
 }
