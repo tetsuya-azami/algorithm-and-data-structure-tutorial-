@@ -337,5 +337,21 @@ class Chapter12 {
                 }
             }
         }
+
+        fun isSTPathExist(graph: Array<Array<Int>>, s: Int, t: Int): Boolean {
+            val seen = BooleanArray(graph.size) { false }
+
+            dfs_isSTPathExist(graph, s, seen)
+
+            return seen[t]
+        }
+
+        private fun dfs_isSTPathExist(graph: Array<Array<Int>>, v: Int, seen: BooleanArray) {
+            seen[v] = true
+            for (e in graph[v]) {
+                if (seen[e]) continue
+                dfs_isSTPathExist(graph, e, seen)
+            }
+        }
     }
 }
