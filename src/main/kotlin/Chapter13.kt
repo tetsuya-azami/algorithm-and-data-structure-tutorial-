@@ -162,5 +162,57 @@ class Chapter13 {
 
             return true
         }
+
+        fun solveMaze(maze: Array<Array<String>>, h: Int, w: Int): Int {
+            var sx = -1
+            var sy = -1
+            var gx = -1
+            var gy = -1
+            for (i in 0 until h) {
+                for (j in 0 until w) {
+                    if (maze[i][j] == "S") {
+                        sx = j
+                        sy = i
+                    }
+                    if (maze[i][j] == "G") {
+                        gx = j
+                        gy = i
+                    }
+                }
+            }
+
+            val directionX = arrayOf(1, 0, -1, 0)
+            val directionY = arrayOf(0, 1, 0, -1)
+
+            val queue = ArrayDeque<Pair<Int, Int>>()
+            queue.addLast((sx to sy))
+            maze[sy][sx] = "0"
+            // queueの中身が無くなるまでループ
+            while (!queue.isEmpty()) {
+                val (x, y) = queue.first()
+                queue.removeFirst()
+
+                for (i in directionX.indices) {
+                    val dx = directionX[i]
+                    val dy = directionY[i]
+                    val nx = x + dx
+                    val ny = y + dy
+
+                    if (nx < 0 || w <= nx || ny < 0 || h <= ny) continue
+                    if (maze[ny][nx] == "#") continue
+                    if (maze[ny][nx] == "-1" || maze[ny][nx] == "G") {
+                        queue.addLast((nx to ny))
+                        maze[ny][nx] = (maze[y][x].toInt() + 1).toString()
+                    }
+                }
+            }
+
+            maze.forEach { row ->
+                row.forEach { print("$it, ") }
+                println()
+            }
+
+            return maze[gy][gx].toInt()
+        }
     }
 }
