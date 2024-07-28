@@ -120,4 +120,24 @@ class Chapter13Test {
         println()
         println(result)
     }
+
+    @Test
+    fun isBipartiteGraph() {
+        val graph =
+            arrayOf(
+                arrayOf(4, 6),
+                arrayOf(6, 7),
+                arrayOf(4, 7),
+                arrayOf(5, 6),
+                arrayOf(0, 2),
+                arrayOf(3, 7),
+                arrayOf(0, 1, 3),
+                arrayOf(2, 1, 5)
+            )
+        val result = Chapter13.isBipartiteGraph(graph)
+        println()
+        println()
+        println()
+        println(result)
+    }
 }

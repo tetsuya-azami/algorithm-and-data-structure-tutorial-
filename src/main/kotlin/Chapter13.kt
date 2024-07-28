@@ -131,5 +131,36 @@ class Chapter13 {
 
             return seen[t]
         }
+
+        fun isBipartiteGraph(graph: Array<Array<Int>>): Boolean {
+            val colors = IntArray(graph.size) { -1 } // 0:白, 1:黒
+            var bipartite = true
+
+            for (i in graph.indices) {
+                if (colors[i] != -1) continue
+                if (!dfs_isBipartiteGraph(graph, 0, colors, 0)) bipartite = false
+            }
+
+            return bipartite
+        }
+
+        fun dfs_isBipartiteGraph(
+            graph: Array<Array<Int>>,
+            v: Int,
+            colors: IntArray,
+            color: Int
+        ): Boolean {
+            colors[v] = color
+            for (nextV in graph[v]) {
+                if (colors[nextV] != -1) {
+                    if (colors[nextV] == color) return false // 隣り合うノードの色が同じだったらfalse
+                    continue
+                }
+
+                if (!dfs_isBipartiteGraph(graph, nextV, colors, 1 - color)) return false//まだ色を塗られていない場合
+            }
+
+            return true
+        }
     }
 }
