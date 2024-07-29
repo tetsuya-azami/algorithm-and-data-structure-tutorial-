@@ -161,4 +161,25 @@ class Chapter13Test {
         println()
         println(result)
     }
+
+    @Test
+    fun solveMazeRetry() {
+        val h = 8 // 高さ
+        val w = 8 // 幅
+        val h1 = arrayOf("-1", "#", "-1", "-1", "-1", "-1", "#", "G")
+        val h2 = arrayOf("-1", "#", "-1", "#", "-1", "-1", "-1", "-1")
+        val h3 = arrayOf("-1", "-1", "-1", "#", "-1", "#", "#", "-1")
+        val h4 = arrayOf("#", "-1", "#", "#", "-1", "-1", "-1", "#")
+        val h5 = arrayOf("-1", "-1", "-1", "#", "#", "#", "-1", "#")
+        val h6 = arrayOf("-1", "#", "-1", "-1", "-1", "-1", "-1", "#")
+        val h7 = arrayOf("-1", "-1", "-1", "#", "-1", "#", "-1", "-1")
+        val h8 = arrayOf("S", "-1", "-1", "-1", "-1", "-1", "-1", "-1")
+        val maze = arrayOf(h1, h2, h3, h4, h5, h6, h7, h8)
+
+        val result = Chapter13.solveMazeRetry(maze, h, w)
+        println()
+        println()
+        println()
+        println(result)
+    }
 }

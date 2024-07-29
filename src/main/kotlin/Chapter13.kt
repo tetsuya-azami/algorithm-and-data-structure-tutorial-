@@ -214,5 +214,52 @@ class Chapter13 {
 
             return maze[gy][gx].toInt()
         }
+
+        fun solveMazeRetry(maze: Array<Array<String>>, h: Int, w: Int): Int {
+            var sx = -1
+            var sy = -1
+            var gx = -1
+            var gy = -1
+
+            for (i in 0 until h) {
+                for (j in 0 until w) {
+                    if (maze[i][j] == "S") {
+                        sx = j
+                        sy = i
+                    }
+                    if (maze[i][j] == "G") {
+                        gx = j
+                        gy = i
+                    }
+                }
+            }
+
+            maze[sy][sx] = "0"
+
+            val queue = ArrayDeque<Pair<Int, Int>>()
+            queue.addLast((sx to sy))
+
+            val directionX = arrayOf(0, 0, -1, 1) //上下左右
+            val directionY = arrayOf(-1, 1, 0, 0)
+            // queueが空でない限り回す
+            while (!queue.isEmpty()) {
+                val currentPair = queue.first()
+                queue.removeFirst()
+
+                for (i in directionX.indices) {
+                    //   firstの上下左右が迷路内かつ-1でなければqueueに入れる
+                    val targetX = currentPair.first + directionX[i]
+                    val targetY = currentPair.second + directionY[i]
+                    if (targetX < 0 || h <= targetX || targetY < 0 || w <= targetY) continue
+                    if (maze[targetY][targetX] == "#") continue
+                    if (maze[targetY][targetX] == "-1" || maze[targetY][targetX] == "G") {
+                        queue.addLast((targetX to targetY))
+                        maze[targetY][targetX] = (maze[currentPair.second][currentPair.first].toInt() + 1).toString()
+                    }
+                }
+            }
+
+            return maze[gy][gx].toInt()
+        }
     }
 }
