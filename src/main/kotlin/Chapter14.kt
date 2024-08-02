@@ -59,5 +59,32 @@ class Chapter14 {
             }
             return false
         }
+
+        fun dijkstraMethod(graph: Array<Array<Edge>>): Array<Int> {
+            val n = graph.size
+            val used = BooleanArray(n) { false }
+            val distance = Array(n) { Int.MAX_VALUE }
+            distance[0] = 0
+            for (i in 0 until n) {
+                var minV = -1
+                var minDistance = Int.MAX_VALUE
+                for (j in 0 until n) {
+                    if (!used[j] && distance[j] < minDistance) {
+                        minV = j
+                        minDistance = distance[j]
+                    }
+                }
+
+                if (minV == -1) break
+
+                for (edge in graph[minV]) {
+                    chmin(distance, minV, edge.to, edge.weight)
+                }
+
+                used[minV] = true
+            }
+
+            return distance
+        }
     }
 }
