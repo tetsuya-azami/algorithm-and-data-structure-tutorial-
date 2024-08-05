@@ -86,5 +86,30 @@ class Chapter14 {
 
             return distance
         }
+
+        fun dijkstraMethodRetry(graph: Array<Array<Edge>>): Array<Int> {
+            val n = graph.size
+            val distance = Array(n) { Int.MAX_VALUE }
+            val used = BooleanArray(n) { false }
+            distance[0] = 0
+            while (used.contains(false)) {
+                var minV = -1
+                var minDistance = Int.MAX_VALUE
+                for (i in 0 until n) {
+                    if (!used[i] && distance[i] < minDistance) {
+                        minV = i
+                        minDistance = distance[i]
+                    }
+                }
+
+                for (edge in graph[minV]) {
+                    distance[edge.to] = minDistance + edge.weight
+                }
+
+                used[minV] = true
+            }
+
+            return distance
+        }
     }
 }
