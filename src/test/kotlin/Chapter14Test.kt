@@ -76,4 +76,23 @@ class Chapter14Test {
             println("distance[$index]: $i")
         }
     }
+
+    @Test
+    fun longestPath() {
+        val graph =
+            arrayOf(
+                arrayOf(2, 4),
+                arrayOf(5),
+                arrayOf(3, 1),
+                arrayOf(5),
+                arrayOf(1, 6),
+                arrayOf(),
+                arrayOf(1)
+            )
+        val result = Chapter14.longestPath(graph)
+        println()
+        println()
+        println()
+        println(result) // 4
+    }
 }

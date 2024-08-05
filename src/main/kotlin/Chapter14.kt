@@ -111,5 +111,26 @@ class Chapter14 {
 
             return distance
         }
+
+        fun longestPath(graph: Array<Array<Int>>): Int {
+            val n = graph.size
+            val dp = Array(n) { -1 }
+            for (i in 0 until n) {
+                rec(graph, dp, i)
+            }
+
+            return dp[0]
+        }
+
+        private fun rec(graph: Array<Array<Int>>, dp: Array<Int>, i: Int): Int {
+            if (dp[i] != -1) return dp[i]
+            var res = 0
+            for (node in graph[i]) {
+                res = maxOf(res, rec(graph, dp, node) + 1)
+            }
+
+            dp[i] = res
+            return res
+        }
     }
 }
