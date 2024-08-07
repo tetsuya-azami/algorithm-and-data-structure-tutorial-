@@ -95,4 +95,23 @@ class Chapter14Test {
         println()
         println(result) // 4
     }
+
+    @Test
+    fun longestPathRetry() {
+        val graph =
+            arrayOf(
+                arrayOf(2, 4),
+                arrayOf(5),
+                arrayOf(3, 1),
+                arrayOf(5),
+                arrayOf(1, 6),
+                arrayOf(),
+                arrayOf(1)
+            )
+        val result = Chapter14.longestPathRetry(graph)
+        println()
+        println()
+        println()
+        println(result) // 4
+    }
 }

@@ -132,5 +132,26 @@ class Chapter14 {
             dp[i] = res
             return res
         }
+
+        fun longestPathRetry(graph: Array<Array<Int>>): Int {
+            val n = graph.size
+            val dp = Array(n) { -1 }
+            for (i in 0 until n) {
+                recRetry(graph, dp, i)
+            }
+
+            return dp[0]
+        }
+
+        private fun recRetry(graph: Array<Array<Int>>, dp: Array<Int>, i: Int): Int {
+            if (dp[i] != -1) return dp[i]
+            var res = 0
+            for (to in graph[i]) {
+                res = maxOf(res, rec(graph, dp, to) + 1)
+            }
+
+            dp[i] = res
+            return res
+        }
     }
 }
