@@ -1,6 +1,8 @@
 package neetcode.arraysandhashing;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 class Solution {
@@ -33,6 +35,33 @@ class Solution {
         }
 
         return true;
+    }
+
+    public int[] twoSum(int[] nums, int target) {
+        for (int i = 0; i < nums.length; i++) {
+            int candidateFirst = nums[i];
+            for (int j = i + 1; j < nums.length; j++) {
+                int candidateSecond = nums[j];
+                if (candidateFirst + candidateSecond == target) return new int[]{i, j};
+            }
+        }
+
+        throw new RuntimeException("No pair");
+    }
+
+    public int[] twoSumModelAnswer(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            int firstNumCandidate = nums[i];
+            int secondNumCandidate = target - firstNumCandidate;
+            if (map.containsKey(secondNumCandidate)) {
+                return new int[]{map.get(secondNumCandidate), i};
+            }
+
+            map.put(nums[i], i);
+        }
+
+        throw new RuntimeException("No pair");
     }
 }
 

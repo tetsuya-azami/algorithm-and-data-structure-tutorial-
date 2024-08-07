@@ -19,4 +19,28 @@ class SolutionTest {
         boolean result = solution.isAnagram(s, t);
         System.out.println(result);
     }
+
+    @Test
+    public void twoSum() {
+        int[] nums = new int[]{3, 4, 5, 6};
+        int target = 7;
+
+        Solution solution = new Solution();
+        int[] result = solution.twoSum(nums, target);
+        for (int e : result) {
+            System.out.println(e);
+        }
+    }
+
+    @Test
+    public void twoSumModelAnswer() {
+        int[] nums = new int[]{3, 4, 5, 6};
+        int target = 7;
+
+        Solution solution = new Solution();
+        int[] result = solution.twoSumModelAnswer(nums, target);
+        for (int e : result) {
+            System.out.println(e);
+        }
+    }
 }
