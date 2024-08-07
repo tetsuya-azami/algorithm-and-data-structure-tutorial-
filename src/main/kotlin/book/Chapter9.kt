@@ -1,3 +1,5 @@
+package book
+
 class Chapter9 {
     companion object {
         fun reversePolishNotation(mathematicalFormula: String): Int {

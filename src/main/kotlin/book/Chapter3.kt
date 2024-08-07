@@ -1,3 +1,5 @@
+package book
+
 import kotlin.math.min
 import kotlin.math.pow
 

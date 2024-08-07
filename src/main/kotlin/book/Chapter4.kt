@@ -1,3 +1,5 @@
+package book
+
 class Chapter4 {
     companion object {
         private val globalTribonacciMap = mutableMapOf(0 to 0, 1 to 0, 2 to 1)
@@ -60,7 +62,7 @@ class Chapter4 {
 
         private lateinit var cache: Array<Array<Boolean?>>
         fun memorizedPartialSum(w: Int, list: List<Int>, index: Int): Boolean {
-            if (!::cache.isInitialized) {
+            if (!Companion::cache.isInitialized) {
                 cache = Array(w + 1) { arrayOfNulls<Boolean?>(list.size) }
             }
             if (w == 0) return true

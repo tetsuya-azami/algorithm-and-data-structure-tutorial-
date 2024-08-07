@@ -1,3 +1,5 @@
+package book
+
 class Chapter6 {
     companion object {
         fun binarySearch(sortedList: List<Int>, target: Int): Boolean {

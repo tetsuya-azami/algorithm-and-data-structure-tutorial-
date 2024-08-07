@@ -1,3 +1,5 @@
+package book
+
 import kotlin.math.abs
 
 class Chapter5 {

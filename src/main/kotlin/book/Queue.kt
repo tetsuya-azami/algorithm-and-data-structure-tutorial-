@@ -1,3 +1,5 @@
+package book
+
 class Queue<T> {
     companion object {
         private val MAX = 100

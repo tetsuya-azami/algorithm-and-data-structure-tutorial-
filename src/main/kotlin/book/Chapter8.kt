@@ -1,3 +1,5 @@
+package book
+
 class Chapter8 {
     companion object {
         fun getIndexPairOfEqualValue(a: Set<Int>, b: Set<Int>): Int {

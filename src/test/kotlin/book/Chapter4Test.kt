@@ -1,3 +1,6 @@
+package book
+
+import book.Chapter4
 import kotlin.test.Test
 
 class Chapter4Test {

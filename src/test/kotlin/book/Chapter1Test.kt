@@ -1,3 +1,5 @@
+package book
+
 import java.io.ByteArrayInputStream
 import kotlin.test.Test
 import kotlin.test.assertEquals

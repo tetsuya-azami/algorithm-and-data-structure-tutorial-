@@ -1,3 +1,5 @@
+package book
+
 import kotlin.math.min
 
 class Chapter12 {

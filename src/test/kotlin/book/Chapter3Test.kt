@@ -1,3 +1,6 @@
+package book
+
+import book.Chapter3
 import org.junit.jupiter.api.Test
 
 class Chapter3Test {

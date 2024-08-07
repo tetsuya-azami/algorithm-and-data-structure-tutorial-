@@ -1,3 +1,5 @@
+package book
+
 class Stack<T> {
     companion object {
         private val MAX = 100
