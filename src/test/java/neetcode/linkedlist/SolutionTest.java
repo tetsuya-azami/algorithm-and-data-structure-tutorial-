@@ -59,4 +59,30 @@ class SolutionTest {
             current = current.next;
         }
     }
+
+    @Test
+    public void mergeTwoLists() {
+        ListNode list1Node4 = new ListNode(4);
+        ListNode list1Node2 = new ListNode(2, list1Node4);
+        ListNode list1Node1 = new ListNode(1, list1Node2);
+
+        ListNode list2Node5 = new ListNode(5);
+        ListNode list2Node3 = new ListNode(3, list2Node5);
+        ListNode list2Node1 = new ListNode(1, list2Node3);
+
+//        ListNode list1Node1 = null;
+//        ListNode list2Node2 = new ListNode(2);
+//        ListNode list2Node1 = new ListNode(1, list2Node2);
+        Solution solution = new Solution();
+        ListNode result = solution.mergeTwoLists(list1Node1, list2Node1);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+
+        ListNode current = result;
+        while (current != null) {
+            System.out.println(current.val + ",");
+            current = current.next;
+        }
+    }
 }
