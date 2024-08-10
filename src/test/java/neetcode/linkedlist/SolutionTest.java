@@ -85,4 +85,34 @@ class SolutionTest {
             current = current.next;
         }
     }
+
+    @Test
+    public void hasCycle() {
+        ListNode node4 = new ListNode(4);
+        ListNode node3 = new ListNode(3, node4);
+        ListNode node2 = new ListNode(2, node3);
+        ListNode node1 = new ListNode(1, node2);
+        node4.next = node2;
+        Solution solution = new Solution();
+        boolean result = solution.hasCycle(node1);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
+
+    @Test
+    public void hasCycleModelAnswer() {
+        ListNode node4 = new ListNode(4);
+        ListNode node3 = new ListNode(3, node4);
+        ListNode node2 = new ListNode(2, node3);
+        ListNode node1 = new ListNode(1, node2);
+        node4.next = node2;
+        Solution solution = new Solution();
+        boolean result = solution.hasCycleModelAnswer(node1);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }

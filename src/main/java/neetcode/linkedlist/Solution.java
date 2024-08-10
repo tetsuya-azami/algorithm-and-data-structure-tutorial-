@@ -1,5 +1,8 @@
 package neetcode.linkedlist;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Solution {
     public ListNode reverseList(ListNode head) {
         return rec(null, head);
@@ -52,5 +55,28 @@ public class Solution {
         }
 
         return dummy.next;
+    }
+
+    public boolean hasCycle(ListNode head) {
+        List<ListNode> visited = new ArrayList<>();
+        ListNode cur = head;
+        while (cur != null) {
+            if (visited.contains(cur)) return true;
+            visited.add(cur);
+            cur = cur.next;
+        }
+        return false;
+    }
+
+    public boolean hasCycleModelAnswer(ListNode head) {
+        ListNode s = head;
+        ListNode f = head;
+        while (f.next != null && f.next.next != null) {
+            s = s.next;
+            f = f.next.next;
+            if (s == f) return true;
+        }
+
+        return false;
     }
 }
