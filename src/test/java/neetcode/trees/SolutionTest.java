@@ -38,4 +38,32 @@ class SolutionTest {
 
         printResult(result);
     }
+
+    @Test
+    public void maxDepth() {
+        TreeNode node4 = new TreeNode(4);
+        TreeNode node2 = new TreeNode(2);
+        TreeNode node3 = new TreeNode(3, node4, null);
+        TreeNode root = new TreeNode(1, node2, node3);
+        Solution solution = new Solution();
+        int result = solution.maxDepth(root);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
+
+    @Test
+    public void maxDepthModelAnswer() {
+        TreeNode node4 = new TreeNode(4);
+        TreeNode node2 = new TreeNode(2);
+        TreeNode node3 = new TreeNode(3, node4, null);
+        TreeNode root = new TreeNode(1, node2, node3);
+        Solution solution = new Solution();
+        int result = solution.maxDepthModelAnswer(root);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
