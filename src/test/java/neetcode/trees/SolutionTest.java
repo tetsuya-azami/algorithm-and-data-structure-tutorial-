@@ -97,4 +97,22 @@ class SolutionTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    public void isSameTree() {
+        TreeNode pNode3 = new TreeNode(3);
+        TreeNode pNode2 = new TreeNode(2);
+        TreeNode p = new TreeNode(1, pNode2, pNode3);
+
+        TreeNode qNode3 = new TreeNode(3);
+        TreeNode qNode2 = new TreeNode(2);
+        TreeNode q = new TreeNode(1, qNode2, qNode3);
+        Solution solution = new Solution();
+        boolean result = solution.isSameTree(p, q);
+
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
