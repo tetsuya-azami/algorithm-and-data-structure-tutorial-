@@ -82,4 +82,19 @@ class SolutionTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    public void isBalanced() {
+        TreeNode node4 = new TreeNode(4);
+        TreeNode node3 = new TreeNode(3, node4, null);
+        TreeNode node2 = new TreeNode(2);
+        TreeNode root = new TreeNode(1, node2, node3);
+        Solution solution = new Solution();
+        boolean result = solution.isBalanced(root);
+
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }

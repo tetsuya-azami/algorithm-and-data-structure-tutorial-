@@ -1,6 +1,7 @@
 package neetcode.trees;
 
 public class Solution {
+
     public TreeNode invertTree(TreeNode root) {
         if (root == null) return null;
 
@@ -48,5 +49,21 @@ public class Solution {
         result[0] = Math.max(result[0], leftDepth + rightDepth);
 
         return 1 + Math.max(leftDepth, rightDepth);
+    }
+
+    public boolean isBalanced(TreeNode root) {
+        boolean[] result = {true};
+        isBalancedDfs(root, result);
+
+        return result[0];
+    }
+
+    private int isBalancedDfs(TreeNode root, boolean[] result) {
+        if (root == null) return 0;
+        int left = isBalancedDfs(root.left, result);
+        int right = isBalancedDfs(root.right, result);
+        if (Math.abs(left - right) > 1) result[0] = false;
+
+        return 1 + Math.max(left, right);
     }
 }
