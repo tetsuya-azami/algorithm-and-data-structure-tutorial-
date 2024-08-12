@@ -66,4 +66,20 @@ class SolutionTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    public void diameterOfBinaryTree() {
+        TreeNode node5 = new TreeNode(5);
+        TreeNode node4 = new TreeNode(4);
+        TreeNode node3 = new TreeNode(3, node5, null);
+        TreeNode node2 = new TreeNode(2, node3, node4);
+        TreeNode root = new TreeNode(1, null, node2);
+        Solution solution = new Solution();
+        int result = solution.diameterOfBinaryTree(root);
+
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
