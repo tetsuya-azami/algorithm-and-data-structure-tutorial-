@@ -115,4 +115,24 @@ class SolutionTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    public void isSubtree() {
+        TreeNode pNode5 = new TreeNode(5);
+        TreeNode pNode4 = new TreeNode(4);
+        TreeNode pNode3 = new TreeNode(3);
+        TreeNode pNode2 = new TreeNode(2, pNode4, pNode5);
+        TreeNode p = new TreeNode(1, pNode2, pNode3);
+
+        TreeNode qNode5 = new TreeNode(5);
+        TreeNode qNode4 = new TreeNode(4);
+        TreeNode q = new TreeNode(2, qNode4, qNode5);
+        Solution solution = new Solution();
+        boolean result = solution.isSubtree(p, q);
+
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
