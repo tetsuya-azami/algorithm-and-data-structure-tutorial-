@@ -1,4 +1,4 @@
-package neetcode.heapprioritykey;
+package neetcode.heappriorityqueue;
 
 import java.util.PriorityQueue;
 
