@@ -12,4 +12,14 @@ class SolutionTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    public void climbStairs() {
+        Solution solution = new Solution();
+        int result = solution.climbStairs(5);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
