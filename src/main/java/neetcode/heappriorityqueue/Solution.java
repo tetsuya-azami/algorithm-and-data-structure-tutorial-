@@ -1,9 +1,6 @@
 package neetcode.heappriorityqueue;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class Solution {
     public int lastStoneWeight(int[] stones) {
@@ -56,6 +53,16 @@ public class Solution {
                 if (isAttended[j]) return false;
                 isAttended[j] = true;
             }
+        }
+        return true;
+    }
+
+    public boolean canAttendMeetingsModelAnswer(List<Interval> intervals) {
+        List<Interval> sortedIntervals = intervals.stream().sorted(Comparator.comparingInt(e -> e.start)).toList();
+        for (int i = 1; i < sortedIntervals.size(); i++) {
+            int e1End = sortedIntervals.get(i - 1).end;
+            int e2Start = sortedIntervals.get(i).start;
+            if (e2Start < e1End) return false;
         }
         return true;
     }

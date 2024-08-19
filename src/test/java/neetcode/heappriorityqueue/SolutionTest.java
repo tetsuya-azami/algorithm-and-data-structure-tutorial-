@@ -48,4 +48,17 @@ class SolutionTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    public void canAttendMeetingsModelAnswer() {
+        Solution solution = new Solution();
+        ArrayList<Interval> intervals = new ArrayList<>(Arrays.asList(
+                new Interval(0, 8), new Interval(8, 16), new Interval(20, 30)
+        ));
+        boolean result = solution.canAttendMeetingsModelAnswer(intervals);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
