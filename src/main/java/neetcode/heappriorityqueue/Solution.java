@@ -1,6 +1,8 @@
 package neetcode.heappriorityqueue;
 
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 import java.util.PriorityQueue;
 
 public class Solution {
@@ -39,5 +41,22 @@ public class Solution {
         }
 
         return Math.min(cost[0], cost[1]);
+    }
+
+    public boolean canAttendMeetings(List<Interval> intervals) {
+        int maxEnd = 0;
+        for (Interval interval : intervals) {
+            maxEnd = Math.max(maxEnd, interval.end);
+        }
+        boolean[] isAttended = new boolean[maxEnd];
+        Arrays.fill(isAttended, false);
+
+        for (int i = 0; i < intervals.size(); i++) {
+            for (int j = intervals.get(i).start; j < intervals.get(i).end; j++) {
+                if (isAttended[j]) return false;
+                isAttended[j] = true;
+            }
+        }
+        return true;
     }
 }
