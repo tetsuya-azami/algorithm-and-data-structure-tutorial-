@@ -6,7 +6,7 @@ public class SolutionTest {
     @Test
     public void isHappy() {
         Solution solution = new Solution();
-        boolean result = solution.isHappy(101);
+        boolean result = solution.isHappy(19);
         System.out.println();
         System.out.println();
         System.out.println();
