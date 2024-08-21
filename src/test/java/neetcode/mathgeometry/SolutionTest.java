@@ -12,4 +12,16 @@ public class SolutionTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    public void plusOne() {
+        Solution solution = new Solution();
+        int[] result = solution.plusOne(new int[]{1, 2, 3, 4});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        for (int e : result) {
+            System.out.print(e + ",");
+        }
+    }
 }
