@@ -32,4 +32,18 @@ public class Solution {
 
         return result;
     }
+
+    public int[] countBitsModelAnswer(int n) {
+        int offset = 1;
+        int[] dp = new int[n + 1];
+        for (int i = 1; i <= n; i++) {
+            if (i == offset * 2) {
+                offset = i;
+            }
+            dp[i] = 1 + dp[i - offset];
+        }
+
+        return dp;
+    }
 }
+

@@ -34,4 +34,16 @@ public class SolutionTest {
             System.out.print(e + ",");
         }
     }
+
+    @Test
+    public void countBitsModelAnswer() {
+        Solution solution = new Solution();
+        int[] result = solution.countBitsModelAnswer(4);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        for (int e : result) {
+            System.out.print(e + ",");
+        }
+    }
 }
