@@ -56,4 +56,14 @@ public class SolutionTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    public void reverseBitsModelAnswer() {
+        Solution solution = new Solution();
+        int result = solution.reverseBitsModelAnswer(21);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
