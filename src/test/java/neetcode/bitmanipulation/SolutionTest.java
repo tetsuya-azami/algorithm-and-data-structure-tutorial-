@@ -22,4 +22,16 @@ public class SolutionTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    public void countBits() {
+        Solution solution = new Solution();
+        int[] result = solution.countBits(4);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        for (int e : result) {
+            System.out.print(e + ",");
+        }
+    }
 }
