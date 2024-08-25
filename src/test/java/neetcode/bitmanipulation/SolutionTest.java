@@ -76,4 +76,14 @@ public class SolutionTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    public void missingNumberXor() {
+        Solution solution = new Solution();
+        int result = solution.missingNumberXor(new int[]{3, 0, 1});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
