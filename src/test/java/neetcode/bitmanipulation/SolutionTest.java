@@ -66,4 +66,14 @@ public class SolutionTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    public void missingNumber() {
+        Solution solution = new Solution();
+        int result = solution.missingNumber(new int[]{3, 0, 1});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
