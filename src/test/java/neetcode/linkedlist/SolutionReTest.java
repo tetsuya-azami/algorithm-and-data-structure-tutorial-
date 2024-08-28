@@ -20,4 +20,22 @@ class SolutionReTest {
             current = current.next;
         }
     }
+
+    @Test
+    public void mergeTwoLists() {
+        SolutionRe solutionRe = new SolutionRe();
+        ListNode list1Node4 = new ListNode(4);
+        ListNode list1Node2 = new ListNode(2, list1Node4);
+        ListNode list1Node1 = new ListNode(1, list1Node2);
+
+        ListNode list2Node5 = new ListNode(5);
+        ListNode list2Node3 = new ListNode(3, list2Node5);
+        ListNode list2Node1 = new ListNode(1, list2Node3);
+        
+        ListNode current = solutionRe.mergeTwoLists(list1Node1, list2Node1);
+        while (current != null) {
+            System.out.println(current.val + ",");
+            current = current.next;
+        }
+    }
 }
