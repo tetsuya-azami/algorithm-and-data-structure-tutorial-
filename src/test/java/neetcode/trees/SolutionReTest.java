@@ -23,4 +23,18 @@ public class SolutionReTest {
         printTreeNode(treeNode.left);
         printTreeNode(treeNode.right);
     }
+
+    @Test
+    public void maxDepth() {
+        TreeNode node4 = new TreeNode(4);
+        TreeNode node2 = new TreeNode(2);
+        TreeNode node3 = new TreeNode(3, node4, null);
+        TreeNode root = new TreeNode(1, node2, node3);
+        SolutionRe solutionRe = new SolutionRe();
+        int result = solutionRe.maxDepth(root);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
