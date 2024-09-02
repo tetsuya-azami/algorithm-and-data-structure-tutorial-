@@ -31,4 +31,18 @@ public class SolutionRe {
 
         return Math.max(left, right) + 1;
     }
+
+    public boolean isSubtree(TreeNode root, TreeNode subRoot) {
+        if (subRoot == null) return true;
+        if (root == null) return false;
+        if (isSubtreeDfs(root, subRoot)) return true;
+        return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
+    }
+
+    private boolean isSubtreeDfs(TreeNode root, TreeNode subRoot) {
+        if (root == null && subRoot == null) return true;
+        if (root == null || subRoot == null) return false;
+        if (root.val != subRoot.val) return false;
+        return isSubtreeDfs(root.left, subRoot.left) && isSubtreeDfs(root.right, subRoot.right);
+    }
 }
