@@ -23,4 +23,14 @@ class SolutionReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    public void hammingWeight2() {
+        SolutionRe solutionRe = new SolutionRe();
+        int result = solutionRe.hammingWeight2(23);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
