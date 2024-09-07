@@ -33,4 +33,17 @@ class SolutionReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    public void countBits() {
+        SolutionRe solutionRe = new SolutionRe();
+        int[] result = solutionRe.countBits(4);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        for (int i = 0; i < result.length; i++) {
+            System.out.print(result[i] + ",");
+        }
+        System.out.println();
+    }
 }

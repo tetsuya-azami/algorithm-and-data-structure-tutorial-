@@ -31,4 +31,19 @@ public class SolutionRe {
 
         return count;
     }
+
+    public int[] countBits(int n) {
+        int[] results = new int[n + 1];
+        for (int i = 0; i < n + 1; i++) {
+            int tmp = i;
+            int count = 0;
+            while (tmp != 0) {
+                if ((tmp & 1) == 1) count++;
+                tmp >>= 1;
+            }
+            results[i] = count;
+        }
+
+        return results;
+    }
 }
