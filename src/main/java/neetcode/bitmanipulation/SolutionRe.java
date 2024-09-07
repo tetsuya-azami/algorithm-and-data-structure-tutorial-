@@ -46,4 +46,15 @@ public class SolutionRe {
 
         return results;
     }
+
+    public int[] countBits2(int n) {
+        int[] results = new int[n + 1];
+        int offset = 1;
+        for (int i = 1; i <= n; i++) {
+            if (i == offset * 2) offset *= 2;
+            results[i] = results[i - offset] + 1;
+        }
+
+        return results;
+    }
 }
