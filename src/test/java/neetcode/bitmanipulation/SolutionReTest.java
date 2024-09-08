@@ -79,4 +79,14 @@ class SolutionReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    public void missingNumber2() {
+        SolutionRe solutionRe = new SolutionRe();
+        int result = solutionRe.missingNumber2(new int[]{1, 2, 3});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }

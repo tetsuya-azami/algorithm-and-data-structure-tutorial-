@@ -78,4 +78,12 @@ public class SolutionRe {
         }
         return result;
     }
+
+    public int missingNumber2(int[] nums) {
+        int result = nums.length;
+        for (int i = 0; i < nums.length; i++) {
+            result ^= i ^ nums[i];
+        }
+        return result;
+    }
 }
