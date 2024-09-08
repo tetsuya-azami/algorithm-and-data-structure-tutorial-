@@ -55,4 +55,14 @@ class SolutionTest {
         System.out.println();
         System.out.println(results);
     }
+
+    @Test
+    public void groupAnagrams2() {
+        Solution solution = new Solution();
+        List<List<String>> results = solution.groupAnagrams2(new String[]{"act", "pots", "tops", "cat", "stop", "hat"});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(results);
+    }
 }

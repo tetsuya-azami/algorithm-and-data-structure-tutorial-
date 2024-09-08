@@ -68,5 +68,20 @@ class Solution {
                 )
                 .values().stream().collect(Collectors.toList());
     }
+
+    public List<List<String>> groupAnagrams2(String[] strs) {
+        HashMap<String, List<String>> map = new HashMap<>();
+        for (String str : strs) {
+            String sortedStr = str.chars().sorted().mapToObj(c -> String.valueOf((char) c)).collect(Collectors.joining());
+            if (map.containsKey(sortedStr)) {
+                List<String> mapValue = map.get(sortedStr);
+                mapValue.add(str);
+            } else {
+                map.put(sortedStr, new ArrayList<>(List.of(str)));
+            }
+        }
+
+        return map.values().stream().toList();
+    }
 }
 
