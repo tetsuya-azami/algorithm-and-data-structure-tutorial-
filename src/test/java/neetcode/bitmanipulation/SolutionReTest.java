@@ -59,4 +59,14 @@ class SolutionReTest {
         }
         System.out.println();
     }
+
+    @Test
+    public void reverseBits() {
+        SolutionRe solutionRe = new SolutionRe();
+        int result = solutionRe.reverseBits(21);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
