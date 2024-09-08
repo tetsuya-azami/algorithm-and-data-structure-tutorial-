@@ -66,4 +66,16 @@ public class SolutionRe {
         }
         return result;
     }
+
+    public int missingNumber(int[] nums) {
+        int result = 0;
+        for (int i = 0; i < nums.length + 1; i++) {
+            if (i == nums.length) {
+                result += i;
+            } else {
+                result += i - nums[i];
+            }
+        }
+        return result;
+    }
 }
