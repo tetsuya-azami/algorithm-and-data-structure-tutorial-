@@ -2,6 +2,8 @@ package neetcode.arraysandhashing;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 class SolutionTest {
     @Test
     public void containsDuplicate() {
@@ -42,5 +44,15 @@ class SolutionTest {
         for (int e : result) {
             System.out.println(e);
         }
+    }
+
+    @Test
+    public void groupAnagrams() {
+        Solution solution = new Solution();
+        List<List<String>> results = solution.groupAnagrams(new String[]{"act", "pots", "tops", "cat", "stop", "hat"});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(results);
     }
 }

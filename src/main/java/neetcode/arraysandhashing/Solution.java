@@ -1,9 +1,7 @@
 package neetcode.arraysandhashing;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 class Solution {
     public boolean hasDuplicate(int[] nums) {
@@ -62,6 +60,13 @@ class Solution {
         }
 
         throw new RuntimeException("No pair");
+    }
+
+    public List<List<String>> groupAnagrams(String[] strs) {
+        return Arrays.stream(strs).collect(
+                        Collectors.groupingBy(str -> str.chars().sorted().mapToObj(c -> String.valueOf((char) c)).collect(Collectors.joining()))
+                )
+                .values().stream().collect(Collectors.toList());
     }
 }
 
