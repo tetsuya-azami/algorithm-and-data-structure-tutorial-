@@ -97,8 +97,31 @@ class Solution {
             }
             map.get(key).add(str);
         }
-        
+
         return new ArrayList<>(map.values());
+    }
+
+    public int[] topKFrequent(int[] nums, int k) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (Integer num : nums) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+
+        LinkedHashMap<Integer, Integer> linkedHashMap =
+                map.entrySet()
+                        .stream()
+                        .sorted(Map.Entry.comparingByValue(Collections.reverseOrder()))
+                        .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (k1, k2) -> k1, LinkedHashMap::new));
+
+        int[] results = new int[k];
+        int i = 0;
+        for (Map.Entry<Integer, Integer> entry : linkedHashMap.entrySet()) {
+            if (i == k) break;
+            results[i] = entry.getKey();
+            i++;
+        }
+
+        return results;
     }
 }
 
