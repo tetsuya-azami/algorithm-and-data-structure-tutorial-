@@ -65,4 +65,14 @@ class SolutionTest {
         System.out.println();
         System.out.println(results);
     }
+
+    @Test
+    public void groupAnagramsModelAnswer() {
+        Solution solution = new Solution();
+        List<List<String>> results = solution.groupAnagramsModelAnswer(new String[]{"act", "pots", "tops", "cat", "stop", "hat"});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(results);
+    }
 }
