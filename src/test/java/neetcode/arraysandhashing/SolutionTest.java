@@ -2,6 +2,7 @@ package neetcode.arraysandhashing;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -95,5 +96,18 @@ class SolutionTest {
         System.out.println();
         System.out.println();
         System.out.println(Arrays.toString(result));
+    }
+
+    @Test
+    public void encodeAndDecode() {
+        Solution solution = new Solution();
+        String encoded = solution.encode(new ArrayList<>(Arrays.asList("neet", "code", "love", "you", "5#")));
+        List<String> decode = solution.decode(encoded);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(encoded);
+        System.out.println();
+        System.out.println(decode);
     }
 }

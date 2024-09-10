@@ -151,4 +151,35 @@ class Solution {
 
         return results;
     }
+
+    public String encode(List<String> strs) {
+        StringBuilder stb = new StringBuilder();
+        for (String str : strs) {
+            stb.append(str.length()).append("#").append(str);
+        }
+        return stb.toString();
+    }
+
+    public List<String> decode(String str) {
+        List<String> result = new ArrayList<>();
+        int i = 0;
+        while (i < str.length()) {
+            StringBuilder strLengthBuilder = new StringBuilder();
+            while (str.charAt(i) != '#') {
+                strLengthBuilder.append(str.charAt(i));
+                i++;
+            }
+            i++;
+            int strLength = Integer.parseInt(strLengthBuilder.toString());
+
+            StringBuilder stb = new StringBuilder();
+            for (int j = i; j < i + strLength; j++) {
+                stb.append(str.charAt(j));
+            }
+            result.add(stb.toString());
+            i += stb.length();
+        }
+
+        return result;
+    }
 }
