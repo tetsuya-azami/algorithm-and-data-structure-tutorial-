@@ -164,20 +164,13 @@ class Solution {
         List<String> result = new ArrayList<>();
         int i = 0;
         while (i < str.length()) {
-            StringBuilder strLengthBuilder = new StringBuilder();
-            while (str.charAt(i) != '#') {
-                strLengthBuilder.append(str.charAt(i));
-                i++;
-            }
-            i++;
-            int strLength = Integer.parseInt(strLengthBuilder.toString());
+            int j = i;
+            while (str.charAt(j) != '#') j++;
+            int strLength = Integer.parseInt(str.substring(i, j));
+            i = j + 1; // #は飛ばす
 
-            StringBuilder stb = new StringBuilder();
-            for (int j = i; j < i + strLength; j++) {
-                stb.append(str.charAt(j));
-            }
-            result.add(stb.toString());
-            i += stb.length();
+            result.add(str.substring(i, i + strLength));
+            i = i + strLength;
         }
 
         return result;
