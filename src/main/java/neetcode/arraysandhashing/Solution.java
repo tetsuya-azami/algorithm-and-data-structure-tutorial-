@@ -183,7 +183,7 @@ class Solution {
             results[i] = left;
             left *= nums[i];
         }
-        
+
         int right = 1;
         for (int i = nums.length - 1; i > 0; i--) {
             right *= nums[i];
@@ -191,5 +191,29 @@ class Solution {
         }
 
         return results;
+    }
+
+    public boolean isValidSudoku(char[][] board) {
+        Map<Integer, Set<Character>> column = new HashMap<>();
+        Map<Integer, Set<Character>> row = new HashMap<>();
+        Map<Integer, Set<Character>> square = new HashMap<>();
+
+        for (int r = 0; r < 9; r++) {
+            for (int c = 0; c < 9; c++) {
+                char cell = board[r][c];
+                if (cell == '.') continue;
+                // duplicate check
+                if (column.getOrDefault(c, new HashSet<>()).contains(cell) ||
+                        row.getOrDefault(r, new HashSet<>()).contains(cell) ||
+                        square.getOrDefault((r / 3) * 3 + (c / 3), new HashSet<>()).contains(cell)) return false;
+
+                // update map
+                column.computeIfAbsent(c, k -> new HashSet<>()).add(cell);
+                row.computeIfAbsent(r, k -> new HashSet<>()).add(cell);
+                square.computeIfAbsent((r / 3) * 3 + (c / 3), k -> new HashSet<>()).add(cell);
+            }
+        }
+
+        return true;
     }
 }
