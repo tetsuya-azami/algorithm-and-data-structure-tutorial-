@@ -110,4 +110,14 @@ class SolutionTest {
         System.out.println();
         System.out.println(decode);
     }
+
+    @Test
+    public void productExceptSelf() {
+        Solution solution = new Solution();
+        int[] results = solution.productExceptSelf(new int[]{1, 2, 4, 6});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(Arrays.toString(results));
+    }
 }
