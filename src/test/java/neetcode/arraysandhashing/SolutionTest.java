@@ -160,4 +160,14 @@ class SolutionTest {
         System.out.println();
         System.out.println(Arrays.toString(result));
     }
+
+    @Test
+    public void threeSum() {
+        Solution solution = new Solution();
+        List<List<Integer>> result = solution.threeSum(new int[]{-1, 0, 1, 2, -1, -4});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
