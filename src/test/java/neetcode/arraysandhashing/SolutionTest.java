@@ -140,4 +140,14 @@ class SolutionTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    public void longestConsecutive() {
+        Solution solution = new Solution();
+        int result = solution.longestConsecutive(new int[]{2, 20, 4, 10, 3, 4, 5});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
