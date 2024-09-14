@@ -150,4 +150,14 @@ class SolutionTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    public void twoSum2() {
+        Solution solution = new Solution();
+        int[] result = solution.twoSum2(new int[]{1, 2, 3, 4}, 3);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(Arrays.toString(result));
+    }
 }
