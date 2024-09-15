@@ -170,4 +170,14 @@ class SolutionTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    public void maxArea() {
+        Solution solution = new Solution();
+        int result = solution.maxArea(new int[]{1, 7, 2, 5, 4, 7, 3, 6});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
