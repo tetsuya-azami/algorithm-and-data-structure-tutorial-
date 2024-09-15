@@ -292,4 +292,30 @@ class Solution {
 
         return maxArea;
     }
+
+    public int lengthOfLongestSubstring(String s) {
+        Map<Character, Integer> charIndexMap = new LinkedHashMap<>();
+        int maxLength = 0;
+        int nowLength = 0;
+        int removalIndex = 0;
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (charIndexMap.containsKey(c)) {
+                Integer duplicatedCharIndex = charIndexMap.get(c);
+                for (int j = removalIndex; j <= duplicatedCharIndex; j++) {
+                    charIndexMap.remove(s.charAt(j));
+                    removalIndex = j + 1;
+                    nowLength--;
+                }
+                charIndexMap.put(c, i);
+                nowLength++;
+            } else {
+                charIndexMap.put(c, i);
+                nowLength++;
+            }
+            maxLength = Math.max(maxLength, nowLength);
+        }
+
+        return maxLength;
+    }
 }
