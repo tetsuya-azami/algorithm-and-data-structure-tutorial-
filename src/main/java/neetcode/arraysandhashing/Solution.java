@@ -336,4 +336,22 @@ class Solution {
 
         return maxLength;
     }
+
+    public int characterReplacement(String s, int k) {
+        int[] charCount = new int[26];
+        int maxCharCount = 0;
+        int l = 0;
+        int result = 0;
+        for (int r = 0; r < s.length(); r++) {
+            charCount[s.charAt(r) - 'A']++;
+            maxCharCount = Math.max(maxCharCount, charCount[s.charAt(r) - 'A']);
+            while (r - l + 1 - maxCharCount > k) {
+                charCount[s.charAt(l) - 'A']--;
+                l++;
+            }
+            result = Math.max(result, r - l + 1);
+        }
+
+        return result;
+    }
 }

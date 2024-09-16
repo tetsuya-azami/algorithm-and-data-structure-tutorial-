@@ -200,4 +200,14 @@ class SolutionTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    public void characterReplacement() {
+        Solution solution = new Solution();
+        int result = solution.characterReplacement("XYYX", 2);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
