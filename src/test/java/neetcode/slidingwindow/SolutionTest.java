@@ -16,4 +16,14 @@ class SolutionTest {
         System.out.println(result);
         assertEquals(6, result);
     }
+
+    @Test
+    public void checkInclusion() {
+        Solution solution = new Solution();
+        boolean result = solution.checkInclusion("abc", "lecabee");
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
