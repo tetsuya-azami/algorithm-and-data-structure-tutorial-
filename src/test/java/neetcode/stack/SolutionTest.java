@@ -13,4 +13,14 @@ class SolutionTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    public void evalRPN() {
+        Solution solution = new Solution();
+        int result = solution.evalRPN(new String[]{"4", "13", "5", "/", "+"});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }

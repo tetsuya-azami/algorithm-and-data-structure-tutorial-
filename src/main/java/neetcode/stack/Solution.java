@@ -2,6 +2,7 @@ package neetcode.stack;
 
 import java.util.ArrayDeque;
 import java.util.Arrays;
+import java.util.Deque;
 import java.util.List;
 
 public class Solution {
@@ -23,5 +24,36 @@ public class Solution {
         }
 
         return brackets.isEmpty();
+    }
+
+    public int evalRPN(String[] tokens) {
+        Deque<Integer> stack = new ArrayDeque<>();
+        for (int i = 0; i < tokens.length; i++) {
+            switch (tokens[i]) {
+                case "+" -> {
+                    Integer operand1 = stack.pop();
+                    Integer operand2 = stack.pop();
+                    stack.push(operand2 + operand1);
+                }
+                case "-" -> {
+                    Integer operand1 = stack.pop();
+                    Integer operand2 = stack.pop();
+                    stack.push(operand2 - operand1);
+                }
+                case "*" -> {
+                    Integer operand1 = stack.pop();
+                    Integer operand2 = stack.pop();
+                    stack.push(operand2 * operand1);
+                }
+                case "/" -> {
+                    Integer operand1 = stack.pop();
+                    Integer operand2 = stack.pop();
+                    stack.push(operand2 / operand1);
+                }
+                default -> stack.push(Integer.parseInt(tokens[i]));
+            }
+        }
+
+        return stack.pop();
     }
 }
