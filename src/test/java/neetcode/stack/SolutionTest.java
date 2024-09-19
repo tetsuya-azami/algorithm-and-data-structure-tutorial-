@@ -2,6 +2,8 @@ package neetcode.stack;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 class SolutionTest {
     @Test
     public void isValid() {
@@ -18,6 +20,16 @@ class SolutionTest {
     public void evalRPN() {
         Solution solution = new Solution();
         int result = solution.evalRPN(new String[]{"4", "13", "5", "/", "+"});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
+
+    @Test
+    public void generateParenthesis() {
+        Solution solution = new Solution();
+        List<String> result = solution.generateParenthesis(3);
         System.out.println();
         System.out.println();
         System.out.println();

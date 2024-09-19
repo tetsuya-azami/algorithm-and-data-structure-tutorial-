@@ -1,9 +1,6 @@
 package neetcode.stack;
 
-import java.util.ArrayDeque;
-import java.util.Arrays;
-import java.util.Deque;
-import java.util.List;
+import java.util.*;
 
 public class Solution {
     public boolean isValid(String s) {
@@ -55,5 +52,36 @@ public class Solution {
         }
 
         return stack.pop();
+    }
+
+    public List<String> generateParenthesis(int n) {
+        List<String> results = new ArrayList<>();
+        Deque<Character> stack = new ArrayDeque<>();
+        backtrack(n, 0, 0, stack, results);
+        return results;
+    }
+
+    private void backtrack(int n, int openN, int closedN, Deque<Character> stack, List<String> results) {
+        if (openN == closedN && openN == n) {
+            StringBuilder sb = new StringBuilder();
+            Iterator<Character> it = stack.descendingIterator();
+            while (it.hasNext()) {
+                sb.append(it.next());
+            }
+            results.add(sb.toString());
+            return;
+        }
+
+        if (openN < n) {
+            stack.push('(');
+            backtrack(n, openN + 1, closedN, stack, results);
+            stack.pop();
+        }
+
+        if (closedN < openN) {
+            stack.push(')');
+            backtrack(n, openN, closedN + 1, stack, results);
+            stack.pop();
+        }
     }
 }
