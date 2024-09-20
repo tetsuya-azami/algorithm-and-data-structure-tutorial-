@@ -46,4 +46,14 @@ class SolutionTest {
         System.out.println();
         System.out.println(Arrays.toString(result));
     }
+
+    @Test
+    public void dailyTemperaturesWithStack() {
+        Solution solution = new Solution();
+        int[] result = solution.dailyTemperaturesWithStack(new int[]{30, 38, 30, 36, 35, 40, 28});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(Arrays.toString(result));
+    }
 }
