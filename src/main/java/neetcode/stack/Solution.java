@@ -84,4 +84,19 @@ public class Solution {
             stack.pop();
         }
     }
+
+    public int[] dailyTemperatures(int[] temperatures) {
+        int[] results = new int[temperatures.length];
+
+        for (int i = 0; i < temperatures.length; i++) {
+            for (int j = i + 1; j < temperatures.length; j++) {
+                if (temperatures[i] < temperatures[j]) {
+                    results[i] = j - i;
+                    break;
+                }
+            }
+        }
+
+        return results;
+    }
 }

@@ -2,6 +2,7 @@ package neetcode.stack;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.List;
 
 class SolutionTest {
@@ -34,5 +35,15 @@ class SolutionTest {
         System.out.println();
         System.out.println();
         System.out.println(result);
+    }
+
+    @Test
+    public void dailyTemperatures() {
+        Solution solution = new Solution();
+        int[] result = solution.dailyTemperatures(new int[]{30, 38, 30, 36, 35, 40, 28});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(Arrays.toString(result));
     }
 }
