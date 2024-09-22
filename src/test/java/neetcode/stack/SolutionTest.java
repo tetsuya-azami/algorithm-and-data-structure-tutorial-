@@ -66,4 +66,19 @@ class SolutionTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    public void searchMatrix() {
+        Solution solution = new Solution();
+        boolean result = solution.searchMatrix(
+                new int[][]{
+                        new int[]{1, 2, 4, 8},
+                        new int[]{10, 11, 12, 13},
+                        new int[]{14, 20, 30, 40}
+                }, 10);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }

@@ -138,4 +138,39 @@ public class Solution {
 
         return result;
     }
+
+    public boolean searchMatrix(int[][] matrix, int target) {
+        int targetRow = -1;
+        int top = 0;
+        int last = matrix.length - 1;
+
+        while (top <= last) {
+            int middle = (top + last) / 2;
+            if (target < matrix[middle][0]) {
+                last = middle - 1;
+            } else if (matrix[middle][matrix[middle].length - 1] < target) {
+                top = middle + 1;
+            } else {
+                targetRow = middle;
+                break;
+            }
+        }
+        if (targetRow == -1) return false;
+
+        int left = 0;
+        int right = matrix[targetRow].length - 1;
+        while (left <= right) {
+            int middle = (left + right) / 2;
+            int middleValue = matrix[targetRow][middle];
+            if (target < middleValue) {
+                right = middle - 1;
+            } else if (middleValue < target) {
+                left = middle + 1;
+            } else {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
