@@ -56,4 +56,14 @@ class SolutionTest {
         System.out.println();
         System.out.println(Arrays.toString(result));
     }
+
+    @Test
+    public void carFleet() {
+        Solution solution = new Solution();
+        int result = solution.carFleet(10, new int[]{4, 1, 0, 7}, new int[]{2, 2, 1, 1});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }

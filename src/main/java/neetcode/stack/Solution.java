@@ -114,4 +114,28 @@ public class Solution {
 
         return results;
     }
+
+    public int carFleet(int target, int[] position, int[] speed) {
+        double[][] pairs = new double[position.length][2];
+        for (int i = 0; i < position.length; i++) {
+            pairs[i][0] = position[i];
+            pairs[i][1] = speed[i];
+        }
+
+        Arrays.sort(pairs, (a, b) -> Double.compare(b[0], a[0]));
+        double[] timeToReaches = new double[pairs.length];
+        int result = 0;
+
+        for (int i = 0; i < pairs.length; i++) {
+            double timeToReach = (target - pairs[i][0]) / pairs[i][1];
+            timeToReaches[i] = timeToReach;
+            if (i >= 1 && timeToReaches[i] <= timeToReaches[i - 1]) {
+                timeToReaches[i] = timeToReaches[i - 1];
+            } else {
+                result++;
+            }
+        }
+
+        return result;
+    }
 }
