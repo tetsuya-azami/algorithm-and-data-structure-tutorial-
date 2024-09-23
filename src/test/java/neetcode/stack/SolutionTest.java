@@ -81,4 +81,14 @@ class SolutionTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    public void minEatingSpeed() {
+        Solution solution = new Solution();
+        int result = solution.minEatingSpeed(new int[]{25, 10, 23, 4}, 4);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result); // 25
+    }
 }

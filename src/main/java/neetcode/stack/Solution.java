@@ -173,4 +173,25 @@ public class Solution {
 
         return false;
     }
+
+    public int minEatingSpeed(int[] piles, int h) {
+        int left = 1;
+        int right = Arrays.stream(piles).max().getAsInt();
+        int k = right;
+        while (left <= right) {
+            int middle = (left + right) / 2;
+            int totalTime = 0;
+            for (int i = 0; i < piles.length; i++) {
+                totalTime += Math.ceil((double) piles[i] / middle);
+            }
+            if (totalTime <= h) {
+                k = middle;
+                right = middle - 1;
+            } else {
+                left = middle + 1;
+            }
+        }
+
+        return k;
+    }
 }
