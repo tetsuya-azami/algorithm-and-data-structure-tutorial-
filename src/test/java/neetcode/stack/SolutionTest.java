@@ -66,39 +66,4 @@ class SolutionTest {
         System.out.println();
         System.out.println(result);
     }
-
-    @Test
-    public void searchMatrix() {
-        Solution solution = new Solution();
-        boolean result = solution.searchMatrix(
-                new int[][]{
-                        new int[]{1, 2, 4, 8},
-                        new int[]{10, 11, 12, 13},
-                        new int[]{14, 20, 30, 40}
-                }, 10);
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println(result);
-    }
-
-    @Test
-    public void minEatingSpeed() {
-        Solution solution = new Solution();
-        int result = solution.minEatingSpeed(new int[]{25, 10, 23, 4}, 4);
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println(result); // 25
-    }
-
-    @Test
-    public void findMin() {
-        Solution solution = new Solution();
-        int result = solution.findMin(new int[]{4, 5, 0, 1, 2, 3});
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println(result);
-    }
 }
