@@ -91,4 +91,14 @@ class SolutionTest {
         System.out.println();
         System.out.println(result); // 25
     }
+
+    @Test
+    public void findMin() {
+        Solution solution = new Solution();
+        int result = solution.findMin(new int[]{4, 5, 0, 1, 2, 3});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
