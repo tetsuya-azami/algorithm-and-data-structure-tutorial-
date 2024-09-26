@@ -17,8 +17,8 @@ class TimeMap {
     }
 
     public String get(String key, int timestamp) {
-        List<Pair<Integer, String>> pairs = this.map.get(key);
-        if (pairs == null || pairs.isEmpty()) return "";
+        List<Pair<Integer, String>> pairs = this.map.getOrDefault(key, new ArrayList<>());
+        if (pairs.isEmpty()) return "";
 
         int l = 0;
         int r = pairs.size() - 1;
@@ -26,8 +26,8 @@ class TimeMap {
         while (l <= r) {
             int mid = (l + r) / 2;
             Pair<Integer, String> pair = pairs.get(mid);
-            if (pair.getKey() <= timestamp) {
-                result = pair.getValue();
+            if (pair.key() <= timestamp) {
+                result = pair.value();
                 l = mid + 1;
             } else {
                 r = mid - 1;
@@ -37,21 +37,6 @@ class TimeMap {
         return result;
     }
 
-    private class Pair<K, V> {
-        private K key;
-        private V value;
-
-        public Pair(K key, V value) {
-            this.key = key;
-            this.value = value;
-        }
-
-        public K getKey() {
-            return this.key;
-        }
-
-        public V getValue() {
-            return this.value;
-        }
+    private record Pair<K, V>(K key, V value) {
     }
 }
