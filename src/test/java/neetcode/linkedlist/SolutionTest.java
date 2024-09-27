@@ -115,4 +115,19 @@ class SolutionTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    public void reorderList() {
+        Solution solution = new Solution();
+        ListNode node10 = new ListNode(10);
+        ListNode node8 = new ListNode(8, node10);
+        ListNode node6 = new ListNode(6, node8);
+        ListNode node4 = new ListNode(4, node6);
+        ListNode node2 = new ListNode(2, node4);
+        solution.reorderList(node2);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        node2.print();
+    }
 }
