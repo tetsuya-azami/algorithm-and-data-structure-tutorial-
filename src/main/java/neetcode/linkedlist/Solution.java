@@ -138,5 +138,24 @@ public class Solution {
             pre = tmp2;
         }
     }
+
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        // dummy(L),1,2,3,4
+        ListNode dummy = new ListNode(0, head);
+        ListNode l = dummy;
+        ListNode r = head;
+        while (n > 0) {
+            r = r.next;
+            n--;
+        }
+
+        while (r != null) {
+            r = r.next;
+            l = l.next;
+        }
+
+        l.next = l.next.next;
+        return dummy.next;
+    }
 }
 

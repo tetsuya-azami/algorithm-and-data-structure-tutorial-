@@ -145,4 +145,18 @@ class SolutionTest {
         System.out.println();
         node2.print();
     }
+
+    @Test
+    public void removeNthFromEnd() {
+        Solution solution = new Solution();
+        ListNode node4 = new ListNode(4);
+        ListNode node3 = new ListNode(3, node4);
+        ListNode node2 = new ListNode(2, node3);
+        ListNode node1 = new ListNode(1, node2);
+        ListNode result = solution.removeNthFromEnd(node1, 2);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        result.print();
+    }
 }
