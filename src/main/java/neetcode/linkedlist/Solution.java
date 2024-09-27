@@ -108,5 +108,35 @@ public class Solution {
             second = tmp2;
         }
     }
+
+    public void reorderListRe(ListNode head) {
+        if (head == null || head.next == null) return;
+        ListNode slow = head;
+        ListNode fast = head.next;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        ListNode second = slow.next;
+        slow.next = null;
+
+        // 順番を入れ替える
+        ListNode pre = null;
+        while (second != null) {
+            ListNode tmp = second.next;
+            second.next = pre;
+            pre = second;
+            second = tmp;
+        }
+
+        while (pre != null) {
+            ListNode tmp1 = head.next;
+            ListNode tmp2 = pre.next;
+            head.next = pre;
+            pre.next = tmp1;
+            head = tmp1;
+            pre = tmp2;
+        }
+    }
 }
 
