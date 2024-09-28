@@ -159,4 +159,23 @@ class SolutionTest {
         System.out.println();
         result.print();
     }
+
+    @Test
+    public void copyRandomList() {
+        Node node3 = new Node(3);
+        Node node7 = new Node(7);
+        Node node4 = new Node(4);
+        Node node5 = new Node(5);
+        node3.next = node7;
+        node7.next = node4;
+        node4.next = node5;
+        node5.next = null;
+        node3.random = null;
+        node7.random = node5;
+        node4.random = node3;
+        node5.random = node7;
+        Solution solution = new Solution();
+        Node result = solution.copyRandomList(node3);
+        result.print();
+    }
 }

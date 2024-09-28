@@ -1,7 +1,9 @@
 package neetcode.linkedlist;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Solution {
     public ListNode reverseList(ListNode head) {
@@ -156,6 +158,26 @@ public class Solution {
 
         l.next = l.next.next;
         return dummy.next;
+    }
+
+    public Node copyRandomList(Node head) {
+        Map<Node, Node> map = new HashMap<>();
+        Node cur = head;
+        while (cur != null) {
+            Node copy = new Node(cur.val);
+            map.put(cur, copy);
+            cur = cur.next;
+        }
+
+        cur = head;
+        while (cur != null) {
+            Node copy = map.get(cur);
+            copy.next = map.get(cur.next);
+            copy.random = map.get(cur.random);
+            cur = cur.next;
+        }
+
+        return map.get(head);
     }
 }
 
