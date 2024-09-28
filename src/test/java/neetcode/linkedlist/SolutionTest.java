@@ -178,4 +178,17 @@ class SolutionTest {
         Node result = solution.copyRandomList(node3);
         result.print();
     }
+
+    @Test
+    public void addTwoNumbers() {
+        Solution solution = new Solution();
+        ListNode node3 = new ListNode(3);
+        ListNode node2 = new ListNode(2, node3);
+        ListNode node1 = new ListNode(1, node2);
+        ListNode node6 = new ListNode(6);
+        ListNode node5 = new ListNode(5, node6);
+        ListNode node4 = new ListNode(4, node5);
+        ListNode result = solution.addTwoNumbers(node1, node4);
+        result.print();
+    }
 }

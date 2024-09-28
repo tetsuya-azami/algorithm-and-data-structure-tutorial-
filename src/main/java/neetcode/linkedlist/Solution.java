@@ -179,5 +179,27 @@ public class Solution {
 
         return map.get(head);
     }
+
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode dummy = new ListNode();
+        ListNode cur = dummy;
+        int carry = 0;
+        while (l1 != null || l2 != null || carry != 0) {
+            int l1Val = l1 != null ? l1.val : 0;
+            int l2Val = l2 != null ? l2.val : 0;
+            int sum = l1Val + l2Val + carry;
+            carry = 0;
+            if (sum > 9) {
+                sum -= 10;
+                carry = 1;
+            }
+            cur.next = new ListNode(sum);
+            cur = cur.next;
+            l1 = (l1 != null) ? l1.next : null;
+            l2 = (l2 != null) ? l2.next : null;
+        }
+
+        return dummy.next;
+    }
 }
 
