@@ -191,4 +191,14 @@ class SolutionTest {
         ListNode result = solution.addTwoNumbers(node1, node4);
         result.print();
     }
+
+    @Test
+    public void findDuplicate() {
+        Solution solution = new Solution();
+        int result = solution.findDuplicate(new int[]{1, 2, 3, 2, 2});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
