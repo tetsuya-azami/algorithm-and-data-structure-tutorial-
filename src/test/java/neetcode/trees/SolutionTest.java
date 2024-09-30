@@ -135,4 +135,22 @@ class SolutionTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    public void lowestCommonAncestor() {
+        Solution solution = new Solution();
+        TreeNode node2 = new TreeNode(2);
+        TreeNode node9 = new TreeNode(9);
+        TreeNode node7 = new TreeNode(7);
+        TreeNode node4 = new TreeNode(4);
+        TreeNode node1 = new TreeNode(1, null, node2);
+        TreeNode node8 = new TreeNode(8, node7, node9);
+        TreeNode node3 = new TreeNode(3, node1, node4);
+        TreeNode node5 = new TreeNode(5, node3, node8);
+        TreeNode result = solution.lowestCommonAncestor(node5, node3, node8);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result.val);
+    }
 }

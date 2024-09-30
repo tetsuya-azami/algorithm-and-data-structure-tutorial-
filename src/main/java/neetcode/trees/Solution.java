@@ -83,4 +83,16 @@ public class Solution {
         }
         return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
     }
+
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        while (true) {
+            if (root.val < p.val && root.val < q.val) {
+                root = root.right;
+            } else if (root.val > p.val && root.val > q.val) {
+                root = root.left;
+            } else {
+                return root;
+            }
+        }
+    }
 }
