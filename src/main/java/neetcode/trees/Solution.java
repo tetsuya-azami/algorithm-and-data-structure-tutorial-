@@ -1,5 +1,10 @@
 package neetcode.trees;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.LinkedList;
+import java.util.List;
+
 public class Solution {
 
     public TreeNode invertTree(TreeNode root) {
@@ -94,5 +99,28 @@ public class Solution {
                 return root;
             }
         }
+    }
+
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> result = new LinkedList<>();
+        Deque<TreeNode> queue = new ArrayDeque<>();
+        if (root != null) queue.add(root);
+
+        while (!queue.isEmpty()) {
+            List<Integer> sameHeightNodes = new LinkedList<>();
+            result.add(sameHeightNodes);
+            for (int i = 0, len = queue.size(); i < len; i++) {
+                TreeNode node = queue.poll();
+                sameHeightNodes.add(node.val);
+                if (node.left != null) {
+                    queue.add(node.left);
+                }
+                if (node.right != null) {
+                    queue.add(node.right);
+                }
+            }
+        }
+
+        return result;
     }
 }
