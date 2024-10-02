@@ -1,9 +1,6 @@
 package neetcode.trees;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class Solution {
 
@@ -117,6 +114,29 @@ public class Solution {
                 }
                 if (node.right != null) {
                     queue.add(node.right);
+                }
+            }
+        }
+
+        return result;
+    }
+
+    public List<Integer> rightSideView(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        Deque<TreeNode> queue = new ArrayDeque<>();
+        if (root == null) return result;
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            for (int i = 0, length = queue.size(); i < length; i++) {
+                TreeNode node = queue.pop();
+                if (node.left != null) {
+                    queue.add(node.left);
+                }
+                if (node.right != null) {
+                    queue.add(node.right);
+                }
+                if (i == length - 1) {
+                    result.add(node.val);
                 }
             }
         }
