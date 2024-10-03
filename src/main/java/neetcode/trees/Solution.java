@@ -143,4 +143,25 @@ public class Solution {
 
         return result;
     }
+
+    public int goodNodes(TreeNode root) {
+        PriorityQueue<Integer> queue = new PriorityQueue<>(Collections.reverseOrder());
+        int[] result = {0};
+        queue.add(root.val - 1);
+        goodNodesDfs(root, queue, result);
+
+        return result[0];
+    }
+
+    private void goodNodesDfs(TreeNode node, Queue<Integer> priorityQueue, int[] result) {
+        if (priorityQueue.peek() <= node.val) result[0]++;
+        priorityQueue.add(node.val);
+        if (node.left != null) {
+            goodNodesDfs(node.left, priorityQueue, result);
+        }
+        if (node.right != null) {
+            goodNodesDfs(node.right, priorityQueue, result);
+        }
+        priorityQueue.remove(node.val);
+    }
 }

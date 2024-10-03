@@ -188,4 +188,20 @@ class SolutionTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    public void goodNodes() {
+        Solution solution = new Solution();
+        TreeNode node5 = new TreeNode(5);
+        TreeNode node1_right = new TreeNode(1);
+        TreeNode node3_right = new TreeNode(3);
+        TreeNode node4 = new TreeNode(4, node1_right, node5);
+        TreeNode node3_left = new TreeNode(1, node3_right, null);
+        TreeNode root = new TreeNode(3, node3_left, node4);
+        int result = solution.goodNodes(root);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
