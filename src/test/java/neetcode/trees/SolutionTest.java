@@ -26,7 +26,7 @@ class SolutionTest {
     }
 
     @Test
-    public void invertTree() {
+    void invertTree() {
         TreeNode node4 = new TreeNode(4);
         TreeNode node5 = new TreeNode(5);
         TreeNode node6 = new TreeNode(6);
@@ -41,7 +41,7 @@ class SolutionTest {
     }
 
     @Test
-    public void maxDepth() {
+    void maxDepth() {
         TreeNode node4 = new TreeNode(4);
         TreeNode node2 = new TreeNode(2);
         TreeNode node3 = new TreeNode(3, node4, null);
@@ -55,7 +55,7 @@ class SolutionTest {
     }
 
     @Test
-    public void maxDepthModelAnswer() {
+    void maxDepthModelAnswer() {
         TreeNode node4 = new TreeNode(4);
         TreeNode node2 = new TreeNode(2);
         TreeNode node3 = new TreeNode(3, node4, null);
@@ -69,7 +69,7 @@ class SolutionTest {
     }
 
     @Test
-    public void diameterOfBinaryTree() {
+    void diameterOfBinaryTree() {
         TreeNode node5 = new TreeNode(5);
         TreeNode node4 = new TreeNode(4);
         TreeNode node3 = new TreeNode(3, node5, null);
@@ -85,7 +85,7 @@ class SolutionTest {
     }
 
     @Test
-    public void isBalanced() {
+    void isBalanced() {
         TreeNode node4 = new TreeNode(4);
         TreeNode node3 = new TreeNode(3, node4, null);
         TreeNode node2 = new TreeNode(2);
@@ -100,7 +100,7 @@ class SolutionTest {
     }
 
     @Test
-    public void isSameTree() {
+    void isSameTree() {
         TreeNode pNode3 = new TreeNode(3);
         TreeNode pNode2 = new TreeNode(2);
         TreeNode p = new TreeNode(1, pNode2, pNode3);
@@ -118,7 +118,7 @@ class SolutionTest {
     }
 
     @Test
-    public void isSubtree() {
+    void isSubtree() {
         TreeNode pNode5 = new TreeNode(5);
         TreeNode pNode4 = new TreeNode(4);
         TreeNode pNode3 = new TreeNode(3);
@@ -138,7 +138,7 @@ class SolutionTest {
     }
 
     @Test
-    public void lowestCommonAncestor() {
+    void lowestCommonAncestor() {
         Solution solution = new Solution();
         TreeNode node2 = new TreeNode(2);
         TreeNode node9 = new TreeNode(9);
@@ -156,7 +156,7 @@ class SolutionTest {
     }
 
     @Test
-    public void levelOrder() {
+    void levelOrder() {
         Solution solution = new Solution();
         TreeNode node7 = new TreeNode(7);
         TreeNode node6 = new TreeNode(6);
@@ -173,7 +173,7 @@ class SolutionTest {
     }
 
     @Test
-    public void rightSideView() {
+    void rightSideView() {
         Solution solution = new Solution();
         TreeNode node7 = new TreeNode(7);
         TreeNode node6 = new TreeNode(6);
@@ -190,7 +190,7 @@ class SolutionTest {
     }
 
     @Test
-    public void goodNodes() {
+    void goodNodes() {
         Solution solution = new Solution();
         TreeNode node5 = new TreeNode(5);
         TreeNode node1_right = new TreeNode(1);
@@ -199,6 +199,20 @@ class SolutionTest {
         TreeNode node3_left = new TreeNode(1, node3_right, null);
         TreeNode root = new TreeNode(3, node3_left, node4);
         int result = solution.goodNodes(root);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
+
+    @Test
+    void isValidBST() {
+        Solution solution = new Solution();
+        TreeNode node1 = new TreeNode(1);
+        TreeNode node3 = new TreeNode(3);
+        TreeNode node2 = new TreeNode(2, node1, node3);
+
+        boolean result = solution.isValidBST(node2);
         System.out.println();
         System.out.println();
         System.out.println();

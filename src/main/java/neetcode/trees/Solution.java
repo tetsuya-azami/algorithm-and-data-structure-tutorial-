@@ -156,4 +156,15 @@ public class Solution {
         max = Math.max(max, node.val);
         return goodNodesDfs(node.left, max) + goodNodesDfs(node.right, max) + isGoodNode;
     }
+
+    public boolean isValidBST(TreeNode root) {
+        return isValidBSTDfs(root, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY);
+    }
+
+    private boolean isValidBSTDfs(TreeNode node, double left, double right) {
+        if (node == null) return true;
+        if (!(left < node.val && node.val < right)) return false;
+        
+        return isValidBSTDfs(node.left, left, node.val) && isValidBSTDfs(node.right, node.val, right);
+    }
 }
