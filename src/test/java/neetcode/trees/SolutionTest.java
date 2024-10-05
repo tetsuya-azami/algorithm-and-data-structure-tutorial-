@@ -233,4 +233,26 @@ class SolutionTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void buildTree() {
+        Solution solution = new Solution();
+
+        TreeNode result = solution.buildTree(new int[]{1, 2, 3, 4}, new int[]{2, 1, 3, 4});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        printNodes(result);
+        System.out.println();
+    }
+
+    void printNodes(TreeNode node) {
+        if (node == null) {
+            System.out.print("null,");
+            return;
+        }
+        System.out.print(node.val + ",");
+        printNodes(node.left);
+        printNodes(node.right);
+    }
 }
