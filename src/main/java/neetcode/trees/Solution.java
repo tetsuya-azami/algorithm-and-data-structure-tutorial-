@@ -164,7 +164,21 @@ public class Solution {
     private boolean isValidBSTDfs(TreeNode node, double left, double right) {
         if (node == null) return true;
         if (!(left < node.val && node.val < right)) return false;
-        
+
         return isValidBSTDfs(node.left, left, node.val) && isValidBSTDfs(node.right, node.val, right);
+    }
+
+    public int kthSmallest(TreeNode root, int k) {
+        List<Integer> array = new ArrayList<>();
+        kthSmallestDfs(root, array);
+        return array.get(k - 1);
+    }
+
+    private void kthSmallestDfs(TreeNode node, List<Integer> list) {
+        if (node == null) return;
+
+        kthSmallestDfs(node.left, list);
+        list.add(node.val);
+        kthSmallestDfs(node.right, list);
     }
 }
