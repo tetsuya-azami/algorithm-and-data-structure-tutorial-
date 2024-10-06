@@ -199,11 +199,27 @@ public class Solution {
         int[] leftPreorder = Arrays.copyOfRange(preorder, 1, middle + 1);
         int[] leftInorder = Arrays.copyOfRange(inorder, 0, middle);
         root.left = buildTree(leftPreorder, leftInorder);
-        
+
         int[] rightPreorder = Arrays.copyOfRange(preorder, middle + 1, preorder.length);
         int[] rightInorder = Arrays.copyOfRange(inorder, middle + 1, inorder.length);
         root.right = buildTree(rightPreorder, rightInorder);
 
         return root;
+    }
+
+    public int[][] kClosest(int[][] points, int k) {
+        int[][] result = new int[k][];
+        Queue<int[]> queue = new PriorityQueue<>(Comparator.comparing(e -> e[0]));
+        for (int[] point : points) {
+            int distance = point[0] * point[0] + point[1] * point[1];
+            queue.add(new int[]{distance, point[0], point[1]});
+        }
+
+        for (int i = 0; i < k; i++) {
+            int[] point = queue.poll();
+            result[i] = new int[]{point[1], point[2]};
+        }
+
+        return result;
     }
 }
