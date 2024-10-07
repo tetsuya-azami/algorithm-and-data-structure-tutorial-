@@ -79,4 +79,35 @@ public class Solution {
         }
         return minHeap.peek();
     }
+
+    public int findKthLargestModelAnswer(int[] nums, int k) {
+        k = nums.length - k;
+        int left = 0, right = nums.length - 1;
+        while (left < right) {
+            int pivotIndex = partition(nums, left, right);
+            if (pivotIndex < k) {
+                left = pivotIndex + 1;
+            } else if (k < pivotIndex) {
+                right = pivotIndex - 1;
+            } else {
+                break;
+            }
+        }
+        return nums[k];
+    }
+
+    private int partition(int[] nums, int left, int right) {
+        int pivot = nums[right], fill = left;
+        for (int i = left; i < right; i++) {
+            if (nums[i] <= pivot) {
+                int tmp = nums[fill];
+                nums[fill++] = nums[i];
+                nums[i] = tmp;
+            }
+        }
+        nums[right] = nums[fill];
+        nums[fill] = pivot;
+
+        return fill;
+    }
 }

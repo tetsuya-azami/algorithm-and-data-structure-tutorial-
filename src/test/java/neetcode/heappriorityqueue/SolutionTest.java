@@ -71,4 +71,14 @@ class SolutionTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void findKthLargestModelAnswer() {
+        Solution solution = new Solution();
+        int result = solution.findKthLargestModelAnswer(new int[]{2, 3, 1, 1, 5, 5, 4}, 2);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
