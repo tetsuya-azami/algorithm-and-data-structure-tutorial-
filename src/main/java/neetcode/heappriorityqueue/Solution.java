@@ -110,4 +110,32 @@ public class Solution {
 
         return fill;
     }
+
+    public int leastInterval(char[] tasks, int n) {
+        Map<Character, Integer> map = new HashMap<>();
+        for (char task : tasks) {
+            map.put(task, map.getOrDefault(task, 0) + 1);
+        }
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
+        for (Integer e : map.values()) {
+            maxHeap.offer(e);
+        }
+
+        Deque<int[]> queue = new ArrayDeque<>(); // [count,time]
+        int time = 0;
+        while (!maxHeap.isEmpty() || !queue.isEmpty()) {
+            if (!queue.isEmpty() && time >= queue.peek()[1]) {
+                maxHeap.offer(queue.poll()[0]);
+            }
+            if (!maxHeap.isEmpty()) {
+                Integer taskCount = maxHeap.poll();
+                if (taskCount > 1) {
+                    queue.offer(new int[]{taskCount - 1, time + n + 1});
+                }
+            }
+            time++;
+        }
+
+        return time;
+    }
 }
