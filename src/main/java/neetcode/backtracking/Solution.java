@@ -23,4 +23,24 @@ public class Solution {
         subset.remove(subset.size() - 1);
         subsetDfs(nums, result, subset, i + 1);
     }
+
+    public List<List<Integer>> combinationSum(int[] nums, int target) {
+        List<List<Integer>> result = new LinkedList<>();
+        combinationSumDfs(nums, target, result, new ArrayList<>(), 0);
+
+        return result;
+    }
+
+    private void combinationSumDfs(int[] nums, int target, List<List<Integer>> result, List<Integer> subset, int index) {
+        if (target == 0) {
+            result.add(new ArrayList<>(subset));
+            return;
+        } else if (target < 0 || nums.length - 1 < index) {
+            return;
+        }
+        subset.add(nums[index]);
+        combinationSumDfs(nums, target - nums[index], result, subset, index);
+        subset.remove(subset.size() - 1);
+        combinationSumDfs(nums, target, result, subset, index + 1);
+    }
 }

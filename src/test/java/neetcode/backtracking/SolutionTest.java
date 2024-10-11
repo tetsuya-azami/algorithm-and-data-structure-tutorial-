@@ -15,4 +15,14 @@ class SolutionTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void combinationSum() {
+        Solution solution = new Solution();
+        List<List<Integer>> result = solution.combinationSum(new int[]{2, 5, 6, 9}, 9);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
