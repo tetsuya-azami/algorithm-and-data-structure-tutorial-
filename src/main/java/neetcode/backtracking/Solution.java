@@ -43,4 +43,32 @@ public class Solution {
         subset.remove(subset.size() - 1);
         combinationSumDfs(nums, target, result, subset, index + 1);
     }
+
+    public List<List<Integer>> permute(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+
+        if (nums.length == 1) {
+            result.add(new ArrayList<>(List.of(nums[0])));
+            return result;
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+            int n = nums[i];
+            int index = 0;
+            int[] remainingNums = new int[nums.length - 1];
+            for (int j = 0; j < nums.length; j++) {
+                if (i != j) {
+                    remainingNums[index++] = nums[j];
+                }
+            }
+
+            List<List<Integer>> permutes = permute(remainingNums);
+            for (List<Integer> permute : permutes) {
+                permute.add(n);
+                result.add(new ArrayList<>(permute));
+            }
+        }
+
+        return result;
+    }
 }

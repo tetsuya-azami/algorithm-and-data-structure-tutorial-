@@ -25,4 +25,14 @@ class SolutionTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void permute() {
+        Solution solution = new Solution();
+        List<List<Integer>> result = solution.permute(new int[]{1, 2, 3});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
