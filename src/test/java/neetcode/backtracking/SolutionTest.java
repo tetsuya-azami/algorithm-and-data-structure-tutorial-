@@ -35,4 +35,14 @@ class SolutionTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void subsetsWithDup() {
+        Solution solution = new Solution();
+        List<List<Integer>> result = solution.subsetsWithDup(new int[]{1, 2, 1});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
