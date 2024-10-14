@@ -45,4 +45,14 @@ class SolutionTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void combinationSum2() {
+        Solution solution = new Solution();
+        List<List<Integer>> result = solution.combinationSum2(new int[]{9, 2, 2, 4, 6, 1, 5}, 8);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }

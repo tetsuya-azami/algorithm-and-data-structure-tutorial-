@@ -89,4 +89,31 @@ public class Solution {
             subset.remove(subset.size() - 1);
         }
     }
+
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> subset = new ArrayList<>();
+        Arrays.sort(candidates);
+        combinationSum2Backtrack(result, subset, candidates, target, 0, 0);
+        return result;
+    }
+
+    // 1, 2, 2, 4, 5, 6, 9
+    private void combinationSum2Backtrack(
+            List<List<Integer>> result, List<Integer> subset, int[] candidates, int target, int sum, int index) {
+        if (sum == target) {
+            result.add(new ArrayList<>(subset));
+            return;
+        }
+        if (sum > target || index == candidates.length) {
+            return;
+        }
+        subset.add(candidates[index]);
+        combinationSum2Backtrack(result, subset, candidates, target, sum + candidates[index], index + 1);
+        subset.remove(subset.size() - 1);
+        while (index + 1 < candidates.length && candidates[index] == candidates[index + 1]) {
+            index++;
+        }
+        combinationSum2Backtrack(result, subset, candidates, target, sum, index + 1);
+    }
 }
