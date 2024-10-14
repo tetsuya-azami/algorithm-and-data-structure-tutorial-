@@ -143,4 +143,40 @@ public class Solution {
 
         return result;
     }
+
+    public List<List<String>> partition(String s) {
+        List<List<String>> result = new ArrayList<>();
+        List<String> part = new ArrayList<>();
+        partitionDfs(result, part, s, 0);
+
+        return result;
+    }
+
+    private void partitionDfs(List<List<String>> result, List<String> part, String s, int i) {
+        if (i > s.length() - 1) {
+            result.add(new ArrayList<>(part));
+            return;
+        }
+        for (int j = i; j < s.length(); j++) {
+            String substring = s.substring(i, j + 1);
+            if (isPalindrome(substring)) {
+                part.add(substring);
+                partitionDfs(result, part, s, j + 1);
+                part.remove(part.size() - 1);
+            }
+        }
+    }
+
+    private boolean isPalindrome(String s) {
+        int l = 0;
+        int r = s.length() - 1;
+        while (l < r) {
+            if (s.charAt(l) != s.charAt(r)) {
+                return false;
+            }
+            l++;
+            r--;
+        }
+        return true;
+    }
 }

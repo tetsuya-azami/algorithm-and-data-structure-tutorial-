@@ -71,4 +71,14 @@ class SolutionTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void partition() {
+        Solution solution = new Solution();
+        List<List<String>> result = solution.partition("aab");
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
