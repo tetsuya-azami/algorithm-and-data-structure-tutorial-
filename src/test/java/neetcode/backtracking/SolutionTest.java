@@ -55,4 +55,20 @@ class SolutionTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void exist() {
+        Solution solution = new Solution();
+        boolean result = solution.exist(
+                new char[][]{new char[]{'a', 'b'}},
+//                new char[][]{
+//                        new char[]{'A', 'B', 'C', 'D'},
+//                        new char[]{'S', 'A', 'A', 'T'},
+//                        new char[]{'A', 'C', 'A', 'E'}},
+                "ba");
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }

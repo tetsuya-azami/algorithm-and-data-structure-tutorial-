@@ -1,9 +1,6 @@
 package neetcode.backtracking;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class Solution {
     public List<List<Integer>> subsets(int[] nums) {
@@ -115,5 +112,35 @@ public class Solution {
             index++;
         }
         combinationSum2Backtrack(result, subset, candidates, target, sum, index + 1);
+    }
+
+    public boolean exist(char[][] board, String word) {
+        for (int row = 0; row < board.length; row++) {
+            for (int col = 0; col < board[0].length; col++) {
+                if (findNextCharacter(board, word, row, col, new HashSet<>(), 0)) return true;
+            }
+        }
+
+        return false;
+    }
+
+    private boolean findNextCharacter(char[][] board, String word, int row, int col, HashSet<String> used, int curCharIndex) {
+        String key = String.format("%s-%s", col, row);
+        if (used.contains(key) || col < 0 || board[0].length - 1 < col || row < 0 || board.length - 1 < row || word.charAt(curCharIndex) != board[row][col]) {
+            return false;
+        }
+        if (curCharIndex == word.length() - 1) return true;
+
+        curCharIndex++;
+        used.add(key);
+
+        boolean result =
+                findNextCharacter(board, word, row + 1, col, used, curCharIndex) ||
+                        findNextCharacter(board, word, row - 1, col, used, curCharIndex) ||
+                        findNextCharacter(board, word, row, col + 1, used, curCharIndex) ||
+                        findNextCharacter(board, word, row, col - 1, used, curCharIndex);
+        used.remove(key);
+
+        return result;
     }
 }
