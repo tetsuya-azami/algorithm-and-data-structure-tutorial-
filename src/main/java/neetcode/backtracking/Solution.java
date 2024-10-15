@@ -179,4 +179,40 @@ public class Solution {
         }
         return true;
     }
+
+    public List<String> letterCombinations(String digits) {
+        if (digits == null || digits.isEmpty()) return new ArrayList<>();
+        Map<Character, String> map = createMap();
+        List<String> result = new ArrayList<>();
+        letterCombinationsDfs(result, new StringBuilder(), map, digits, 0);
+
+        return result;
+    }
+
+    private void letterCombinationsDfs(List<String> result, StringBuilder subset, Map<Character, String> map, String digits, int index) {
+        if (index >= digits.length()) {
+            result.add(subset.toString());
+            return;
+        }
+        String phoneChars = map.get(digits.charAt(index));
+        for (Character c : phoneChars.toCharArray()) {
+            subset.append(c);
+            letterCombinationsDfs(result, subset, map, digits, index + 1);
+            subset.deleteCharAt(subset.length() - 1);
+        }
+    }
+
+    private Map<Character, String> createMap() {
+        Map<Character, String> map = new HashMap<>();
+        map.put('2', "abc");
+        map.put('3', "def");
+        map.put('4', "ghi");
+        map.put('5', "jkl");
+        map.put('6', "mno");
+        map.put('7', "pqrs");
+        map.put('8', "tuv");
+        map.put('9', "wxyz");
+
+        return map;
+    }
 }

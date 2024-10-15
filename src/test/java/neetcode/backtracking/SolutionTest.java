@@ -81,4 +81,14 @@ class SolutionTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void letterCombinations() {
+        Solution solution = new Solution();
+        List<String> result = solution.letterCombinations("34");
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
