@@ -48,4 +48,31 @@ public class Solution {
 
     private record Pair<K, V>(K key, V value) {
     }
+
+    public int maxAreaOfIsland(int[][] grid) {
+        int result = 0;
+        Set<Pair<Integer, Integer>> isVisited = new HashSet<>();
+        for (int row = 0; row < grid.length; row++) {
+            for (int col = 0; col < grid[0].length; col++) {
+                result = Math.max(result, maxAreaOfIslandDfs(grid, row, col, isVisited));
+            }
+        }
+
+        return result;
+    }
+
+    private int maxAreaOfIslandDfs(int[][] grid, int row, int col, Set<Pair<Integer, Integer>> isVisited) {
+        int rowMax = grid.length - 1;
+        int colMax = grid[0].length - 1;
+        Pair<Integer, Integer> pair = new Pair<>(row, col);
+        if (!isInRange(pair, rowMax, colMax) || grid[row][col] != 1 || isVisited.contains(pair)) return 0;
+
+        isVisited.add(pair);
+        int below = maxAreaOfIslandDfs(grid, row + 1, col, isVisited);
+        int above = maxAreaOfIslandDfs(grid, row - 1, col, isVisited);
+        int right = maxAreaOfIslandDfs(grid, row, col + 1, isVisited);
+        int left = maxAreaOfIslandDfs(grid, row, col - 1, isVisited);
+
+        return below + above + right + left + 1;
+    }
 }
