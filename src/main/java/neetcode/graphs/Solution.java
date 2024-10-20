@@ -75,4 +75,19 @@ public class Solution {
 
         return below + above + right + left + 1;
     }
+
+    public Node cloneGraph(Node node) {
+        Map<Node, Node> oldToNew = new HashMap<>();
+        return cloneGraphDfs(node, oldToNew);
+    }
+
+    private Node cloneGraphDfs(Node old, Map<Node, Node> oldToNews) {
+        if (old == null) return null;
+        if (oldToNews.containsKey(old)) return oldToNews.get(old);
+        Node copy = new Node(old.val);
+        oldToNews.put(old, copy);
+        old.neighbors.forEach(neighbor -> copy.neighbors.add(cloneGraphDfs(neighbor, oldToNews)));
+
+        return copy;
+    }
 }

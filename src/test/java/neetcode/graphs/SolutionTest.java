@@ -33,4 +33,22 @@ class SolutionTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void cloneGraph() {
+        Solution solution = new Solution();
+        Node node1 = new Node(1);
+        Node node2 = new Node(2);
+        Node node3 = new Node(3);
+        node1.neighbors.add(node2);
+        node2.neighbors.add(node1);
+        node2.neighbors.add(node3);
+        node3.neighbors.add(node2);
+
+        Node result = solution.cloneGraph(node1);
+        System.out.println(node1);
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
