@@ -90,4 +90,21 @@ public class Solution {
 
         return copy;
     }
+
+    public Node cloneGraphRe(Node node) {
+        Map<Node, Node> oldToNew = new HashMap<>();
+        return cloneGraphReDfs(node, oldToNew);
+    }
+
+    private Node cloneGraphReDfs(Node oldNode, Map<Node, Node> oldToNew) {
+        if (oldNode == null) return null;
+        if (oldToNew.containsKey(oldNode)) return oldToNew.get(oldNode);
+
+        Node newNode = new Node(oldNode.val);
+        oldToNew.put(oldNode, newNode);
+
+        oldNode.neighbors.forEach(neighbor -> newNode.neighbors.add(cloneGraphReDfs(neighbor, oldToNew)));
+
+        return newNode;
+    }
 }
