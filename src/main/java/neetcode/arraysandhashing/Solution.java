@@ -354,4 +354,19 @@ class Solution {
 
         return result;
     }
+
+    public List<List<String>> groupAnagramsRe(String[] strs) {
+        Map<String, List<String>> map = new HashMap<>();
+        for (String str : strs) {
+            int[] counts = new int[26];
+            for (char c : str.toCharArray()) {
+                counts[c - 'a'] += 1;
+            }
+            String key = Arrays.toString(counts);
+
+            map.computeIfAbsent(key, (k) -> new ArrayList<>()).add(str);
+        }
+
+        return map.values().stream().toList();
+    }
 }
