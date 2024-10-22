@@ -8,7 +8,7 @@ import java.util.List;
 
 class SolutionTest {
     @Test
-    public void containsDuplicate() {
+    void containsDuplicate() {
         int[] nums = {1, 2, 3, 3};
         Solution solution = new Solution();
         boolean result = solution.hasDuplicate(nums);
@@ -16,7 +16,7 @@ class SolutionTest {
     }
 
     @Test
-    public void isAnagram() {
+    void isAnagram() {
         String s = "jar";
         String t = "jam";
         Solution solution = new Solution();
@@ -25,7 +25,7 @@ class SolutionTest {
     }
 
     @Test
-    public void twoSum() {
+    void twoSum() {
         int[] nums = new int[]{3, 4, 5, 6};
         int target = 7;
 
@@ -37,7 +37,7 @@ class SolutionTest {
     }
 
     @Test
-    public void twoSumModelAnswer() {
+    void twoSumModelAnswer() {
         int[] nums = new int[]{3, 4, 5, 6};
         int target = 7;
 
@@ -49,7 +49,7 @@ class SolutionTest {
     }
 
     @Test
-    public void groupAnagrams() {
+    void groupAnagrams() {
         Solution solution = new Solution();
         List<List<String>> results = solution.groupAnagrams(new String[]{"act", "pots", "tops", "cat", "stop", "hat"});
         System.out.println();
@@ -59,7 +59,7 @@ class SolutionTest {
     }
 
     @Test
-    public void groupAnagrams2() {
+    void groupAnagrams2() {
         Solution solution = new Solution();
         List<List<String>> results = solution.groupAnagrams2(new String[]{"act", "pots", "tops", "cat", "stop", "hat"});
         System.out.println();
@@ -69,7 +69,7 @@ class SolutionTest {
     }
 
     @Test
-    public void groupAnagramsModelAnswer() {
+    void groupAnagramsModelAnswer() {
         Solution solution = new Solution();
         List<List<String>> results = solution.groupAnagramsModelAnswer(new String[]{"act", "pots", "tops", "cat", "stop", "hat"});
         System.out.println();
@@ -79,7 +79,7 @@ class SolutionTest {
     }
 
     @Test
-    public void topKFrequent() {
+    void topKFrequent() {
         Solution solution = new Solution();
         int[] result = solution.topKFrequent(new int[]{1, 2, 2, 3, 3, 3}, 2);
         System.out.println();
@@ -89,7 +89,7 @@ class SolutionTest {
     }
 
     @Test
-    public void topKFrequent2() {
+    void topKFrequent2() {
         Solution solution = new Solution();
         int[] result = solution.topKFrequent2(new int[]{1, 2, 2, 3, 3, 3}, 2);
         System.out.println();
@@ -99,7 +99,7 @@ class SolutionTest {
     }
 
     @Test
-    public void encodeAndDecode() {
+    void encodeAndDecode() {
         Solution solution = new Solution();
         String encoded = solution.encode(new ArrayList<>(Arrays.asList("neet", "code", "love", "you", "5#")));
         List<String> decode = solution.decode(encoded);
@@ -112,7 +112,7 @@ class SolutionTest {
     }
 
     @Test
-    public void productExceptSelf() {
+    void productExceptSelf() {
         Solution solution = new Solution();
         int[] results = solution.productExceptSelf(new int[]{1, 2, 4, 6});
         System.out.println();
@@ -122,7 +122,7 @@ class SolutionTest {
     }
 
     @Test
-    public void isValidSudoku() {
+    void isValidSudoku() {
         Solution solution = new Solution();
         boolean result = solution.isValidSudoku(new char[][]{
                 new char[]{'1', '2', '.', '.', '3', '.', '.', '.', '.'},
@@ -142,7 +142,7 @@ class SolutionTest {
     }
 
     @Test
-    public void longestConsecutive() {
+    void longestConsecutive() {
         Solution solution = new Solution();
         int result = solution.longestConsecutive(new int[]{2, 20, 4, 10, 3, 4, 5});
         System.out.println();
@@ -152,7 +152,7 @@ class SolutionTest {
     }
 
     @Test
-    public void twoSum2() {
+    void twoSum2() {
         Solution solution = new Solution();
         int[] result = solution.twoSum2(new int[]{1, 2, 3, 4}, 3);
         System.out.println();
@@ -162,7 +162,7 @@ class SolutionTest {
     }
 
     @Test
-    public void threeSum() {
+    void threeSum() {
         Solution solution = new Solution();
         List<List<Integer>> result = solution.threeSum(new int[]{-1, 0, 1, 2, -1, -4});
         System.out.println();
@@ -172,7 +172,7 @@ class SolutionTest {
     }
 
     @Test
-    public void maxArea() {
+    void maxArea() {
         Solution solution = new Solution();
         int result = solution.maxArea(new int[]{1, 7, 2, 5, 4, 7, 3, 6});
         System.out.println();
@@ -182,7 +182,7 @@ class SolutionTest {
     }
 
     @Test
-    public void lengthOfLongestSubstring() {
+    void lengthOfLongestSubstring() {
         Solution solution = new Solution();
         int result = solution.lengthOfLongestSubstring("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabcdefghijk");
         System.out.println();
@@ -192,7 +192,7 @@ class SolutionTest {
     }
 
     @Test
-    public void lengthOfLongestSubstring2() {
+    void lengthOfLongestSubstring2() {
         Solution solution = new Solution();
         int result = solution.lengthOfLongestSubstring2("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabcdefghijk");
         System.out.println();
@@ -202,7 +202,7 @@ class SolutionTest {
     }
 
     @Test
-    public void characterReplacement() {
+    void characterReplacement() {
         Solution solution = new Solution();
         int result = solution.characterReplacement("XYYX", 2);
         System.out.println();
@@ -212,12 +212,32 @@ class SolutionTest {
     }
 
     @Test
-    public void groupAnagramsRe() {
+    void groupAnagramsRe() {
         Solution solution = new Solution();
         List<List<String>> results = solution.groupAnagramsRe(new String[]{"act", "pots", "tops", "cat", "stop", "hat"});
         System.out.println();
         System.out.println();
         System.out.println();
         System.out.println(results);
+    }
+
+    @Test
+    void topKFrequentRe() {
+        Solution solution = new Solution();
+        int[] result = solution.topKFrequentRe(new int[]{1, 2, 2, 3, 3, 3}, 2);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(Arrays.toString(result));
+    }
+
+    @Test
+    void topKFrequentReHeap() {
+        Solution solution = new Solution();
+        int[] result = solution.topKFrequentReHeap(new int[]{1, 2, 2, 3, 3, 3}, 2);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(Arrays.toString(result));
     }
 }
