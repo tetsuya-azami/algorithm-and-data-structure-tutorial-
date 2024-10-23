@@ -210,34 +210,4 @@ class SolutionTest {
         System.out.println();
         System.out.println(result);
     }
-
-    @Test
-    void groupAnagramsRe() {
-        Solution solution = new Solution();
-        List<List<String>> results = solution.groupAnagramsRe(new String[]{"act", "pots", "tops", "cat", "stop", "hat"});
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println(results);
-    }
-
-    @Test
-    void topKFrequentRe() {
-        Solution solution = new Solution();
-        int[] result = solution.topKFrequentRe(new int[]{1, 2, 2, 3, 3, 3}, 2);
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println(Arrays.toString(result));
-    }
-
-    @Test
-    void topKFrequentReHeap() {
-        Solution solution = new Solution();
-        int[] result = solution.topKFrequentReHeap(new int[]{1, 2, 2, 3, 3, 3}, 2);
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println(Arrays.toString(result));
-    }
 }
