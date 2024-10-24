@@ -61,4 +61,24 @@ public class SolutionReTest {
         System.out.println();
         System.out.println(decoded);
     }
+
+    @Test
+    void productExceptSelfUsingPrefixSuffix() {
+        SolutionRe solution = new SolutionRe();
+        int[] result = solution.productExceptSelfUsingPrefixSuffix(new int[]{1, 2, 4, 6});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(Arrays.toString(result));
+    }
+
+    @Test
+    void productExceptSelf() {
+        SolutionRe solution = new SolutionRe();
+        int[] result = solution.productExceptSelf(new int[]{1, 2, 4, 6});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(Arrays.toString(result));
+    }
 }
