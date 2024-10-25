@@ -146,4 +146,25 @@ public class SolutionRe {
 
         return result;
     }
+
+    public boolean isValidSudoku(char[][] board) {
+        Map<Integer, Set<Character>> colSets = new HashMap<>();
+        Map<Integer, Set<Character>> boxSets = new HashMap<>();
+
+        for (int row = 0; row < board.length; row++) {
+            Set<Character> rowSet = new HashSet<>();
+            for (int col = 0; col < board[0].length; col++) {
+                if (board[row][col] == '.') continue;
+                // rowの検証
+                if (!rowSet.add(board[row][col])) return false;
+                // colの検証
+                if (!colSets.computeIfAbsent(col, (key) -> new HashSet<>()).add(board[row][col])) return false;
+                // boxの検証
+                if (!boxSets.computeIfAbsent((col / 3) + 3 * (row / 3), (key) -> new HashSet<>()).add(board[row][col]))
+                    return false;
+            }
+        }
+
+        return true;
+    }
 }
