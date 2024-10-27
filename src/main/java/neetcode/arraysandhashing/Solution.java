@@ -6,8 +6,8 @@ import java.util.stream.Collectors;
 class Solution {
     public boolean hasDuplicate(int[] nums) {
         Set<Integer> set = new HashSet<>();
-        for (int i = 0; i < nums.length; i++) {
-            set.add(nums[i]);
+        for (int num : nums) {
+            set.add(num);
         }
 
         return nums.length != set.size();
@@ -63,10 +63,10 @@ class Solution {
     }
 
     public List<List<String>> groupAnagrams(String[] strs) {
-        return Arrays.stream(strs).collect(
+        return new ArrayList<>(Arrays.stream(strs).collect(
                         Collectors.groupingBy(str -> str.chars().sorted().mapToObj(c -> String.valueOf((char) c)).collect(Collectors.joining()))
                 )
-                .values().stream().collect(Collectors.toList());
+                .values());
     }
 
     public List<List<String>> groupAnagrams2(String[] strs) {
