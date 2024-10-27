@@ -102,4 +102,14 @@ public class SolutionReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void longestConsecutiveBruteForce() {
+        SolutionRe solutionRe = new SolutionRe();
+        int result = solutionRe.longestConsecutiveBruteForce(new int[]{2, 20, 4, 10, 3, 4, 5});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
