@@ -188,4 +188,28 @@ public class SolutionRe {
 
         return result;
     }
+
+    public int longestConsecutiveSorting(int[] nums) {
+        if (nums.length == 0) return 0;
+        Arrays.sort(nums);
+
+        int result = 0;
+        int count = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (i == 0) {
+                count++;
+                result = Math.max(result, count);
+                continue;
+            }
+            if (nums[i] == nums[i - 1]) continue;
+            if (nums[i] == nums[i - 1] + 1) {
+                count++;
+                result = Math.max(result, count);
+            } else {
+                count = 1;
+            }
+        }
+
+        return result;
+    }
 }
