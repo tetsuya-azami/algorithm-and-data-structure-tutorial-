@@ -212,4 +212,25 @@ public class SolutionRe {
 
         return result;
     }
+
+    public int longestConsecutiveHashSet(int[] nums) {
+        Set<Integer> set = new HashSet<>();
+        for (int num : nums) {
+            set.add(num);
+        }
+
+        int result = 0;
+
+        for (int num : nums) {
+            int length = 1;
+            if (!set.contains(num - 1)) {
+                while (set.contains(num + length)) {
+                    length++;
+                }
+                result = Math.max(result, length);
+            }
+        }
+
+        return result;
+    }
 }
