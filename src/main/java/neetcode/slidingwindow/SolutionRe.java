@@ -24,4 +24,19 @@ public class SolutionRe {
 
         return maxProfit;
     }
+
+    public int maxProfitRe(int[] prices) {
+        int minPricePointer = 0;
+        int result = 0;
+        for (int i = 0; i < prices.length; i++) {
+            // 最低価格を更新
+            if (prices[i] < prices[minPricePointer]) {
+                minPricePointer = i;
+            }
+            // 最高利益を更新
+            result = Math.max(result, prices[i] - prices[minPricePointer]);
+        }
+
+        return result;
+    }
 }
