@@ -1,5 +1,8 @@
 package neetcode.slidingwindow;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class SolutionRe {
     public int maxProfit(int[] prices) {
         int minimum = Integer.MAX_VALUE;
@@ -35,6 +38,26 @@ public class SolutionRe {
             }
             // 最高利益を更新
             result = Math.max(result, prices[i] - prices[minPricePointer]);
+        }
+
+        return result;
+    }
+
+    public int lengthOfLongestSubstring(String s) {
+        int left = 0;
+        int right = 0;
+        int result = 0;
+        Set<Character> set = new HashSet<>();
+
+        while (right < s.length()) {
+            if (set.contains(s.charAt(right))) {
+                set.remove(s.charAt(left));
+                left++;
+            } else {
+                set.add(s.charAt(right));
+                result = Math.max(result, set.size());
+                right++;
+            }
         }
 
         return result;

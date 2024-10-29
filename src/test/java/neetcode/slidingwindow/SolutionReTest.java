@@ -22,4 +22,14 @@ class SolutionReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void lengthOfLongestSubstring() {
+        SolutionRe solutionRe = new SolutionRe();
+        int result = solutionRe.lengthOfLongestSubstring("zxyzxyz");
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
