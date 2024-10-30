@@ -32,4 +32,14 @@ class SolutionReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void characterReplacement() {
+        SolutionRe solutionRe = new SolutionRe();
+        int result = solutionRe.characterReplacement("AABABBA", 1); // 4
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }

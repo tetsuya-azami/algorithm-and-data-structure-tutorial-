@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class SolutionRe {
+
     public int maxProfit(int[] prices) {
         int minimum = Integer.MAX_VALUE;
         int maxProfit = 0;
@@ -58,6 +59,27 @@ public class SolutionRe {
                 result = Math.max(result, set.size());
                 right++;
             }
+        }
+
+        return result;
+    }
+
+    public int characterReplacement(String s, int k) {
+        int left = 0;
+        int right = 0;
+        int[] charCounts = new int[26];
+        int max = 0;
+        int result = 0;
+        while (right < s.length()) {
+            charCounts[s.charAt(right) - 'A']++;
+            max = Math.max(max, charCounts[s.charAt(right) - 'A']);
+
+            if (right - left + 1 - max > k) {
+                charCounts[s.charAt(left) - 'A']--;
+                left++;
+            }
+            result = Math.max(result, right - left + 1);
+            right++;
         }
 
         return result;
