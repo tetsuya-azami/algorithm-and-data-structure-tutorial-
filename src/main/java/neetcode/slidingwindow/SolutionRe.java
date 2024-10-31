@@ -84,4 +84,31 @@ public class SolutionRe {
 
         return result;
     }
+
+    public boolean checkInclusion(String s1, String s2) {
+        int[] s1CharCounts = new int[26];
+        for (int i = 0; i < s1.length(); i++) {
+            s1CharCounts[s1.charAt(i) - 'a']++;
+        }
+
+        int windowSize = s1.length();
+        int left = 0;
+        int[] s2CharCounts = new int[26];
+        for (int right = 0; right < s2.length(); right++) {
+            if (right - left + 1 > windowSize) {
+                s2CharCounts[s2.charAt(left) - 'a']--;
+                left++;
+            }
+            s2CharCounts[s2.charAt(right) - 'a']++;
+            for (int i = 0; i < 26; i++) {
+                if (s1CharCounts[i] == s2CharCounts[i]) {
+                    if (i == 25) return true;
+                } else {
+                    break;
+                }
+            }
+        }
+
+        return false;
+    }
 }

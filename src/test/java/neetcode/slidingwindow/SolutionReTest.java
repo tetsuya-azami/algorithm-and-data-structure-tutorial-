@@ -42,4 +42,14 @@ class SolutionReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void checkInclusion() {
+        SolutionRe solutionRe = new SolutionRe();
+        boolean result = solutionRe.checkInclusion("abc", "lecabee");
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
