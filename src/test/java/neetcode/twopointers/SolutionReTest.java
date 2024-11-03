@@ -35,4 +35,14 @@ class SolutionReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void threeSumTwoPointers() {
+        SolutionRe solutionRe = new SolutionRe();
+        List<List<Integer>> result = solutionRe.threeSumTwoPointers(new int[]{-2, 0, 1, 1, 2});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
