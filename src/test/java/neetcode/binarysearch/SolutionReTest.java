@@ -12,4 +12,14 @@ class SolutionReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void findMin() {
+        SolutionRe solutionRe = new SolutionRe();
+        int result = solutionRe.findMin(new int[]{3, 4, 5, 6, 1, 2});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
