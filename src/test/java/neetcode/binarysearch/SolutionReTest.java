@@ -22,4 +22,14 @@ class SolutionReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void search() {
+        SolutionRe solutionRe = new SolutionRe();
+        int result = solutionRe.search(new int[]{1, 3}, 3);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }

@@ -38,4 +38,44 @@ public class SolutionRe {
 
         return nums[right];
     }
+
+    public int search(int[] nums, int target) {
+        int left = 0;
+        int right = nums.length - 1;
+        while (left < right) {
+            int middle = (left + right) / 2;
+            if (nums[middle] <= nums[right]) {
+                right = middle;
+            } else {
+                left = middle + 1;
+            }
+        }
+        int minIndex = right;
+        int maxIndex = minIndex == 0 ? nums.length - 1 : minIndex - 1;
+
+        if (target == nums[minIndex]) {
+            return minIndex;
+        } else if (nums[0] <= target && target <= nums[maxIndex]) {
+            left = 0;
+            right = maxIndex;
+        } else if (nums[minIndex] < target && target <= nums[nums.length - 1]) {
+            left = minIndex;
+            right = nums.length - 1;
+        } else {
+            return -1;
+        }
+
+        while (left <= right) {
+            int middle = (left + right) / 2;
+            if (nums[middle] == target) {
+                return middle;
+            } else if (nums[middle] < target) {
+                left = middle + 1;
+            } else {
+                right = middle - 1;
+            }
+        }
+
+        return -1;
+    }
 }
