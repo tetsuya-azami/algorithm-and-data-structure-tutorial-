@@ -45,4 +45,48 @@ public class Chapter6ReTry {
 
         return result;
     }
+
+    public int sunukeFestival(int[] a, int[] b, int[] c) {
+        int result = 0;
+        Arrays.sort(a);
+        Arrays.sort(c);
+        for (int j = 0; j < b.length; j++) {
+            int lessThanB = getCountLessThanKey(a, b[j]);
+            int greaterThanB = getCountGreaterThanKey(c, b[j]);
+
+            result += lessThanB * greaterThanB;
+        }
+
+        return result;
+    }
+
+    private static int getCountGreaterThanKey(int[] array, int key) {
+        int left = 0;
+        int right = array.length;
+        while (left < right) {
+            int middle = (left + right) / 2;
+            if (array[middle] > key) {
+                right = middle;
+            } else {
+                left = middle + 1;
+            }
+        }
+
+        return array.length - right;
+    }
+
+    private static int getCountLessThanKey(int[] array, int key) {
+        int left = 0;
+        int right = array.length;
+        while (left < right) {
+            int middle = (left + right) / 2;
+            if (array[middle] < key) {
+                left = middle + 1;
+            } else {
+                right = middle - 1;
+            }
+        }
+
+        return left;
+    }
 }
