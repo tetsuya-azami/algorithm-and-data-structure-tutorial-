@@ -89,4 +89,45 @@ public class Chapter6ReTry {
 
         return left;
     }
+
+    public int sunukeFestivalRe(int[] a, int[] b, int[] c) {
+        int result = 0;
+        for (int i = 0; i < b.length; i++) {
+            int lessThanB = getLessThanB(a, b[i]);
+            int greaterThanB = getGreaterThanB(c, b[i]);
+            result += lessThanB * greaterThanB;
+        }
+
+        return result;
+    }
+
+    private int getGreaterThanB(int[] c, int b) {
+        int left = 0;
+        int right = c.length;
+        while (left < right) {
+            int middle = (left + right) / 2;
+            if (b < c[middle]) {
+                right = middle;
+            } else {
+                left = middle + 1;
+            }
+        }
+
+        return c.length - right;
+    }
+
+    private int getLessThanB(int[] a, int b) {
+        int left = 0;
+        int right = a.length;
+        while (left < right) {
+            int middle = (left + right) / 2;
+            if (a[middle] < b) {
+                left = middle + 1;
+            } else {
+                right = middle - 1;
+            }
+        }
+
+        return left;
+    }
 }

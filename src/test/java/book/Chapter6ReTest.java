@@ -34,4 +34,14 @@ class Chapter6ReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void sunukeFestivalRe() {
+        Chapter6ReTry chapter6ReTry = new Chapter6ReTry();
+        int result = chapter6ReTry.sunukeFestivalRe(new int[]{1, 2, 3}, new int[]{4, 5, 6}, new int[]{7, 8, 9});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
