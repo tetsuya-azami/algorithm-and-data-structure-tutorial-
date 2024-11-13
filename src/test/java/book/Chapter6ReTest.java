@@ -44,4 +44,14 @@ class Chapter6ReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void aggressiveRows() {
+        Chapter6ReTry chapter6ReTry = new Chapter6ReTry();
+        int result = chapter6ReTry.aggressiveCows(new int[]{1, 5, 10, 20, 25}, 3);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }

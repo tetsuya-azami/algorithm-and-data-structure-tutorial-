@@ -130,4 +130,30 @@ public class Chapter6ReTry {
 
         return left;
     }
+
+    public int aggressiveCows(int[] array, int m) {
+        Arrays.sort(array);
+        int left = 0;
+        int right = array[array.length - 1] - array[0];
+        int result = 0;
+        while (left <= right) {
+            int middle = left + (right - left) / 2;
+            int count = 1;
+            int prev = array[0];
+            for (int i = 1; i < array.length; i++) {
+                if (array[i] - prev >= middle) {
+                    count++;
+                    prev = array[i];
+                }
+            }
+            if (count >= m) {
+                result = middle;
+                left = middle + 1;
+            } else {
+                right = middle - 1;
+            }
+        }
+
+        return result;
+    }
 }
