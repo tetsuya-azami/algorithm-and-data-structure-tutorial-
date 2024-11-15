@@ -18,6 +18,7 @@ class SolutionTest {
         ListNode current = result;
         while (true) {
             System.out.print(current.val + ",");
+            System.out.print(current.val + ",");
             if (current.next == null) break;
             current = current.next;
         }

@@ -1,5 +1,8 @@
 package neetcode.linkedlist;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SolutionRe {
     public ListNode reverseList(ListNode head) {
         if (head == null) return null;
@@ -52,5 +55,25 @@ public class SolutionRe {
         }
 
         return false;
+    }
+
+    public void reorderListBruteForce(ListNode head) {
+        if (head == null) return;
+        List<ListNode> nodes = new ArrayList<>();
+        ListNode cur = head;
+        while (cur != null) {
+            nodes.add(cur);
+            cur = cur.next;
+        }
+
+        int right = nodes.size() - 1;
+        int left = 0;
+        while (left < right) {
+            nodes.get(left).next = nodes.get(right);
+            nodes.get(right).next = nodes.get(left + 1);
+            left++;
+            right--;
+        }
+        nodes.get(left).next = null;
     }
 }

@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 class SolutionReTest {
     @Test
-    public void reverseList() {
+    void reverseList() {
         SolutionRe solutionRe = new SolutionRe();
         ListNode node3 = new ListNode(3);
         ListNode node2 = new ListNode(2, node3);
@@ -22,7 +22,7 @@ class SolutionReTest {
     }
 
     @Test
-    public void mergeTwoLists() {
+    void mergeTwoLists() {
         SolutionRe solutionRe = new SolutionRe();
         ListNode list1Node4 = new ListNode(4);
         ListNode list1Node2 = new ListNode(2, list1Node4);
@@ -40,7 +40,7 @@ class SolutionReTest {
     }
 
     @Test
-    public void hasCycle() {
+    void hasCycle() {
         ListNode node4 = new ListNode(4);
         ListNode node3 = new ListNode(3, node4);
         ListNode node2 = new ListNode(2, node3);
@@ -52,5 +52,20 @@ class SolutionReTest {
         System.out.println();
         System.out.println();
         System.out.println(result);
+    }
+
+    @Test
+    void reorderList() {
+        SolutionRe solutionRe = new SolutionRe();
+        ListNode node10 = new ListNode(10);
+        ListNode node8 = new ListNode(8, node10);
+        ListNode node6 = new ListNode(6, node8);
+        ListNode node4 = new ListNode(4, node6);
+        ListNode node2 = new ListNode(2, node4);
+        solutionRe.reorderListBruteForce(node2);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        node2.print();
     }
 }
