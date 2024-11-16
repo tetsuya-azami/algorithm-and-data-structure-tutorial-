@@ -76,4 +76,34 @@ public class SolutionRe {
         }
         nodes.get(left).next = null;
     }
+    
+    public void reorderListReverseAndMerge(ListNode head) {
+        if (head == null) return;
+        ListNode slow = head;
+        ListNode fast = head.next;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        ListNode second = slow.next;
+        slow.next = null;
+        ListNode prev = null;
+
+        while (second != null) {
+            ListNode originalNext = second.next;
+            second.next = prev;
+            prev = second;
+            second = originalNext;
+        }
+        second = prev;
+
+        while (second != null) {
+            ListNode firstOriginalNext = head.next;
+            ListNode secondOriginalNext = second.next;
+            head.next = second;
+            second.next = firstOriginalNext;
+            head = firstOriginalNext;
+            second = secondOriginalNext;
+        }
+    }
 }

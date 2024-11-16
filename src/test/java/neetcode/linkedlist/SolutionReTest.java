@@ -68,4 +68,19 @@ class SolutionReTest {
         System.out.println();
         node2.print();
     }
+
+    @Test
+    void reorderListReverseAndMerge() {
+        SolutionRe solutionRe = new SolutionRe();
+        ListNode node10 = new ListNode(10);
+        ListNode node8 = new ListNode(8, node10);
+        ListNode node6 = new ListNode(6, node8);
+        ListNode node4 = new ListNode(4, node6);
+        ListNode node2 = new ListNode(2, node4);
+        solutionRe.reorderListReverseAndMerge(node2);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        node2.print();
+    }
 }
