@@ -130,4 +130,23 @@ public class SolutionRe {
             return originalRootNext;
         }
     }
+
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        int indexFromEnd = recRemoveNthFromEnd(head, n);
+        if (indexFromEnd == n) return head.next;
+        return head;
+    }
+
+    private int recRemoveNthFromEnd(ListNode cur, int n) {
+        if (cur == null) {
+            return 0;
+        }
+        int indexFromEnd = recRemoveNthFromEnd(cur.next, n) + 1;
+
+        if (indexFromEnd == n + 1) {
+            cur.next = cur.next.next;
+        }
+
+        return indexFromEnd;
+    }
 }
