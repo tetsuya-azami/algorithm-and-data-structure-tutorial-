@@ -76,7 +76,7 @@ public class SolutionRe {
         }
         nodes.get(left).next = null;
     }
-    
+
     public void reorderListReverseAndMerge(ListNode head) {
         if (head == null) return;
         ListNode slow = head;
@@ -104,6 +104,30 @@ public class SolutionRe {
             second.next = firstOriginalNext;
             head = firstOriginalNext;
             second = secondOriginalNext;
+        }
+    }
+
+    public void reorderListRecursion(ListNode head) {
+        if (head == null) return;
+        rec(head, head.next);
+    }
+
+    private ListNode rec(ListNode root, ListNode cur) {
+        if (cur == null) {
+            return root;
+        }
+        root = rec(root, cur.next);
+
+        if (root == null) return null;
+
+        if (root == cur || root.next == cur) {
+            cur.next = null;
+            return null;
+        } else {
+            ListNode originalRootNext = root.next;
+            root.next = cur;
+            cur.next = originalRootNext;
+            return originalRootNext;
         }
     }
 }
