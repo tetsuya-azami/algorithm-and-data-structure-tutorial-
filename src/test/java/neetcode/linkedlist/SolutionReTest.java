@@ -112,4 +112,18 @@ class SolutionReTest {
         System.out.println();
         result.print();
     }
+
+    @Test
+    void removeNthFromEndTwoPointers() {
+        SolutionRe solutionRe = new SolutionRe();
+        ListNode node4 = new ListNode(4);
+        ListNode node3 = new ListNode(3, node4);
+        ListNode node2 = new ListNode(2, node3);
+        ListNode node1 = new ListNode(1, node2);
+        ListNode result = solutionRe.removeNthFromEndTwoPointers(node1, 2);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        result.print();
+    }
 }

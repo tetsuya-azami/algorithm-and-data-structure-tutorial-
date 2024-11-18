@@ -149,4 +149,23 @@ public class SolutionRe {
 
         return indexFromEnd;
     }
+
+    public ListNode removeNthFromEndTwoPointers(ListNode head, int n) {
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode left = dummy;
+        ListNode right = head;
+        for (int i = 0; i < n; i++) {
+            right = right.next;
+        }
+
+        while (right != null) {
+            left = left.next;
+            right = right.next;
+        }
+
+        left.next = left.next.next;
+
+        return dummy.next;
+    }
 }
