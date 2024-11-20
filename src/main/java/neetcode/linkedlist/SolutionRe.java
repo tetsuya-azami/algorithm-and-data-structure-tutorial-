@@ -168,4 +168,31 @@ public class SolutionRe {
 
         return dummy.next;
     }
+
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        int carry = 0;
+        ListNode dummy = new ListNode(0);
+        ListNode prev = dummy;
+        ListNode l1Cur = l1;
+        ListNode l2Cur = l2;
+        while (l1Cur != null || l2Cur != null || carry != 0) {
+            int l1Val = l1Cur != null ? l1Cur.val : 0;
+            int l2Val = l2Cur != null ? l2Cur.val : 0;
+            int sum = l1Val + l2Val + carry;
+            carry = sum / 10;
+            sum = sum % 10;
+
+            prev.next = new ListNode(sum);
+            prev = prev.next;
+
+            if (l1Cur != null) {
+                l1Cur = l1Cur.next;
+            }
+            if (l2Cur != null) {
+                l2Cur = l2Cur.next;
+            }
+        }
+
+        return dummy.next;
+    }
 }
