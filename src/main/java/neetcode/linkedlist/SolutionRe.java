@@ -220,4 +220,16 @@ public class SolutionRe {
 
         return dummy.next;
     }
+
+    public int findDuplicateUsingArray(int[] nums) {
+        int[] ints = new int[nums.length - 1];
+        for (int num : nums) {
+            if (ints[num - 1] != 0) {
+                return num;
+            }
+            ints[num - 1] = 1;
+        }
+
+        return -1;
+    }
 }

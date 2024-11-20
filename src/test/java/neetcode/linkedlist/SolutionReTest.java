@@ -161,4 +161,14 @@ class SolutionReTest {
         ListNode result = solutionRe.addTwoNumbersRe(node1, node4);
         result.print();
     }
+
+    @Test
+    void findDuplicateUsingArray() {
+        SolutionRe solutionRe = new SolutionRe();
+        int result = solutionRe.findDuplicateUsingArray(new int[]{1, 2, 3, 2, 2});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
