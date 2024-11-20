@@ -195,4 +195,29 @@ public class SolutionRe {
 
         return dummy.next;
     }
+
+    public ListNode addTwoNumbersRe(ListNode l1, ListNode l2) {
+        int carry = 0;
+        ListNode dummy = new ListNode(0);
+        ListNode prev = dummy;
+        while (l1 != null || l2 != null || carry != 0) {
+            int l1Val = l1 != null ? l1.val : 0;
+            int l2Val = l2 != null ? l2.val : 0;
+            int sum = l1Val + l2Val + carry;
+            carry = sum / 10;
+            sum = sum % 10;
+
+            ListNode cur = new ListNode(sum);
+            prev.next = cur;
+            prev = prev.next;
+            if (l1 != null) {
+                l1 = l1.next;
+            }
+            if (l2 != null) {
+                l2 = l2.next;
+            }
+        }
+
+        return dummy.next;
+    }
 }

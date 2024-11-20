@@ -148,4 +148,17 @@ class SolutionReTest {
         ListNode result = solutionRe.addTwoNumbers(l1, l2);
         result.print();
     }
+
+    @Test
+    void addTwoNumbersRe() {
+        SolutionRe solutionRe = new SolutionRe();
+        ListNode node3 = new ListNode(3);
+        ListNode node2 = new ListNode(2, node3);
+        ListNode node1 = new ListNode(1, node2);
+        ListNode node6 = new ListNode(6);
+        ListNode node5 = new ListNode(5, node6);
+        ListNode node4 = new ListNode(4, node5);
+        ListNode result = solutionRe.addTwoNumbersRe(node1, node4);
+        result.print();
+    }
 }
