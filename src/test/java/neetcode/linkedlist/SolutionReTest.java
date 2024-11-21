@@ -171,4 +171,14 @@ class SolutionReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void findDuplicateFloyd() {
+        SolutionRe solutionRe = new SolutionRe();
+        int result = solutionRe.findDuplicateFloyd(new int[]{1, 2, 3, 2, 2});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
