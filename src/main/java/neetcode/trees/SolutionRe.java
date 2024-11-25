@@ -45,4 +45,22 @@ public class SolutionRe {
         if (root.val != subRoot.val) return false;
         return isSubtreeDfs(root.left, subRoot.left) && isSubtreeDfs(root.right, subRoot.right);
     }
+
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        return lowestCommonAncestorDfs(root, p, q);
+    }
+
+    private TreeNode lowestCommonAncestorDfs(TreeNode root, TreeNode p, TreeNode q) {
+        int val = root.val;
+
+        if (Math.min(p.val, q.val) <= val && val <= Math.max(p.val, q.val)) return root;
+        if (root.left == null || root.right == null) return root;
+        if (Math.max(p.val, q.val) < val) {
+            root = root.left;
+        } else {
+            root = root.right;
+        }
+        
+        return lowestCommonAncestorDfs(root, p, q);
+    }
 }

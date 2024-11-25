@@ -2,9 +2,9 @@ package neetcode.trees;
 
 import org.junit.jupiter.api.Test;
 
-public class SolutionReTest {
+class SolutionReTest {
     @Test
-    public void invertTree() {
+    void invertTree() {
         TreeNode node4 = new TreeNode(4);
         TreeNode node5 = new TreeNode(5);
         TreeNode node6 = new TreeNode(6);
@@ -25,7 +25,7 @@ public class SolutionReTest {
     }
 
     @Test
-    public void maxDepth() {
+    void maxDepth() {
         TreeNode node4 = new TreeNode(4);
         TreeNode node2 = new TreeNode(2);
         TreeNode node3 = new TreeNode(3, node4, null);
@@ -39,7 +39,7 @@ public class SolutionReTest {
     }
 
     @Test
-    public void diameterOfBinaryTree() {
+    void diameterOfBinaryTree() {
         TreeNode node4 = new TreeNode(4);
         TreeNode node2 = new TreeNode(2);
         TreeNode node3 = new TreeNode(3, node4, null);
@@ -53,7 +53,7 @@ public class SolutionReTest {
     }
 
     @Test
-    public void isSubtree() {
+    void isSubtree() {
         TreeNode pNode5 = new TreeNode(5);
         TreeNode pNode4 = new TreeNode(4);
         TreeNode pNode3 = new TreeNode(3);
@@ -69,5 +69,42 @@ public class SolutionReTest {
         System.out.println();
         System.out.println();
         System.out.println(result);
+    }
+
+    @Test
+    void lowestCommonAncestor() {
+        SolutionRe solutionRe = new SolutionRe();
+        TreeNode node1 = new TreeNode(1);
+        TreeNode node2 = new TreeNode(2, node1, null);
+        TreeNode result = solutionRe.lowestCommonAncestor(node2, node2, node1);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result.val);
+    }
+
+    @Test
+    void lowestCommonAncestor2() {
+        SolutionRe solutionRe = new SolutionRe();
+        TreeNode node3 = new TreeNode(3);
+        TreeNode node2 = new TreeNode(2, null, node3);
+        TreeNode result = solutionRe.lowestCommonAncestor(node2, node3, node2);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result.val);
+    }
+
+    @Test
+    void lowestCommonAncestor3() {
+        SolutionRe solutionRe = new SolutionRe();
+        TreeNode node1 = new TreeNode(1);
+        TreeNode node3 = new TreeNode(3);
+        TreeNode node2 = new TreeNode(2, node1, node3);
+        TreeNode result = solutionRe.lowestCommonAncestor(node2, node3, node1);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result.val);
     }
 }
