@@ -1,5 +1,8 @@
 package neetcode.trees;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SolutionRe {
     public TreeNode invertTree(TreeNode root) {
         if (root == null) return null;
@@ -59,5 +62,26 @@ public class SolutionRe {
         }
 
         return lowestCommonAncestor(root, p, q);
+    }
+
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> results = new ArrayList<>();
+        levelOrderDfs(root, 0, results);
+        return results;
+    }
+
+    private void levelOrderDfs(TreeNode root, int height, List<List<Integer>> results) {
+        if (root == null) return;
+
+        List<Integer> elements;
+        if (results.size() <= height) {
+            elements = new ArrayList<>();
+            results.add(elements);
+        } else {
+            elements = results.get(height);
+        }
+        elements.add(root.val);
+        levelOrderDfs(root.left, height + 1, results);
+        levelOrderDfs(root.right, height + 1, results);
     }
 }
