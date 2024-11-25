@@ -47,22 +47,17 @@ public class SolutionRe {
     }
 
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        return lowestCommonAncestorDfs(root, p, q);
-    }
-
-    private TreeNode lowestCommonAncestorDfs(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null || p == null || q == null) return null;
         int val = root.val;
-        int max = Math.max(p.val, q.val);
-        int min = Math.min(p.val, q.val);
 
-        if (min <= val && val <= max) return root;
-        if (max < val) {
+        if (Math.max(p.val, q.val) < val) {
             root = root.left;
-        } else {
+        } else if (val < Math.min(p.val, q.val)) {
             root = root.right;
+        } else {
+            return root;
         }
 
-        return lowestCommonAncestorDfs(root, p, q);
+        return lowestCommonAncestor(root, p, q);
     }
 }
