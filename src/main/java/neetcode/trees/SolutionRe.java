@@ -84,4 +84,20 @@ public class SolutionRe {
         levelOrderDfs(root.left, height + 1, results);
         levelOrderDfs(root.right, height + 1, results);
     }
+
+    public int goodNodes(TreeNode root) {
+        if (root == null) return 0;
+        return goodNodesDfs(root, root.val);
+    }
+
+    private int goodNodesDfs(TreeNode target, int maxValue) {
+        if (target == null) return 0;
+        int isGoodNode = 0;
+        if (target.val >= maxValue) {
+            isGoodNode = 1;
+            maxValue = target.val;
+        }
+
+        return goodNodesDfs(target.left, maxValue) + goodNodesDfs(target.right, maxValue) + isGoodNode;
+    }
 }
