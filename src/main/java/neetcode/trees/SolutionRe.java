@@ -1,6 +1,8 @@
 package neetcode.trees;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 
 public class SolutionRe {
@@ -99,5 +101,34 @@ public class SolutionRe {
         }
 
         return goodNodesDfs(target.left, maxValue) + goodNodesDfs(target.right, maxValue) + isGoodNode;
+    }
+
+    public int goodNodesBfs(TreeNode root) {
+        int count = 0;
+        if (root == null) return count;
+
+        Deque<Pair<TreeNode, Integer>> queue = new ArrayDeque<>();
+        queue.add(new Pair<>(root, root.val));
+        while (!queue.isEmpty()) {
+            Pair<TreeNode, Integer> target = queue.poll();
+            TreeNode node = target.key;
+            Integer max = target.value;
+            if (max <= node.val) {
+                count++;
+                max = node.val;
+            }
+            if (node.left != null) {
+                queue.add(new Pair<>(node.left, max));
+            }
+            if (node.right != null) {
+                queue.add(new Pair<>(node.right, max));
+            }
+        }
+
+        return count;
+    }
+
+    record Pair<K, V>(K key, V value) {
+
     }
 }

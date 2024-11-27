@@ -142,4 +142,20 @@ class SolutionReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void goodNodesBfs() {
+        SolutionRe solutionRe = new SolutionRe();
+        TreeNode node5 = new TreeNode(5);
+        TreeNode node1 = new TreeNode(1);
+        TreeNode node3_right = new TreeNode(3);
+        TreeNode node4 = new TreeNode(4, node1, node5);
+        TreeNode node3_left = new TreeNode(1, node3_right, null);
+        TreeNode root = new TreeNode(3, node3_left, node4);
+        int result = solutionRe.goodNodesBfs(root);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
