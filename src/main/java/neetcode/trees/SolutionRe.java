@@ -131,4 +131,16 @@ public class SolutionRe {
     record Pair<K, V>(K key, V value) {
 
     }
+
+    public boolean isValidBST(TreeNode root) {
+        if (root == null) return true;
+        return isValid(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+
+    private boolean isValid(TreeNode target, int leftBound, int rightBound) {
+        if (target == null) return true;
+        if (!(leftBound < target.val && target.val < rightBound)) return false;
+
+        return isValid(target.left, leftBound, target.val) && isValid(target.right, target.val, rightBound);
+    }
 }
