@@ -143,4 +143,24 @@ public class SolutionRe {
 
         return isValid(target.left, leftBound, target.val) && isValid(target.right, target.val, rightBound);
     }
+
+    public boolean isValidBSTBfs(TreeNode root) {
+        if (root == null) return true;
+
+        Deque<Triple> queue = new ArrayDeque<>();
+        queue.offer(new Triple(root, Integer.MIN_VALUE, Integer.MAX_VALUE));
+
+        while (!queue.isEmpty()) {
+            Triple entry = queue.poll();
+            TreeNode node = entry.node;
+            if (node.val <= entry.leftBound || entry.rightBound <= node.val) return false;
+            if (node.left != null) queue.offer(new Triple(node.left, entry.leftBound, node.val));
+            if (node.right != null) queue.offer(new Triple(node.right, node.val, entry.rightBound));
+        }
+
+        return true;
+    }
+
+    record Triple(TreeNode node, int leftBound, int rightBound) {
+    }
 }

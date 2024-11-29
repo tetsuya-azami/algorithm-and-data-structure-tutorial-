@@ -172,4 +172,18 @@ class SolutionReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void isValidBSTBfs() {
+        SolutionRe solution = new SolutionRe();
+        TreeNode node1 = new TreeNode(1);
+        TreeNode node3 = new TreeNode(3);
+        TreeNode node2 = new TreeNode(2, node1, node3);
+
+        boolean result = solution.isValidBSTBfs(node2);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
