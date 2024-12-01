@@ -163,4 +163,21 @@ public class SolutionRe {
 
     record Triple(TreeNode node, int leftBound, int rightBound) {
     }
+
+    public int kthSmallest(TreeNode root, int k) {
+        return kthSmallestDfs(root, new int[]{0}, k);
+    }
+
+    private int kthSmallestDfs(TreeNode current, int[] count, int k) {
+        if (current == null) return -1;
+        int leftResult = kthSmallestDfs(current.left, count, k);
+        if (leftResult != -1) return leftResult;
+
+        count[0]++;
+        if (count[0] == k) {
+            return current.val;
+        }
+
+        return kthSmallestDfs(current.right, count, k);
+    }
 }
