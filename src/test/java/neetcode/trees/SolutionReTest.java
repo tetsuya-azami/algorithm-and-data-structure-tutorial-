@@ -201,4 +201,19 @@ class SolutionReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void kthSmallestInorderTraversal() {
+        SolutionRe solutionRe = new SolutionRe();
+        TreeNode node2 = new TreeNode(2);
+        TreeNode node5 = new TreeNode(5);
+        TreeNode node3 = new TreeNode(3, node2, null);
+        TreeNode node4 = new TreeNode(4, node3, node5);
+
+        int result = solutionRe.kthSmallestInorderTraversal(node4, 4);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }

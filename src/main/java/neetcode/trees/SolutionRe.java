@@ -180,4 +180,19 @@ public class SolutionRe {
 
         return kthSmallestDfs(current.right, count, k);
     }
+
+    public int kthSmallestInorderTraversal(TreeNode root, int k) {
+        List<Integer> list = new ArrayList<>();
+        kthSmallestInorderTraversalRec(root, list);
+        return list.get(k - 1);
+    }
+
+    private void kthSmallestInorderTraversalRec(TreeNode node, List<Integer> list) {
+        if (node == null) return;
+        kthSmallestInorderTraversalRec(node.left, list);
+
+        list.add(node.val);
+
+        kthSmallestInorderTraversalRec(node.right, list);
+    }
 }
