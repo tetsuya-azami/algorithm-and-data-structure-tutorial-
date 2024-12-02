@@ -203,11 +203,11 @@ public class SolutionRe {
 
         while (cur != null || !stack.isEmpty()) {
             while (cur != null) {
-                stack.add(cur);
+                stack.push(cur);
                 cur = cur.left;
             }
 
-            cur = stack.pollLast();
+            cur = stack.pollFirst();
 
             count++;
             if (count == k) {
