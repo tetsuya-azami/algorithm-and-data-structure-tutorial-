@@ -216,4 +216,34 @@ class SolutionReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void kthSmallestUsingStack() {
+        SolutionRe solutionRe = new SolutionRe();
+        TreeNode node2 = new TreeNode(2);
+        TreeNode node5 = new TreeNode(5);
+        TreeNode node3 = new TreeNode(3, node2, null);
+        TreeNode node4 = new TreeNode(4, node3, node5);
+
+        int result = solutionRe.kthSmallestUsingStack(node4, 4);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
+
+    @Test
+    void kthSmallestUsingStack2() {
+        SolutionRe solutionRe = new SolutionRe();
+
+        TreeNode node3 = new TreeNode(3);
+        TreeNode node1 = new TreeNode(1);
+        TreeNode node2 = new TreeNode(2, node1, node3);
+
+        int result = solutionRe.kthSmallestUsingStack(node2, 1);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }

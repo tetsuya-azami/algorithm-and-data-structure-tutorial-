@@ -195,4 +195,28 @@ public class SolutionRe {
 
         kthSmallestInorderTraversalRec(node.right, list);
     }
+
+    public int kthSmallestUsingStack(TreeNode root, int k) {
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        int count = 0;
+        TreeNode cur = root;
+
+        while (cur != null || !stack.isEmpty()) {
+            while (cur != null) {
+                stack.add(cur);
+                cur = cur.left;
+            }
+
+            cur = stack.pollLast();
+
+            count++;
+            if (count == k) {
+                return cur.val;
+            }
+
+            cur = cur.right;
+        }
+
+        return -1;
+    }
 }
