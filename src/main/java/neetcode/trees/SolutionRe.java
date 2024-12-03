@@ -1,9 +1,6 @@
 package neetcode.trees;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.List;
+import java.util.*;
 
 public class SolutionRe {
     public TreeNode invertTree(TreeNode root) {
@@ -218,5 +215,28 @@ public class SolutionRe {
         }
 
         return -1;
+    }
+
+    public TreeNode buildTree(int[] preorder, int[] inorder) {
+        if (preorder.length == 0 || inorder.length == 0) return null;
+        TreeNode root = new TreeNode(preorder[0]);
+
+        int mid = 0;
+        for (int i = 0; i < inorder.length; i++) {
+            if (inorder[i] == preorder[0]) {
+                mid = i;
+                break;
+            }
+        }
+
+        int[] leftPreorder = Arrays.copyOfRange(preorder, 1, mid + 1);
+        int[] leftInorder = Arrays.copyOfRange(inorder, 0, mid);
+        root.left = buildTree(leftPreorder, leftInorder);
+
+        int[] rightPreorder = Arrays.copyOfRange(preorder, mid + 1, preorder.length);
+        int[] rightInorder = Arrays.copyOfRange(inorder, mid + 1, inorder.length);
+        root.right = buildTree(rightPreorder, rightInorder);
+
+        return root;
     }
 }

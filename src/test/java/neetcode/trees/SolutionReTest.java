@@ -2,6 +2,8 @@ package neetcode.trees;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.List;
 
 class SolutionReTest {
@@ -245,5 +247,32 @@ class SolutionReTest {
         System.out.println();
         System.out.println();
         System.out.println(result);
+    }
+
+    @Test
+    void buildTree() {
+        SolutionRe solutionRe = new SolutionRe();
+        TreeNode result = solutionRe.buildTree(new int[]{1, 2, 3, 4}, new int[]{2, 1, 3, 4});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        printNodes(result);
+        System.out.println();
+    }
+
+    private void printNodes(TreeNode node) {
+        Deque<TreeNode> queue = new ArrayDeque<>();
+
+        queue.add(node);
+        while (!queue.isEmpty()) {
+            TreeNode target = queue.poll();
+            System.out.println(target.val);
+            if (target.left != null) {
+                queue.add(target.left);
+            }
+            if (target.right != null) {
+                queue.add(target.right);
+            }
+        }
     }
 }
