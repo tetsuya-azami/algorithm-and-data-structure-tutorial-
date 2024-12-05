@@ -239,4 +239,26 @@ public class SolutionRe {
 
         return root;
     }
+
+    private Map<Integer, Integer> indices = new HashMap<>();
+    private int preIndex = 0;
+
+    public TreeNode buildTreeUsingHashMap(int[] preorder, int[] inorder) {
+        for (int i = 0; i < inorder.length; i++) {
+            indices.put(inorder[i], i);
+        }
+
+        return buildTreeUsingHashMapDfs(preorder, 0, preorder.length - 1);
+    }
+
+    private TreeNode buildTreeUsingHashMapDfs(int[] preorder, int left, int right) {
+        if (left > right) return null;
+        int rootValue = preorder[preIndex++];
+        TreeNode root = new TreeNode(rootValue);
+        int rootIndex = indices.get(rootValue);
+        root.left = buildTreeUsingHashMapDfs(preorder, left, rootIndex - 1);
+        root.right = buildTreeUsingHashMapDfs(preorder, rootIndex + 1, right);
+
+        return root;
+    }
 }

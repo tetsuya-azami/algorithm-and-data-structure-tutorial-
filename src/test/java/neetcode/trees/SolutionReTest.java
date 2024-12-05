@@ -275,4 +275,15 @@ class SolutionReTest {
             }
         }
     }
+
+    @Test
+    public void buildTreeUsingHashMap() {
+        SolutionRe solutionRe = new SolutionRe();
+        TreeNode result = solutionRe.buildTreeUsingHashMap(new int[]{1, 2, 3, 4}, new int[]{2, 1, 3, 4});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        printNodes(result);
+        System.out.println();
+    }
 }
