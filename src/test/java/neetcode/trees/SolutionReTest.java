@@ -286,4 +286,15 @@ class SolutionReTest {
         printNodes(result);
         System.out.println();
     }
+
+    @Test
+    public void buildTreeOptimal() {
+        SolutionRe solutionRe = new SolutionRe();
+        TreeNode result = solutionRe.buildTreeOptimal(new int[]{1, 2, 3, 4}, new int[]{2, 1, 3, 4});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        printNodes(result);
+        System.out.println();
+    }
 }

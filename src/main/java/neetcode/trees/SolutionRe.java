@@ -261,4 +261,26 @@ public class SolutionRe {
 
         return root;
     }
+
+    public TreeNode buildTreeOptimal(int[] preorder, int[] inorder) {
+        int[] preIndex = new int[]{0};
+        int[] inIndex = new int[]{0};
+        return buildTreeOptimalDfs(preorder, inorder, preIndex, inIndex, Integer.MAX_VALUE);
+    }
+
+    private TreeNode buildTreeOptimalDfs(int[] preorder, int[] inorder, int[] preIndex, int[] inIndex, int limit) {
+        if (preIndex[0] >= preorder.length) return null;
+
+        if (inorder[inIndex[0]] == limit) {
+            inIndex[0]++;
+            return null;
+        }
+
+        int rootVal = preorder[preIndex[0]++];
+        TreeNode root = new TreeNode(rootVal);
+        root.left = buildTreeOptimalDfs(preorder, inorder, preIndex, inIndex, rootVal);
+        root.right = buildTreeOptimalDfs(preorder, inorder, preIndex, inIndex, limit);
+
+        return root;
+    }
 }
