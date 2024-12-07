@@ -1,6 +1,8 @@
 package neetcode.heappriorityqueue;
 
 
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class SolutionRe {
@@ -25,5 +27,10 @@ public class SolutionRe {
     }
 
     private record Pair<K, V>(K key, V value) {
+    }
+
+    public int[][] kClosestSort(int[][] points, int k) {
+        int[][] sortedPoints = Arrays.stream(points).sorted(Comparator.comparingInt(e -> (e[0] * e[0] + e[1] * e[1]))).toArray(int[][]::new);
+        return Arrays.copyOfRange(sortedPoints, 0, k);
     }
 }

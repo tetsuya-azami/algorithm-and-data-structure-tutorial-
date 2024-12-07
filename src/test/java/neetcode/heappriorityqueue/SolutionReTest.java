@@ -16,4 +16,16 @@ class SolutionReTest {
             System.out.print(Arrays.toString(result));
         }
     }
+
+    @Test
+    void kClosestSort() {
+        SolutionRe solutionRe = new SolutionRe();
+        int[][] results = solutionRe.kClosestSort(new int[][]{new int[]{0, 2}, new int[]{2, 2}}, 1);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        for (int[] result : results) {
+            System.out.print(Arrays.toString(result));
+        }
+    }
 }
