@@ -33,4 +33,17 @@ public class SolutionRe {
         int[][] sortedPoints = Arrays.stream(points).sorted(Comparator.comparingInt(e -> (e[0] * e[0] + e[1] * e[1]))).toArray(int[][]::new);
         return Arrays.copyOfRange(sortedPoints, 0, k);
     }
+
+    public int findKthLargest(int[] nums, int k) {
+        PriorityQueue<Integer> queue = new PriorityQueue<>();
+        for (int i = 0; i < nums.length; i++) {
+            queue.add(nums[i]);
+            if (queue.size() > k) {
+                queue.poll();
+            }
+        }
+
+        return queue.peek();
+    }
+
 }

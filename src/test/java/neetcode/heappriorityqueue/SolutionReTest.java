@@ -28,4 +28,14 @@ class SolutionReTest {
             System.out.print(Arrays.toString(result));
         }
     }
+
+    @Test
+    void findKthLargest() {
+        SolutionRe solutionRe = new SolutionRe();
+        int result = solutionRe.findKthLargest(new int[]{2, 3, 1, 5, 4}, 2);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
