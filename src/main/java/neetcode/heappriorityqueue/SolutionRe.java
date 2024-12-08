@@ -1,9 +1,7 @@
 package neetcode.heappriorityqueue;
 
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class SolutionRe {
     public int[][] kClosest(int[][] points, int k) {
@@ -46,4 +44,35 @@ public class SolutionRe {
         return queue.peek();
     }
 
+    public int leastInterval(char[] tasks, int n) {
+        int[] counts = new int[26];
+        for (int i = 0; i < tasks.length; i++) {
+            counts[tasks[i] - 'A']++;
+        }
+
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>((e1, e2) -> e2 - e1);
+        for (int count : counts) {
+            if (count > 0) maxHeap.add(count);
+        }
+
+        Deque<Pair<Integer, Integer>> queue = new ArrayDeque<>();
+        int time = 0;
+        while (!maxHeap.isEmpty() || !queue.isEmpty()) {
+            time++;
+            if (maxHeap.isEmpty()) {
+                time = queue.peek().key;
+            } else {
+                int count = maxHeap.poll() - 1;
+                if (count > 0) {
+                    queue.add(new Pair<>(time + n, count));
+                }
+            }
+
+            if (!queue.isEmpty() && queue.peek().key == time) {
+                maxHeap.add(queue.poll().value);
+            }
+        }
+
+        return time;
+    }
 }

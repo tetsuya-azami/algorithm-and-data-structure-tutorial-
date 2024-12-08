@@ -38,4 +38,14 @@ class SolutionReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void leastInterval() {
+        SolutionRe solutionRe = new SolutionRe();
+        int result = solutionRe.leastInterval(new char[]{'A', 'A', 'A', 'B', 'C'}, 3);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
