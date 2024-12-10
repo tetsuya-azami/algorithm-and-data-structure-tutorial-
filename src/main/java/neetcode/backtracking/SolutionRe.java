@@ -53,4 +53,24 @@ public class SolutionRe {
 
         return result;
     }
+
+    public List<List<Integer>> combinationSum(int[] nums, int target) {
+        List<List<Integer>> result = new ArrayList<>();
+        combinationSumBackTracking(result, new ArrayList<>(), nums, target, 0);
+
+        return result;
+    }
+
+    private void combinationSumBackTracking(List<List<Integer>> result, List<Integer> subset, int[] nums, int target, int i) {
+        if (target == 0) {
+            result.add(new ArrayList<>(subset));
+            return;
+        }
+        if (target < 0 || i >= nums.length) return;
+
+        subset.add(nums[i]);
+        combinationSumBackTracking(result, subset, nums, target - nums[i], i);
+        subset.remove(subset.size() - 1);
+        combinationSumBackTracking(result, subset, nums, target, i + 1);
+    }
 }
