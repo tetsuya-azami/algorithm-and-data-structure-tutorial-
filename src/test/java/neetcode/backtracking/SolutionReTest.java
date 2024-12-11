@@ -44,4 +44,14 @@ class SolutionReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void combinationSumOptimal() {
+        SolutionRe solutionRe = new SolutionRe();
+        List<List<Integer>> result = solutionRe.combinationSumOptimal(new int[]{2, 5, 6, 9}, 9);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }

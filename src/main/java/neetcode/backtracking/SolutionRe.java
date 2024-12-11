@@ -1,6 +1,7 @@
 package neetcode.backtracking;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class SolutionRe {
@@ -72,5 +73,28 @@ public class SolutionRe {
         combinationSumBackTracking(result, subset, nums, target - nums[i], i);
         subset.remove(subset.size() - 1);
         combinationSumBackTracking(result, subset, nums, target, i + 1);
+    }
+
+    public List<List<Integer>> combinationSumOptimal(int[] nums, int target) {
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> subset = new ArrayList<>();
+        Arrays.sort(nums);
+        combinationSumOptimalBackTracking(result, subset, nums, target, 0);
+
+        return result;
+    }
+
+    private void combinationSumOptimalBackTracking(List<List<Integer>> result, List<Integer> subset, int[] nums, int target, int i) {
+        if (target == 0) {
+            result.add(new ArrayList<>(subset));
+            return;
+        }
+
+        for (int j = i; j < nums.length; j++) {
+            if (target - nums[j] < 0) return;
+            subset.add(nums[j]);
+            combinationSumOptimalBackTracking(result, subset, nums, target - nums[j], j);
+            subset.remove(subset.size() - 1);
+        }
     }
 }
