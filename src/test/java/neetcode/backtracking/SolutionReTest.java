@@ -54,4 +54,14 @@ class SolutionReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void permute() {
+        SolutionRe solutionRe = new SolutionRe();
+        List<List<Integer>> result = solutionRe.permute(new int[]{1, 2, 3});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }

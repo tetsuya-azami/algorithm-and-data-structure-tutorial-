@@ -1,8 +1,6 @@
 package neetcode.backtracking;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class SolutionRe {
     public List<List<Integer>> subsets(int[] nums) {
@@ -95,6 +93,32 @@ public class SolutionRe {
             subset.add(nums[j]);
             combinationSumOptimalBackTracking(result, subset, nums, target - nums[j], j);
             subset.remove(subset.size() - 1);
+        }
+    }
+
+    public List<List<Integer>> permute(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        Map<Integer, Boolean> used = new HashMap<>();
+        permuteBackTracking(result, new ArrayList<>(), nums, used);
+
+        return result;
+    }
+
+    private void permuteBackTracking(List<List<Integer>> result, List<Integer> subset, int[] nums, Map<Integer, Boolean> used) {
+        if (subset.size() == nums.length) {
+            result.add(new ArrayList<>(subset));
+            return;
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+            if (used.getOrDefault(i, false)) continue;
+
+            subset.add(nums[i]);
+            used.put(i, true);
+            permuteBackTracking(result, subset, nums, used);
+
+            subset.remove(subset.size() - 1);
+            used.put(i, false);
         }
     }
 }
