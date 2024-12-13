@@ -121,4 +121,22 @@ public class SolutionRe {
             used.put(i, false);
         }
     }
+
+    public List<List<Integer>> permuteRecursion(int[] nums) {
+        if (nums.length == 0) return Arrays.asList(new ArrayList<>());
+
+        int num = nums[0];
+        List<List<Integer>> permute = permuteRecursion(Arrays.copyOfRange(nums, 1, nums.length));
+        List<List<Integer>> result = new ArrayList<>();
+
+        for (List<Integer> p : permute) {
+            for (int i = 0; i <= p.size(); i++) {
+                List<Integer> copy = new ArrayList<>(p);
+                copy.add(i, num);
+                result.add(copy);
+            }
+        }
+
+        return result;
+    }
 }
