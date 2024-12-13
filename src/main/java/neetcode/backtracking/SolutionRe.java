@@ -139,4 +139,22 @@ public class SolutionRe {
 
         return result;
     }
+
+    public List<List<Integer>> permuteIteration(int[] nums) {
+        List<List<Integer>> perms = new ArrayList<>();
+        perms.add(new ArrayList<>());
+        for (int num : nums) {
+            List<List<Integer>> newParms = new ArrayList<>();
+            for (List<Integer> p : perms) {
+                for (int i = 0; i <= p.size(); i++) {
+                    List<Integer> perm = new ArrayList<>(p);
+                    perm.add(i, num);
+                    newParms.add(perm);
+                }
+            }
+            perms = newParms;
+        }
+
+        return perms;
+    }
 }
