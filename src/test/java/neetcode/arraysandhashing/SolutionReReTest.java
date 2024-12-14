@@ -8,7 +8,7 @@ class SolutionReReTest {
     @Test
     void groupAnagrams() {
         SolutionReRe solutionReRe = new SolutionReRe();
-        List<List<String>> results = solutionReRe.groupAnagrams(new String[]{"act", "pots", "tops", "cat", "stop", "hat"});
+        List<List<String>> results = solutionReRe.groupAnagramsRe(new String[]{"act", "pots", "tops", "cat", "stop", "hat"});
         System.out.println();
         System.out.println();
         System.out.println();
