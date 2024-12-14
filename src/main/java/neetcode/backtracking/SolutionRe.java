@@ -157,4 +157,30 @@ public class SolutionRe {
 
         return perms;
     }
+
+    public List<List<Integer>> permuteBackTrackOptimal(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        backtrack(result, nums, 0);
+        return result;
+    }
+
+    public void backtrack(List<List<Integer>> result, int[] nums, int idx) {
+        if (idx == nums.length) {
+            List<Integer> subset = new ArrayList<>();
+            for (int num : nums) subset.add(num);
+            result.add(subset);
+        }
+
+        for (int i = idx; i < nums.length; i++) {
+            swap(nums, idx, i);
+            backtrack(result, nums, idx + 1);
+            swap(nums, idx, i);
+        }
+    }
+
+    private void swap(int[] nums, int i, int j) {
+        int tmp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tmp;
+    }
 }
