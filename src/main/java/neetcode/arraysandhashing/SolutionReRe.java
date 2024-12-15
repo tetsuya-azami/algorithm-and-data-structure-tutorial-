@@ -109,4 +109,27 @@ public class SolutionReRe {
 
         return result;
     }
+
+    public int longestConsecutiveHashSet(int[] nums) {
+        Set<Integer> set = new HashSet<>();
+        for (int i = 0; i < nums.length; i++) {
+            set.add(nums[i]);
+        }
+
+        int result = 0;
+        int tmp = 0;
+        for (int num : set) {
+            if (!set.contains(num - 1)) {
+                tmp++;
+                while (set.contains(num + 1)) {
+                    tmp++;
+                    num = num + 1;
+                }
+                result = Math.max(result, tmp);
+            }
+            tmp = 0;
+        }
+
+        return result;
+    }
 }

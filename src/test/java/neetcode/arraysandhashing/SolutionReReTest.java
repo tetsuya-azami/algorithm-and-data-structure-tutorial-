@@ -49,4 +49,14 @@ class SolutionReReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void longestConsecutiveHashSet() {
+        SolutionReRe solutionReRe = new SolutionReRe();
+        int result = solutionReRe.longestConsecutiveHashSet(new int[]{100, 4, 200, 1, 3, 2});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
