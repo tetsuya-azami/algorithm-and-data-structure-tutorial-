@@ -94,4 +94,14 @@ class SolutionReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void subsetsWithDupBruteForce() {
+        SolutionRe solutionRe = new SolutionRe();
+        List<List<Integer>> result = solutionRe.subsetsWithDupBruteForce(new int[]{1, 2, 1});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }

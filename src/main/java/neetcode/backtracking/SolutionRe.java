@@ -183,4 +183,25 @@ public class SolutionRe {
         nums[i] = nums[j];
         nums[j] = tmp;
     }
+
+    public List<List<Integer>> subsetsWithDupBruteForce(int[] nums) {
+        Set<List<Integer>> result = new HashSet<>();
+        Arrays.sort(nums);
+        subsetsWithDupBackTracking(result, new ArrayList<>(), nums, 0);
+
+        return new ArrayList<>(result);
+    }
+
+    private void subsetsWithDupBackTracking(Set<List<Integer>> result, List<Integer> subset, int[] nums, int i) {
+        if (i == nums.length) {
+            result.add(new ArrayList<>(subset));
+            return;
+        }
+
+        subset.add(nums[i]);
+        subsetsWithDupBackTracking(result, subset, nums, i + 1);
+        subset.remove(subset.size() - 1
+        );
+        subsetsWithDupBackTracking(result, subset, nums, i + 1);
+    }
 }
