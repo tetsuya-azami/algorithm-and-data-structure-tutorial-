@@ -204,4 +204,28 @@ public class SolutionRe {
         );
         subsetsWithDupBackTracking(result, subset, nums, i + 1);
     }
+
+    public List<List<Integer>> subsetsWithDupPickAndNotPick(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        Arrays.sort(nums);
+        subsetsWithDupPickAndNotPickBackTracking(result, new ArrayList<>(), nums, 0);
+
+        return result;
+    }
+
+    private void subsetsWithDupPickAndNotPickBackTracking(List<List<Integer>> result, List<Integer> subset, int[] nums, int i) {
+        if (i == nums.length) {
+            result.add(new ArrayList<>(subset));
+            return;
+        }
+
+        subset.add(nums[i]);
+        subsetsWithDupPickAndNotPickBackTracking(result, subset, nums, i + 1);
+
+        subset.remove(subset.size() - 1);
+        while (i + 1 < nums.length && nums[i] == nums[i + 1]) {
+            i++;
+        }
+        subsetsWithDupPickAndNotPickBackTracking(result, subset, nums, i + 1);
+    }
 }
