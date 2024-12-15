@@ -39,4 +39,14 @@ class SolutionReReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void longestConsecutiveSorting() {
+        SolutionReRe solutionReRe = new SolutionReRe();
+        int result = solutionReRe.longestConsecutiveSorting(new int[]{100, 4, 200, 1, 3, 2});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }

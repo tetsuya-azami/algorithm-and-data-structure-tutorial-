@@ -89,4 +89,24 @@ public class SolutionReRe {
 
         return result;
     }
+
+    public int longestConsecutiveSorting(int[] nums) {
+        Arrays.sort(nums);
+        int result = 0;
+        int tmp = 0;
+        int pre = Integer.MAX_VALUE;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == pre) {
+                continue;
+            }
+            if (nums[i] != pre + 1) {
+                tmp = 0;
+            }
+            tmp++;
+            result = Math.max(result, tmp);
+            pre = nums[i];
+        }
+
+        return result;
+    }
 }
