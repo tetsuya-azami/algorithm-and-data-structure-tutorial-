@@ -32,4 +32,30 @@ public class SolutionReRe {
 
         return new ArrayList<>(map.values());
     }
+
+    public String encode(List<String> strs) {
+        StringBuilder stb = new StringBuilder();
+        for (String str : strs) {
+            stb.append(str.length()).append('#').append(str);
+        }
+        return stb.toString();
+    }
+
+    public List<String> decode(String str) {
+        List<String> result = new ArrayList<>();
+        int i = 0;
+        while (i < str.length()) {
+            int length = 0;
+            while (str.charAt(i) != '#') {
+                length = length * 10 + Integer.parseInt(String.valueOf(str.charAt(i)));
+                i++;
+            }
+            i++;
+            String substring = str.substring(i, i + length);
+            result.add(substring);
+            i = i + length;
+        }
+
+        return result;
+    }
 }
