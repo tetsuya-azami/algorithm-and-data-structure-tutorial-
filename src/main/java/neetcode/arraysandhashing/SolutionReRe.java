@@ -58,4 +58,35 @@ public class SolutionReRe {
 
         return result;
     }
+
+    public int longestConsecutive(int[] nums) {
+        Map<Integer, Boolean> map = new HashMap<>();
+        for (int num : nums) {
+            map.put(num, true);
+        }
+
+        int result = 0;
+        int tmp = 0;
+        for (int num : nums) {
+            if (map.get(num)) {
+                tmp++;
+                int plus = num + 1;
+                while (map.containsKey(plus)) {
+                    tmp++;
+                    plus = plus + 1;
+                }
+                int minus = num - 1;
+                while (map.containsKey(minus)) {
+                    tmp++;
+                    minus = minus - 1;
+                }
+                result = Math.max(result, tmp);
+            } else {
+                continue;
+            }
+            tmp = 0;
+        }
+
+        return result;
+    }
 }
