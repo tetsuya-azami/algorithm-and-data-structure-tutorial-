@@ -114,4 +114,14 @@ class SolutionReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void combinationSum2() {
+        SolutionRe solutionRe = new SolutionRe();
+        List<List<Integer>> result = solutionRe.combinationSum2(new int[]{1, 2, 3, 4, 5}, 7);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }

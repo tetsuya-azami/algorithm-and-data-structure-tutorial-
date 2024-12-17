@@ -228,4 +228,28 @@ public class SolutionRe {
         }
         subsetsWithDupPickAndNotPickBackTracking(result, subset, nums, i + 1);
     }
+
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        List<List<Integer>> result = new ArrayList<>();
+        Arrays.sort(candidates);
+        combinationSum2BackTracking(result, new ArrayList<>(), candidates, target, 0);
+
+        return result;
+    }
+
+    private void combinationSum2BackTracking(List<List<Integer>> result, List<Integer> subset, int[] candidates, int target, int i) {
+        if (target == 0) {
+            result.add(new ArrayList<>(subset));
+            return;
+        }
+        if (i == candidates.length || target < 0) return;
+
+        subset.add(candidates[i]);
+        combinationSum2BackTracking(result, subset, candidates, target - candidates[i], i + 1);
+        subset.remove(subset.size() - 1);
+        while (i + 1 < candidates.length && candidates[i] == candidates[i + 1]) {
+            i++;
+        }
+        combinationSum2BackTracking(result, subset, candidates, target, i + 1);
+    }
 }
