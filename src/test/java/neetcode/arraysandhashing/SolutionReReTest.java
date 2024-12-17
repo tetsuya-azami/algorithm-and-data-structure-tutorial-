@@ -59,4 +59,14 @@ class SolutionReReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void productExceptSelf() {
+        SolutionReRe solution = new SolutionReRe();
+        int[] result = solution.productExceptSelf(new int[]{1, 2, 4, 6});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(Arrays.toString(result));
+    }
 }
