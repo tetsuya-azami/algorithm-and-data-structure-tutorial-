@@ -278,7 +278,35 @@ public class SolutionRe {
                 || isTargetChar(board, row, col - 1, word, wordIndex + 1, isVisited)
                 || isTargetChar(board, row - 1, col, word, wordIndex + 1, isVisited);
         isVisited[row][col] = false;
-        
+
+        return result;
+    }
+
+    public boolean existOptimal(char[][] board, String word) {
+        for (int row = 0; row < board.length; row++) {
+            for (int col = 0; col < board[0].length; col++) {
+                if (existOptimalDfs(board, row, col, word, 0)) return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean existOptimalDfs(char[][] board, int row, int col, String word, int i) {
+        if (i == word.length()) return true;
+        if (row < 0
+                || col < 0
+                || row > board.length - 1
+                || col > board[0].length - 1
+                || board[row][col] != word.charAt(i)) return false;
+
+        board[row][col] = '#';
+
+        boolean result = existOptimalDfs(board, row, col + 1, word, i + 1)
+                || existOptimalDfs(board, row + 1, col, word, i + 1)
+                || existOptimalDfs(board, row, col - 1, word, i + 1)
+                || existOptimalDfs(board, row - 1, col, word, i + 1);
+        board[row][col] = word.charAt(i);
+
         return result;
     }
 }
