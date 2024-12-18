@@ -124,4 +124,19 @@ class SolutionReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void exist() {
+        SolutionRe solutionRe = new SolutionRe();
+        boolean result = solutionRe.exist(
+                new char[][]{
+                        new char[]{'A', 'B', 'C', 'D'},
+                        new char[]{'S', 'A', 'A', 'T'},
+                        new char[]{'A', 'C', 'A', 'E'}},
+                "CAT");
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }

@@ -252,4 +252,33 @@ public class SolutionRe {
         }
         combinationSum2BackTracking(result, subset, candidates, target, i + 1);
     }
+
+    public boolean exist(char[][] board, String word) {
+        boolean[][] isVisited = new boolean[board.length][board[0].length];
+        for (int row = 0; row < board.length; row++) {
+            for (int col = 0; col < board[0].length; col++) {
+                if (isTargetChar(board, row, col, word, 0, isVisited)) return true;
+            }
+        }
+
+        return false;
+    }
+
+    private boolean isTargetChar(char[][] board, int row, int col, String word, int wordIndex, boolean[][] isVisited) {
+        if (wordIndex == word.length()) return true;
+        if (col > board[0].length - 1
+                || row > board.length - 1
+                || col < 0 || row < 0
+                || board[row][col] != word.charAt(wordIndex)
+                || isVisited[row][col])
+            return false;
+        isVisited[row][col] = true;
+        boolean result = isTargetChar(board, row, col + 1, word, wordIndex + 1, isVisited)
+                || isTargetChar(board, row + 1, col, word, wordIndex + 1, isVisited)
+                || isTargetChar(board, row, col - 1, word, wordIndex + 1, isVisited)
+                || isTargetChar(board, row - 1, col, word, wordIndex + 1, isVisited);
+        isVisited[row][col] = false;
+        
+        return result;
+    }
 }
