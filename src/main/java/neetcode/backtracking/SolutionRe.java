@@ -309,4 +309,38 @@ public class SolutionRe {
 
         return result;
     }
+
+    public List<List<String>> partition(String s) {
+        List<List<String>> result = new ArrayList<>();
+        partitionBackTracking(result, new ArrayList<>(), s, 0);
+
+        return result;
+    }
+
+    private void partitionBackTracking(List<List<String>> result, List<String> subset, String s, int start) {
+        if (start >= s.length()) {
+            result.add(new ArrayList<>(subset));
+            return;
+        }
+
+        for (int end = start; end < s.length(); end++) {
+            if (isPalindrome(s.substring(start, end + 1))) {
+                subset.add(s.substring(start, end + 1));
+                partitionBackTracking(result, subset, s, end + 1);
+                subset.remove(subset.size() - 1);
+            }
+        }
+    }
+
+    private boolean isPalindrome(String s) {
+        int left = 0;
+        int right = s.length() - 1;
+        while (left < right) {
+            if (s.charAt(left) != s.charAt(right)) return false;
+            left++;
+            right--;
+        }
+
+        return true;
+    }
 }

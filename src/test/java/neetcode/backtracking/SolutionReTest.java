@@ -154,4 +154,14 @@ class SolutionReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void partition() {
+        SolutionRe solutionRe = new SolutionRe();
+        List<List<String>> result = solutionRe.partition("aab");
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
