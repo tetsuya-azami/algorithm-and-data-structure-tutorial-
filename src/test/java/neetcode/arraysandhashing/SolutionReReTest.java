@@ -69,4 +69,14 @@ class SolutionReReTest {
         System.out.println();
         System.out.println(Arrays.toString(result));
     }
+
+    @Test
+    void topKFrequent() {
+        SolutionReRe solutionReRe = new SolutionReRe();
+        int[] result = solutionReRe.topKFrequent(new int[]{1, 2, 2, 3, 3, 3}, 2);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(Arrays.toString(result));
+    }
 }
