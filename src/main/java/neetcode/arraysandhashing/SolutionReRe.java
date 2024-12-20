@@ -152,7 +152,7 @@ public class SolutionReRe {
         return result;
     }
 
-    public int[] topKFrequent(int[] nums, int k) {
+    public int[] topKFrequentSortN(int[] nums, int k) {
         Map<Integer, Integer> map = new HashMap<>();
         for (int num : nums) {
             map.put(num, map.getOrDefault(num, 0) + 1);
@@ -163,5 +163,21 @@ public class SolutionReRe {
                 .limit(k)
                 .mapToInt(Map.Entry::getKey)
                 .toArray();
+    }
+
+    public int[] topKFrequentHeap(int[] nums, int k) {
+        PriorityQueue<Map.Entry<Integer, Integer>> maxHeap = new PriorityQueue<>(Comparator.comparingInt(Map.Entry::getValue));
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int num : nums) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            maxHeap.add(entry);
+            if (maxHeap.size() > k) {
+                maxHeap.poll();
+            }
+        }
+
+        return maxHeap.stream().mapToInt(Map.Entry::getKey).toArray();
     }
 }

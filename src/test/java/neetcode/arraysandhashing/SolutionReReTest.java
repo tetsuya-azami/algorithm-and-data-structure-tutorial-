@@ -71,9 +71,19 @@ class SolutionReReTest {
     }
 
     @Test
-    void topKFrequent() {
+    void topKFrequentSortN() {
         SolutionReRe solutionReRe = new SolutionReRe();
-        int[] result = solutionReRe.topKFrequent(new int[]{1, 2, 2, 3, 3, 3}, 2);
+        int[] result = solutionReRe.topKFrequentSortN(new int[]{1, 2, 2, 3, 3, 3}, 2);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(Arrays.toString(result));
+    }
+
+    @Test
+    void topKFrequentHeap() {
+        SolutionReRe solutionReRe = new SolutionReRe();
+        int[] result = solutionReRe.topKFrequentHeap(new int[]{1, 2, 2, 3, 3, 3}, 2);
         System.out.println();
         System.out.println();
         System.out.println();
