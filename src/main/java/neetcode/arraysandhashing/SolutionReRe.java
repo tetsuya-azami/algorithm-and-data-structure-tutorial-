@@ -297,4 +297,21 @@ public class SolutionReRe {
 
         return result;
     }
+
+    public int[] topKFrequentRe(int[] nums, int k) {
+        Map<Integer, Integer> countMap = new HashMap<>();
+        for (int num : nums) {
+            countMap.put(num, countMap.getOrDefault(num, 0) + 1);
+        }
+
+        PriorityQueue<Map.Entry<Integer, Integer>> maxHeap = new PriorityQueue<>(Comparator.comparingInt(Map.Entry::getValue));
+        for (Map.Entry<Integer, Integer> entry : countMap.entrySet()) {
+            maxHeap.offer(entry);
+            if (maxHeap.size() > k) {
+                maxHeap.poll();
+            }
+        }
+
+        return maxHeap.stream().mapToInt(Map.Entry::getKey).toArray();
+    }
 }
