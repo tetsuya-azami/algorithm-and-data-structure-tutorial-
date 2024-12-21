@@ -180,4 +180,32 @@ public class SolutionReRe {
 
         return maxHeap.stream().mapToInt(Map.Entry::getKey).toArray();
     }
+
+    public int[] topKFrequentBucketSort(int[] nums, int k) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int num : nums) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+
+        List<Integer>[] bucket = new List[nums.length + 1];
+        for (int i = 0; i < bucket.length; i++) {
+            bucket[i] = new ArrayList<>();
+        }
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            bucket[entry.getValue()].add(entry.getKey());
+        }
+
+        int[] result = new int[k];
+        int index = 0;
+        for (int i = bucket.length - 1; i >= 0; i--) {
+            if (bucket[i] != null) {
+                for (Integer e : bucket[i]) {
+                    if (index == k) return result;
+                    result[index++] = e;
+                }
+            }
+        }
+
+        return result;
+    }
 }
