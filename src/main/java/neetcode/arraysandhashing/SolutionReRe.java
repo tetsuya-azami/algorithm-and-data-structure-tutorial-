@@ -208,4 +208,31 @@ public class SolutionReRe {
 
         return result;
     }
+
+    public String encodeRe(List<String> strs) {
+        StringBuilder stb = new StringBuilder();
+        for (String str : strs) {
+            stb.append(str.length()).append('#').append(str);
+        }
+
+        return stb.toString();
+    }
+
+
+    public List<String> decodeRe(String str) {
+        List<String> result = new ArrayList<>();
+        int index = 0;
+        while (index < str.length()) {
+            int numberOfChar = 0;
+            while (str.charAt(index) != '#') {
+                numberOfChar = numberOfChar * 10 + Integer.parseInt(String.valueOf(str.charAt(index)));
+                index++;
+            }
+            index++;
+            result.add(str.substring(index, index + numberOfChar));
+            index += numberOfChar;
+        }
+
+        return result;
+    }
 }

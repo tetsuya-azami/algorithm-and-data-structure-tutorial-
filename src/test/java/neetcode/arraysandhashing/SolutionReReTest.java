@@ -99,4 +99,17 @@ class SolutionReReTest {
         System.out.println();
         System.out.println(Arrays.toString(result));
     }
+
+    @Test
+    void encodeAndDecodeRe() {
+        SolutionReRe solutionReRe = new SolutionReRe();
+        String encoded = solutionReRe.encodeRe(new ArrayList<>(Arrays.asList("we", "say", ":", "yes", "!@#$%^&*()")));
+        List<String> decoded = solutionReRe.decodeRe(encoded);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(encoded);
+        System.out.println();
+        System.out.println(decoded);
+    }
 }
