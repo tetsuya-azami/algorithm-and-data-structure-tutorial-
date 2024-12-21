@@ -249,4 +249,33 @@ public class SolutionReRe {
 
         return map.values().stream().toList();
     }
+
+    public int longestConsecutiveRe(int[] nums) {
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
+        for (int num : nums) {
+            min = Math.min(min, num);
+            max = Math.max(max, num);
+        }
+
+        int value = min;
+        int result = 0;
+        int nowSequenceLength = 0;
+        Set<Integer> set = new HashSet<>();
+        for (int num : nums) {
+            set.add(num);
+        }
+
+        while (value <= max) {
+            if (set.contains(value)) {
+                nowSequenceLength++;
+                result = Math.max(result, nowSequenceLength);
+            } else {
+                nowSequenceLength = 0;
+            }
+            value++;
+        }
+
+        return result;
+    }
 }

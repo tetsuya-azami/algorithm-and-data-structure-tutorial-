@@ -122,4 +122,14 @@ class SolutionReReTest {
         System.out.println();
         System.out.println(results);
     }
+
+    @Test
+    void longestConsecutiveRe() {
+        SolutionReRe solutionReRe = new SolutionReRe();
+        int result = solutionReRe.longestConsecutiveRe(new int[]{2, 20, 4, 10, 3, 4, 5});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
