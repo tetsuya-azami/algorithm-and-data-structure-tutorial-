@@ -235,4 +235,18 @@ public class SolutionReRe {
 
         return result;
     }
+
+    public List<List<String>> groupAnagramsReReRe(String[] strs) {
+        Map<String, List<String>> map = new HashMap<>();
+        for (String str : strs) {
+            int[] charCounts = new int[26];
+            for (char c : str.toCharArray()) {
+                charCounts[c - 'a']++;
+            }
+            String charCountsStr = Arrays.toString(charCounts);
+            map.computeIfAbsent(charCountsStr, e -> new ArrayList<>()).add(str);
+        }
+
+        return map.values().stream().toList();
+    }
 }

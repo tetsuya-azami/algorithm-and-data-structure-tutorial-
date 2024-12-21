@@ -112,4 +112,14 @@ class SolutionReReTest {
         System.out.println();
         System.out.println(decoded);
     }
+
+    @Test
+    void groupAnagramsReReRe() {
+        SolutionReRe solutionReRe = new SolutionReRe();
+        List<List<String>> results = solutionReRe.groupAnagramsReReRe(new String[]{"act", "pots", "tops", "cat", "stop", "hat"});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(results);
+    }
 }
