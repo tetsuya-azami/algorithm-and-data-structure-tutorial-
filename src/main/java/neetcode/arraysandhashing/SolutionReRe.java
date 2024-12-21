@@ -314,4 +314,31 @@ public class SolutionReRe {
 
         return maxHeap.stream().mapToInt(Map.Entry::getKey).toArray();
     }
+
+    public int[] topKFrequentBucket(int[] nums, int k) {
+        Map<Integer, Integer> countMap = new HashMap<>();
+        for (int num : nums) {
+            countMap.put(num, countMap.getOrDefault(num, 0) + 1);
+        }
+
+        List<Integer>[] bucket = new List[nums.length + 1];
+        for (int i = 0; i < nums.length + 1; i++) {
+            bucket[i] = new ArrayList<>();
+        }
+
+        for (Map.Entry<Integer, Integer> entry : countMap.entrySet()) {
+            bucket[entry.getValue()].add(entry.getKey());
+        }
+
+        int[] results = new int[k];
+        int index = 0;
+        for (int i = nums.length; i >= 0; i--) {
+            for (Integer value : bucket[i]) {
+                if (index == k) return results;
+                results[index++] = value;
+            }
+        }
+
+        return results;
+    }
 }

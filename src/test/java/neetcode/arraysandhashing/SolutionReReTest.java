@@ -152,4 +152,14 @@ class SolutionReReTest {
         System.out.println();
         System.out.println(Arrays.toString(result));
     }
+
+    @Test
+    void topKFrequentBucket() {
+        SolutionReRe solutionReRe = new SolutionReRe();
+        int[] result = solutionReRe.topKFrequentBucket(new int[]{7, 7}, 1);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(Arrays.toString(result));
+    }
 }
