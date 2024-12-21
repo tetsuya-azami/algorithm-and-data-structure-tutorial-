@@ -278,4 +278,23 @@ public class SolutionReRe {
 
         return result;
     }
+
+    public int[] productExceptSelfRe(int[] nums) {
+        int[] preProducts = new int[nums.length];
+        int[] sufProducts = new int[nums.length];
+        int[] result = new int[nums.length];
+        preProducts[0] = 1;
+        for (int i = 1; i < nums.length; i++) {
+            preProducts[i] = preProducts[i - 1] * nums[i - 1];
+        }
+        sufProducts[nums.length - 1] = 1;
+        for (int i = nums.length - 2; i >= 0; i--) {
+            sufProducts[i] = sufProducts[i + 1] * nums[i + 1];
+        }
+        for (int i = 0; i < nums.length; i++) {
+            result[i] = preProducts[i] * sufProducts[i];
+        }
+
+        return result;
+    }
 }
