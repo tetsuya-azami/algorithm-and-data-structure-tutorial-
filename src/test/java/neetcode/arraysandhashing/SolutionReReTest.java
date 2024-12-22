@@ -162,4 +162,14 @@ class SolutionReReTest {
         System.out.println();
         System.out.println(Arrays.toString(result));
     }
+
+    @Test
+    void longestConsecutiveRetry() {
+        SolutionReRe solutionReRe = new SolutionReRe();
+        int result = solutionReRe.longestConsecutiveRetry(new int[]{2, 20, 4, 10, 3, 4, 5});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }

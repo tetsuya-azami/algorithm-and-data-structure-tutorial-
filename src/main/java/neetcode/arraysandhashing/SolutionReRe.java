@@ -341,4 +341,25 @@ public class SolutionReRe {
 
         return results;
     }
+
+    public int longestConsecutiveRetry(int[] nums) {
+        Set<Integer> set = new HashSet<>();
+        for (int num : nums) {
+            set.add(num);
+        }
+
+        int result = 0;
+        for (int num : nums) {
+            int length = 0;
+            if (!set.contains(num - 1)) {
+                while (set.contains(num)) {
+                    length++;
+                    num++;
+                }
+                result = Math.max(result, length);
+            }
+        }
+
+        return result;
+    }
 }
