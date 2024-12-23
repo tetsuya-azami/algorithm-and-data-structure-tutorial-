@@ -362,4 +362,29 @@ public class SolutionReRe {
 
         return result;
     }
+
+    public boolean isValidSudoku(char[][] board) {
+        Set<String> rows = new HashSet<>();
+        Set<String> cols = new HashSet<>();
+        Set<String> box = new HashSet<>();
+
+        for (int row = 0; row < board.length; row++) {
+            for (int col = 0; col < board[0].length; col++) {
+                char c = board[row][col];
+                if (c == '.') continue;
+                if (Integer.parseInt(String.valueOf(c)) < 1 || 9 < Integer.parseInt(String.valueOf(c))) return false;
+                String rowAndValue = String.format("%s-%s", row, c);
+                if (rows.contains(rowAndValue)) return false;
+                rows.add(rowAndValue);
+                String colAndValue = String.format("%s-%s", col, c);
+                if (cols.contains(colAndValue)) return false;
+                cols.add(colAndValue);
+                String boxAndValue = String.format("%s-%s", (row / 3) * 3 + col / 3, c);
+                if (box.contains(boxAndValue)) return false;
+                box.add(boxAndValue);
+            }
+        }
+
+        return true;
+    }
 }

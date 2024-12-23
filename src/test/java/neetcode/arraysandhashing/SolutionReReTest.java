@@ -172,4 +172,25 @@ class SolutionReReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void isValidSudoku() {
+        SolutionReRe solutionReRe = new SolutionReRe();
+        boolean result = solutionReRe.isValidSudoku(
+                new char[][]{
+                        new char[]{'1', '2', '.', '.', '3', '.', '.', '.', '.'},
+                        new char[]{'4', '.', '.', '5', '.', '.', '.', '.', '.'},
+                        new char[]{'.', '9', '8', '.', '.', '.', '.', '.', '3'},
+                        new char[]{'5', '.', '.', '.', '6', '.', '.', '.', '4'},
+                        new char[]{'.', '.', '.', '8', '.', '3', '.', '.', '5'},
+                        new char[]{'7', '.', '.', '.', '2', '.', '.', '.', '6'},
+                        new char[]{'.', '.', '.', '.', '.', '.', '2', '.', '.'},
+                        new char[]{'.', '.', '.', '4', '1', '9', '.', '.', '8'},
+                        new char[]{'.', '.', '.', '.', '8', '.', '.', '7', '9'}
+                });
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
