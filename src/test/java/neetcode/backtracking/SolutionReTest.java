@@ -164,4 +164,14 @@ class SolutionReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void letterCombinations() {
+        SolutionRe solutionRe = new SolutionRe();
+        List<String> result = solutionRe.letterCombinations("");
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }

@@ -343,4 +343,43 @@ public class SolutionRe {
 
         return true;
     }
+
+    public List<String> letterCombinations(String digits) {
+        Map<Character, Set<Character>> map = createMap();
+        List<String> result = new ArrayList<>();
+        letterCombinationsBackTracking(result, new StringBuilder(), digits, 0, map);
+
+        return result;
+    }
+
+    private void letterCombinationsBackTracking(List<String> result, StringBuilder stb, String digits, int index, Map<Character, Set<Character>> map) {
+        if (index > digits.length() - 1) {
+            if (!stb.isEmpty()) {
+                result.add(stb.toString());
+            }
+            return;
+        }
+
+        char digit = digits.charAt(index);
+        Set<Character> characters = map.get(digit);
+        for (Character c : characters) {
+            stb.append(c);
+            letterCombinationsBackTracking(result, stb, digits, index + 1, map);
+            stb.deleteCharAt(stb.length() - 1);
+        }
+    }
+
+    private Map<Character, Set<Character>> createMap() {
+        Map<Character, Set<Character>> map = new HashMap<>();
+        map.put('2', Set.of('a', 'b', 'c'));
+        map.put('3', Set.of('d', 'e', 'f'));
+        map.put('4', Set.of('g', 'h', 'i'));
+        map.put('5', Set.of('j', 'k', 'l'));
+        map.put('6', Set.of('m', 'n', 'o'));
+        map.put('7', Set.of('p', 'q', 'r', 's'));
+        map.put('8', Set.of('t', 'u', 'v'));
+        map.put('9', Set.of('w', 'x', 'y', 'z'));
+
+        return map;
+    }
 }
