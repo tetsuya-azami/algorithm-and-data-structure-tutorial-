@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PrefixTreeRe {
-    private Node root;
+    private final Node root;
 
     public PrefixTreeRe() {
         this.root = new Node(false, new HashMap<>());
@@ -12,24 +12,12 @@ public class PrefixTreeRe {
 
     public void insert(String word) {
         Node cur = root;
-        int index = 0;
-        while (index < word.length()) {
-            char c = word.charAt(index);
-            if (cur.children.containsKey(c)) {
-                Node nextNode = cur.children.get(c);
-                if (index == word.length() - 1) {
-                    nextNode.isEnd = true;
-                }
-                cur = nextNode;
-            } else {
-                cur.children.put(
-                        c,
-                        new Node(index == word.length() - 1, new HashMap<>())
-                );
-                cur = cur.children.get(c);
-            }
-            index++;
+        for (char c : word.toCharArray()) {
+            cur.children.putIfAbsent(c, new Node(false, new HashMap<>()));
+            cur = cur.children.get(c);
         }
+
+        cur.isEnd = true;
     }
 
     public boolean search(String word) {
@@ -52,9 +40,9 @@ public class PrefixTreeRe {
         return true;
     }
 
-    private class Node {
+    private static class Node {
         private Boolean isEnd;
-        private Map<Character, Node> children;
+        private final Map<Character, Node> children;
 
         public Node(Boolean isEnd, Map<Character, Node> children) {
             this.isEnd = isEnd;
