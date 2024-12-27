@@ -3,6 +3,7 @@ package neetcode.twopointers;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.List;
 
 class SolutionReReTest {
     @Test
@@ -13,5 +14,15 @@ class SolutionReReTest {
         System.out.println();
         System.out.println();
         System.out.println(Arrays.toString(result));
+    }
+
+    @Test
+    void threeSum() {
+        SolutionReRe solutionRe = new SolutionReRe();
+        List<List<Integer>> result = solutionRe.threeSum(new int[]{-2, 0, 1, 1, 2});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
     }
 }
