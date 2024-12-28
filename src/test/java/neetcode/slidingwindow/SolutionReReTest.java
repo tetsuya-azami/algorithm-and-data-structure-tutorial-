@@ -42,4 +42,14 @@ class SolutionReReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void characterReplacementBruteForce() {
+        SolutionReRe solutionReRe = new SolutionReRe();
+        int result = solutionReRe.characterReplacementBruteForce("AABABBA", 1); // 4
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
