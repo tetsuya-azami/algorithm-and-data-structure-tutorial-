@@ -1,20 +1,19 @@
 package neetcode.slidingwindow;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SolutionReRe {
     public int lengthOfLongestSubstring(String s) {
-        Set<Character> set = new HashSet<>();
-        int left = 0;
-        int right = 0;
+        Map<Character, Integer> map = new HashMap<>();
         int result = 0;
-        while (right < s.length()) {
-            while (set.contains(s.charAt(right))) {
-                set.remove(s.charAt(left++));
+        int l = 0;
+        for (int r = 0; r < s.length(); r++) {
+            if (map.containsKey(s.charAt(r))) {
+                l = Math.max(l, map.get(s.charAt(r)) + 1);
             }
-            set.add(s.charAt(right++));
-            result = Math.max(result, set.size());
+            map.put(s.charAt(r), r);
+            result = Math.max(result, r - l + 1);
         }
 
         return result;

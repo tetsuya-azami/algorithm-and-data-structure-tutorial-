@@ -12,4 +12,24 @@ class SolutionReReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void lengthOfLongestSubstring2() {
+        SolutionReRe solutionReRe = new SolutionReRe();
+        int result = solutionReRe.lengthOfLongestSubstring("pwwkew");
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
+
+    @Test
+    void lengthOfLongestSubstring3() {
+        SolutionReRe solutionReRe = new SolutionReRe();
+        int result = solutionReRe.lengthOfLongestSubstring("abba");
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
