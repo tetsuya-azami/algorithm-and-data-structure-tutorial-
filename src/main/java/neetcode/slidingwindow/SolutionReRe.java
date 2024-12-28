@@ -1,7 +1,9 @@
 package neetcode.slidingwindow;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class SolutionReRe {
     public int lengthOfLongestSubstring(String s) {
@@ -51,6 +53,29 @@ public class SolutionReRe {
                 if ((j - i + 1) - maxf <= k) {
                     result = Math.max(result, j - i + 1);
                 }
+            }
+        }
+
+        return result;
+    }
+
+    public int characterReplacementHashSet(String s, int k) {
+        Set<Character> set = new HashSet<>();
+        for (Character c : s.toCharArray()) {
+            set.add(c);
+        }
+
+        int result = 0;
+        for (Character c : set) {
+            int count = 0;
+            int l = 0;
+            for (int r = 0; r < s.length(); r++) {
+                if (s.charAt(r) == c) count++;
+                while (l < r && (r - l + 1) - count > k) {
+                    if (s.charAt(l) == c) count--;
+                    l++;
+                }
+                result = Math.max(result, r - l + 1);
             }
         }
 

@@ -52,4 +52,14 @@ class SolutionReReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void characterReplacementHashSet() {
+        SolutionReRe solutionReRe = new SolutionReRe();
+        int result = solutionReRe.characterReplacementHashSet("AABABBA", 1); // 4
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
