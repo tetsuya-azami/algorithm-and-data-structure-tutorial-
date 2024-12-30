@@ -151,11 +151,9 @@ public class SolutionReRe {
                     charIndexMap.remove(s.charAt(l));
                     l++;
                 }
-                charIndexMap.put(s.charAt(r), r);
-            } else {
-                charIndexMap.put(s.charAt(r), r);
-                result = Math.max(result, r - l + 1);
             }
+            charIndexMap.put(s.charAt(r), r);
+            result = Math.max(result, r - l + 1);
         }
 
         return result;
