@@ -1,6 +1,9 @@
 package neetcode.slidingwindow;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 public class SolutionReRe {
     public int lengthOfLongestSubstring(String s) {
@@ -200,14 +203,9 @@ public class SolutionReRe {
     }
 
     public boolean isValidSudokuRe(char[][] board) {
-        List<Set<Integer>> rowSets = new ArrayList<>();
-        List<Set<Integer>> colSets = new ArrayList<>();
-        List<Set<Integer>> boxSets = new ArrayList<>();
-        for (int i = 0; i < 9; i++) {
-            rowSets.add(new HashSet<>());
-            colSets.add(new HashSet<>());
-            boxSets.add(new HashSet<>());
-        }
+        Map<Integer, Set<Character>> rowSets = new HashMap<>();
+        Map<Integer, Set<Character>> colSets = new HashMap<>();
+        Map<Integer, Set<Character>> boxSets = new HashMap<>();
 
         for (int row = 0; row < board.length; row++) {
             for (int col = 0; col < board[0].length; col++) {
@@ -215,13 +213,12 @@ public class SolutionReRe {
                 if (c == '.') continue;
 
                 int boxIndex = 3 * (row / 3) + (col / 3);
-                int value = Integer.parseInt(String.valueOf(c));
-                if (rowSets.get(row).contains(value)
-                        || colSets.get(col).contains(value)
-                        || boxSets.get(boxIndex).contains(value)) return false;
-                rowSets.get(row).add(value);
-                colSets.get(col).add(value);
-                boxSets.get(boxIndex).add(value);
+                if (rowSets.computeIfAbsent(row, k -> new HashSet<>()).contains(c)
+                        || colSets.computeIfAbsent(col, k -> new HashSet<>()).contains(c)
+                        || boxSets.computeIfAbsent(boxIndex, k -> new HashSet<>()).contains(c)) return false;
+                rowSets.get(row).add(c);
+                colSets.get(col).add(c);
+                boxSets.get(boxIndex).add(c);
             }
         }
 
