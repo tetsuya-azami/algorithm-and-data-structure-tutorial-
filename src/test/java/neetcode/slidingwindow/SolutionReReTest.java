@@ -92,4 +92,14 @@ class SolutionReReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    public void checkInclusionRe() {
+        SolutionReRe solutionReRe = new SolutionReRe();
+        boolean result = solutionReRe.checkInclusionRe("abc", "lecabee");
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }

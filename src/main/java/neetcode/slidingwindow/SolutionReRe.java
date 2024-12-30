@@ -158,4 +158,47 @@ public class SolutionReRe {
 
         return result;
     }
+
+    public boolean checkInclusionRe(String s1, String s2) {
+        if (s1.length() > s2.length()) return false;
+
+        int[] s1CharCounts = new int[26];
+        for (char c : s1.toCharArray()) {
+            s1CharCounts[c - 'a']++;
+        }
+
+        int[] s2CharCounts = new int[26];
+        for (int i = 0; i < s1.length(); i++) {
+            s2CharCounts[s2.charAt(i) - 'a']++;
+        }
+
+        int match = 0;
+        for (int i = 0; i < 26; i++) {
+            if (s1CharCounts[i] == s2CharCounts[i]) match++;
+        }
+
+        int l = 0;
+        for (int r = s1.length(); r < s2.length(); r++) {
+            if (match == 26) return true;
+
+            int index = s2.charAt(r) - 'a';
+            s2CharCounts[index]++;
+            if (s1CharCounts[index] == s2CharCounts[index]) {
+                match++;
+            } else if (s1CharCounts[index] + 1 == s2CharCounts[index]) {
+                match--;
+            }
+
+            index = s2.charAt(l) - 'a';
+            s2CharCounts[index]--;
+            if (s1CharCounts[index] == s2CharCounts[index]) {
+                match++;
+            } else if (s1CharCounts[index] - 1 == s2CharCounts[index]) {
+                match--;
+            }
+            l++;
+        }
+
+        return match == 26;
+    }
 }
