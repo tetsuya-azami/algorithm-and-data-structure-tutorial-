@@ -1,9 +1,6 @@
 package neetcode.slidingwindow;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class SolutionReRe {
     public int lengthOfLongestSubstring(String s) {
@@ -200,5 +197,34 @@ public class SolutionReRe {
         }
 
         return match == 26;
+    }
+
+    public boolean isValidSudokuRe(char[][] board) {
+        List<Set<Integer>> rowSets = new ArrayList<>();
+        List<Set<Integer>> colSets = new ArrayList<>();
+        List<Set<Integer>> boxSets = new ArrayList<>();
+        for (int i = 0; i < 9; i++) {
+            rowSets.add(new HashSet<>());
+            colSets.add(new HashSet<>());
+            boxSets.add(new HashSet<>());
+        }
+
+        for (int row = 0; row < board.length; row++) {
+            for (int col = 0; col < board[0].length; col++) {
+                char c = board[row][col];
+                if (c == '.') continue;
+
+                int boxIndex = 3 * (row / 3) + (col / 3);
+                int value = Integer.parseInt(String.valueOf(c));
+                if (rowSets.get(row).contains(value)
+                        || colSets.get(col).contains(value)
+                        || boxSets.get(boxIndex).contains(value)) return false;
+                rowSets.get(row).add(value);
+                colSets.get(col).add(value);
+                boxSets.get(boxIndex).add(value);
+            }
+        }
+
+        return true;
     }
 }
