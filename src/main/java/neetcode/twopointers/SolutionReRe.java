@@ -1,8 +1,6 @@
 package neetcode.twopointers;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class SolutionReRe {
     public int[] twoSum(int[] numbers, int target) {
@@ -49,5 +47,31 @@ public class SolutionReRe {
         }
 
         return result;
+    }
+
+    public List<List<Integer>> threeSumRe(int[] nums) {
+        Set<List<Integer>> set = new HashSet<>();
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length; i++) {
+            if (i > 0 && nums[i] == nums[i - 1]) continue;
+            int j = i + 1;
+            if (j >= nums.length) break;
+            int k = nums.length - 1;
+            while (j < k) {
+                int sum = nums[i] + nums[j] + nums[k];
+                if (sum == 0) {
+                    set.add(Arrays.asList(nums[i], nums[j], nums[k]));
+                    j++;
+                    k--;
+                    while (j < k && nums[j] == nums[j - 1]) j++;
+                } else if (sum < 0) {
+                    j++;
+                } else {
+                    k--;
+                }
+            }
+        }
+
+        return set.stream().toList();
     }
 }

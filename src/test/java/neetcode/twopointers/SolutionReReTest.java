@@ -25,4 +25,14 @@ class SolutionReReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void threeSumRe() {
+        SolutionReRe solutionRe = new SolutionReRe();
+        List<List<Integer>> result = solutionRe.threeSumRe(new int[]{0, 0, 0});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
