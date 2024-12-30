@@ -121,4 +121,22 @@ public class SolutionReRe {
 
         return matches == 26;
     }
+
+    public int characterReplacementRe(String s, int k) {
+        int l = 0;
+        int result = 0;
+        int maxf = 0;
+        Map<Character, Integer> map = new HashMap<>();
+        for (int r = l; r < s.length(); r++) {
+            map.put(s.charAt(r), map.getOrDefault(s.charAt(r), 0) + 1);
+            maxf = Math.max(maxf, map.get(s.charAt(r)));
+            if ((r - l + 1) - maxf > k) {
+                map.put(s.charAt(l), map.get(s.charAt(l)) - 1);
+                l++;
+            }
+            result = Math.max(result, r - l + 1);
+        }
+
+        return result;
+    }
 }
