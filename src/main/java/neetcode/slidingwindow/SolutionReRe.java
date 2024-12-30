@@ -139,4 +139,25 @@ public class SolutionReRe {
 
         return result;
     }
+
+    public int lengthOfLongestSubstringRe(String s) {
+        Map<Character, Integer> charIndexMap = new HashMap<>();
+        int l = 0;
+        int result = 0;
+        for (int r = 0; r < s.length(); r++) {
+            if (charIndexMap.containsKey(s.charAt(r))) {
+                Integer index = charIndexMap.get(s.charAt(r));
+                while (l <= index) {
+                    charIndexMap.remove(s.charAt(l));
+                    l++;
+                }
+                charIndexMap.put(s.charAt(r), r);
+            } else {
+                charIndexMap.put(s.charAt(r), r);
+                result = Math.max(result, r - l + 1);
+            }
+        }
+
+        return result;
+    }
 }
