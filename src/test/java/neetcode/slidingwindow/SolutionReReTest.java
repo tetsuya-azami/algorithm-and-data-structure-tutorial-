@@ -123,4 +123,14 @@ class SolutionReReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void characterReplacementReRe() {
+        SolutionReRe solutionReRe = new SolutionReRe();
+        int result = solutionReRe.characterReplacementReRe("AABABBA", 1); // 4
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }

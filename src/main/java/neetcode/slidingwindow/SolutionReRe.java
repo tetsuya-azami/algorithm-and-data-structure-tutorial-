@@ -224,4 +224,25 @@ public class SolutionReRe {
 
         return true;
     }
+
+    public int characterReplacementReRe(String s, int k) {
+        Map<Character, Integer> charCountMap = new HashMap<>();
+        int maxf = 0;
+        int l = 0;
+        int result = 0;
+        for (int r = 0; r < s.length(); r++) {
+            char c = s.charAt(r);
+            charCountMap.put(c, charCountMap.getOrDefault(c, 0) + 1);
+            maxf = Math.max(maxf, charCountMap.get(c));
+
+            if ((r - l + 1) - maxf > k) {
+                c = s.charAt(l);
+                charCountMap.put(c, charCountMap.get(c) - 1);
+                l++;
+            }
+            result = Math.max(result, r - l + 1);
+        }
+
+        return result;
+    }
 }
