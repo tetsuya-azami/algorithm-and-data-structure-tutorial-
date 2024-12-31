@@ -245,4 +245,20 @@ public class SolutionReRe {
 
         return result;
     }
+
+    public int lengthOfLongestSubstringReRe(String s) {
+        Map<Character, Integer> charIndexMap = new HashMap<>();
+        int l = 0;
+        int result = 0;
+        for (int r = 0; r < s.length(); r++) {
+            char c = s.charAt(r);
+            if (charIndexMap.containsKey(c) && charIndexMap.get(c) >= l) {
+                l = charIndexMap.get(c) + 1;
+            }
+            charIndexMap.put(c, r);
+            result = Math.max(result, r - l + 1);
+        }
+
+        return result;
+    }
 }

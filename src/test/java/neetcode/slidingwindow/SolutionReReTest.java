@@ -133,4 +133,14 @@ class SolutionReReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void lengthOfLongestSubstringReRe() {
+        SolutionReRe solutionReRe = new SolutionReRe();
+        int result = solutionReRe.lengthOfLongestSubstringReRe("zxyzxyz");
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
