@@ -143,4 +143,14 @@ class SolutionReReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void checkInclusionReRe() {
+        SolutionReRe solutionReRe = new SolutionReRe();
+        boolean result = solutionReRe.checkInclusionReRe("abc", "lecabeelecabee");
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
