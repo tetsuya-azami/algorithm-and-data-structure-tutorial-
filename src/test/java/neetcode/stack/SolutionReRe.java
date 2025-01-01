@@ -33,4 +33,26 @@ public class SolutionReRe {
             stb.deleteCharAt(stb.length() - 1);
         }
     }
+
+    public int carFleet(int target, int[] position, int[] speed) {
+        List<Pair<Integer, Integer>> positionSpeedPairs = new ArrayList<>();
+        for (int i = 0; i < position.length; i++) {
+            positionSpeedPairs.add(new Pair<>(position[i], speed[i]));
+        }
+        positionSpeedPairs.sort((p1, p2) -> p2.position - p1.position);
+
+        int result = 0;
+        double nextFleetTime = 0;
+        for (Pair<Integer, Integer> pair : positionSpeedPairs) {
+            double time = ((double) target - pair.position) / pair.speed;
+            if (time > nextFleetTime) result++;
+            nextFleetTime = Math.max(time, nextFleetTime);
+        }
+
+        return result;
+    }
+
+    private record Pair<K, V>(K position, V speed) {
+
+    }
 }
