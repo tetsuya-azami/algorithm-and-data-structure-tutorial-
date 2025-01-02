@@ -42,4 +42,24 @@ class SolutionReReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    public void findMin() {
+        SolutionReRe solutionReRe = new SolutionReRe();
+        int result = solutionReRe.findMin(new int[]{4, 5, 0, 1, 2, 3});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
+
+    @Test
+    public void findMin2() {
+        SolutionReRe solutionReRe = new SolutionReRe();
+        int result = solutionReRe.findMin(new int[]{3, 2});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
