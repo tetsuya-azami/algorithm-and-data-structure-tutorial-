@@ -153,4 +153,34 @@ class SolutionReReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    public void carFleet() {
+        SolutionReRe solutionReRe = new SolutionReRe();
+        int result = solutionReRe.carFleet(10, new int[]{4, 1, 0, 7}, new int[]{2, 2, 1, 1});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
+
+    @Test
+    public void carFleet2() {
+        SolutionReRe solutionReRe = new SolutionReRe();
+        int result = solutionReRe.carFleet(10, new int[]{1, 4}, new int[]{3, 2});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
+
+    @Test
+    public void carFleet3() {
+        SolutionReRe solutionReRe = new SolutionReRe();
+        int result = solutionReRe.carFleet(10, new int[]{0, 4, 2}, new int[]{2, 1, 3});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
