@@ -183,4 +183,14 @@ class SolutionReReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    public void findMinRe() {
+        SolutionReRe solutionReRe = new SolutionReRe();
+        int result = solutionReRe.findMinRe(new int[]{4, 5, 0, 1, 2, 3});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
