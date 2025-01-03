@@ -34,4 +34,14 @@ class SolutionReReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    public void generateParenthesisRe() {
+        SolutionReRe solutionReRe = new SolutionReRe();
+        List<String> result = solutionReRe.generateParenthesisRe(3);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }

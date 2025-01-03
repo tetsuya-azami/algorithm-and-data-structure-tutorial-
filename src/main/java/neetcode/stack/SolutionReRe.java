@@ -55,4 +55,28 @@ public class SolutionReRe {
     private record Pair<K, V>(K position, V speed) {
 
     }
+
+    public List<String> generateParenthesisRe(int n) {
+        List<String> result = new ArrayList<>();
+        dfs2(result, new StringBuilder(), 0, 0, n);
+
+        return result;
+    }
+
+    private void dfs2(List<String> result, StringBuilder stb, int openCount, int closeCount, int limit) {
+        if (openCount == limit && closeCount == limit) {
+            result.add(stb.toString());
+            return;
+        }
+        if (openCount < limit) {
+            stb.append('(');
+            dfs2(result, stb, openCount + 1, closeCount, limit);
+            stb.deleteCharAt(stb.length() - 1);
+        }
+        if (openCount > closeCount && closeCount < limit) {
+            stb.append(')');
+            dfs2(result, stb, openCount, closeCount + 1, limit);
+            stb.deleteCharAt(stb.length() - 1);
+        }
+    }
 }
