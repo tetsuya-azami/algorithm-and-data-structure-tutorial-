@@ -102,4 +102,14 @@ class SolutionReReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    void minEatingSpeedRe() {
+        SolutionReRe solutionReRe = new SolutionReRe();
+        int result = solutionReRe.minEatingSpeedRe(new int[]{1, 4, 3, 2}, 9);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }

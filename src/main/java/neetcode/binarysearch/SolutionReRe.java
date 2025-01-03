@@ -59,7 +59,33 @@ public class SolutionReRe {
                 l = mid + 1;
             }
         }
-        
+
         return nums[l];
+    }
+
+    public int minEatingSpeedRe(int[] piles, int h) {
+        int max = 0;
+        for (int i = 0; i < piles.length; i++) {
+            max = Math.max(max, piles[i]);
+        }
+
+        int l = 1;
+        int r = max;
+        int k = max;
+        while (l <= r) {
+            int mid = l + (r - l) / 2;
+            double time = 0;
+            for (int i = 0; i < piles.length; i++) {
+                time += Math.ceil((double) piles[i] / mid);
+            }
+            if (time <= h) {
+                k = Math.min(k, mid);
+                r = mid - 1;
+            } else {
+                l = mid + 1;
+            }
+        }
+
+        return k;
     }
 }
