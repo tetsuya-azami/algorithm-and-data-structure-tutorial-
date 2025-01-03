@@ -62,4 +62,44 @@ class SolutionReReTest {
         System.out.println();
         System.out.println(result);
     }
+
+    @Test
+    public void findMinRe() {
+        SolutionReRe solutionReRe = new SolutionReRe();
+        int result = solutionReRe.findMinRe(new int[]{4, 5, 0, 1, 2, 3});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
+
+    @Test
+    public void findMinRe2() {
+        SolutionReRe solutionReRe = new SolutionReRe();
+        int result = solutionReRe.findMinRe(new int[]{3, 4, 5, 6, 1, 2});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
+
+    @Test
+    public void findMinRe3() {
+        SolutionReRe solutionReRe = new SolutionReRe();
+        int result = solutionReRe.findMinRe(new int[]{4, 5, 6, 7});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
+
+    @Test
+    public void findMinRe4() {
+        SolutionReRe solutionReRe = new SolutionReRe();
+        int result = solutionReRe.findMinRe(new int[]{3, 4, 5, 1, 2});
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println(result);
+    }
 }
