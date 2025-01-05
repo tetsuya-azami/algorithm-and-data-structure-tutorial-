@@ -1,6 +1,8 @@
 package neetcode.linkedlist;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SolutionReRe {
     public void reorderList(ListNode head) {
@@ -107,5 +109,23 @@ public class SolutionReRe {
         }
 
         return dummy.next;
+    }
+
+    public ListNode removeNthFromEndBruteForce(ListNode head, int n) {
+        if (head == null) return null;
+        List<ListNode> list = new ArrayList<>();
+        ListNode cur = head;
+        while (cur != null) {
+            list.add(cur);
+            cur = cur.next;
+        }
+
+        int removeIndex = list.size() - n;
+        if (removeIndex == 0) {
+            return head.next;
+        }
+        list.get(removeIndex - 1).next = list.get(removeIndex).next;
+
+        return head;
     }
 }
