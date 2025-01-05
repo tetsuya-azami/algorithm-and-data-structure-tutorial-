@@ -32,4 +32,27 @@ public class SolutionReRe {
             second = originalSecondNext;
         }
     }
+
+    public ListNodePair divide(ListNode head) {
+        if (head == null) return new ListNodePair(null, null);
+        ListNode slow = head;
+        ListNode fast = head.next;
+        /*
+         * 偶数の場合はfast.next == null
+         * 奇数の場合はfast == null
+         * の時にslowが前半Listの最後の要素を指しているため探索を終わりにしたい。
+         */
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        ListNode second = slow.next;
+        slow.next = null;
+
+        return new ListNodePair(head, second);
+    }
+
+    public record ListNodePair(ListNode first, ListNode second) {
+    }
 }
