@@ -65,7 +65,21 @@ public class SolutionReRe {
             prev = cur;
             cur = originalCurNext;
         }
-        
+
         return prev;
+    }
+
+    public ListNode merge(ListNode first, ListNode second) {
+        ListNode dummy = new ListNode(0, first);
+        while (second != null) {
+            ListNode originalFirstNext = first.next;
+            ListNode originalSecondNext = second.next;
+            first.next = second;
+            first = originalFirstNext;
+            second.next = first;
+            second = originalSecondNext;
+        }
+
+        return dummy.next;
     }
 }
