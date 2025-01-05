@@ -1,5 +1,7 @@
 package neetcode.linkedlist;
 
+import java.util.ArrayDeque;
+
 public class SolutionReRe {
     public void reorderList(ListNode head) {
         if (head == null || head.next == null) return;
@@ -78,6 +80,30 @@ public class SolutionReRe {
             first = originalFirstNext;
             second.next = first;
             second = originalSecondNext;
+        }
+
+        return dummy.next;
+    }
+
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ArrayDeque<ListNode> stack = new ArrayDeque<>();
+
+        ListNode dummy = new ListNode(0, head);
+        ListNode cur = dummy;
+        while (cur != null) {
+            stack.addLast(cur);
+            cur = cur.next;
+        }
+
+        ListNode next = null;
+        int count = 0;
+        while (!stack.isEmpty()) {
+            count++;
+            ListNode node = stack.pollLast();
+            if (count != n) {
+                node.next = next;
+                next = node;
+            }
         }
 
         return dummy.next;
