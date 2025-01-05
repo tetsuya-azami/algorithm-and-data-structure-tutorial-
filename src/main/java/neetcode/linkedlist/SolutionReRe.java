@@ -55,4 +55,17 @@ public class SolutionReRe {
 
     public record ListNodePair(ListNode first, ListNode second) {
     }
+
+    public ListNode reverse(ListNode head) {
+        ListNode prev = null;
+        ListNode cur = head;
+        while (cur != null) {
+            ListNode originalCurNext = cur.next;
+            cur.next = prev;
+            prev = cur;
+            cur = originalCurNext;
+        }
+        
+        return prev;
+    }
 }

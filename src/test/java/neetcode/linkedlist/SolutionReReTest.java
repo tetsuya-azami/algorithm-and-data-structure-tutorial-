@@ -48,4 +48,19 @@ class SolutionReReTest {
         divided.first().print();
         divided.second().print();
     }
+
+    @Test
+    void reverse() {
+        SolutionReRe solutionReRe = new SolutionReRe();
+        ListNode node10 = new ListNode(10);
+        ListNode node8 = new ListNode(8, node10);
+        ListNode node6 = new ListNode(6, node8);
+        ListNode node4 = new ListNode(4, node6);
+        ListNode node2 = new ListNode(2, node4);
+        ListNode result = solutionReRe.reverse(node2);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        result.print();
+    }
 }
