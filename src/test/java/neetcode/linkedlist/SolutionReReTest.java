@@ -138,4 +138,29 @@ class SolutionReReTest {
         System.out.println();
         result.print();
     }
+
+    @Test
+    public void removeNthFromEndTwoPointers() {
+        SolutionReRe solutionReRe = new SolutionReRe();
+        ListNode node4 = new ListNode(4);
+        ListNode node3 = new ListNode(3, node4);
+        ListNode node2 = new ListNode(2, node3);
+        ListNode node1 = new ListNode(1, node2);
+        ListNode result = solutionReRe.removeNthFromEndTwoPointers(node1, 2);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        result.print();
+    }
+
+    @Test
+    public void removeNthFromEndTwoPointers2() {
+        SolutionReRe solutionReRe = new SolutionReRe();
+        ListNode node = new ListNode(5);
+        ListNode result = solutionReRe.removeNthFromEndTwoPointers(node, 1);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        result.print();
+    }
 }
