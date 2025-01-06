@@ -128,4 +128,22 @@ public class SolutionReRe {
 
         return head;
     }
+
+    public ListNode removeNthFromEndRecursion(ListNode head, int n) {
+        return removeNthFromEndRecursionRec(head, new int[]{n});
+    }
+
+    private ListNode removeNthFromEndRecursionRec(ListNode head, int[] n) {
+        if (head == null) {
+            return null;
+        }
+
+        head.next = removeNthFromEndRecursionRec(head.next, n);
+        n[0]--;
+        if (n[0] == 0) {
+            return head.next;
+        }
+
+        return head;
+    }
 }
