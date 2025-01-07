@@ -163,4 +163,44 @@ class SolutionReReTest {
         System.out.println();
         result.print();
     }
+
+    @Test
+    void addTwoNumbers() {
+        SolutionReRe solutionReRe = new SolutionReRe();
+        ListNode node3 = new ListNode(3);
+        ListNode node2 = new ListNode(2, node3);
+        ListNode node1 = new ListNode(1, node2);
+        ListNode node6 = new ListNode(6);
+        ListNode node5 = new ListNode(5, node6);
+        ListNode node4 = new ListNode(4, node5);
+        ListNode result = solutionReRe.addTwoNumbers(node1, node4);
+        result.print();
+    }
+
+    @Test
+    void addTwoNumbers2() {
+        SolutionReRe solutionReRe = new SolutionReRe();
+        ListNode node1 = new ListNode(9);
+        ListNode node2 = new ListNode(9);
+        ListNode result = solutionReRe.addTwoNumbers(node1, node2);
+        result.print();
+    }
+
+    @Test
+    void addTwoNumbers3() {
+        //9,9,9,9,9,9,9| 9,9,9,9
+        SolutionReRe solutionReRe = new SolutionReRe();
+        ListNode node15 = new ListNode(9);
+        ListNode node14 = new ListNode(9, node15);
+        ListNode node13 = new ListNode(9, node14);
+        ListNode node12 = new ListNode(9, node13);
+        ListNode node11 = new ListNode(9, node12);
+
+        ListNode node24 = new ListNode(9);
+        ListNode node23 = new ListNode(9, node24);
+        ListNode node22 = new ListNode(9, node23);
+        ListNode node21 = new ListNode(9, node22);
+        ListNode result = solutionReRe.addTwoNumbers(node11, node21);
+        result.print();
+    }
 }
